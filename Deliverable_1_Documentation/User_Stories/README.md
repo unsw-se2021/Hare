@@ -52,11 +52,17 @@ Putting it all together:
 (cloud can be used to generate UI interactions/mock-ups...) 
 
 **GIVEN** I am on myMOOC home page
+
 **WHEN** I click on “look for a Tutor"
+
 **THEN** I should be on “Look for a Tutor” page
+
 **WHEN** I fill in “reputation’’ higher than” “0.9”
+
 **AND** I press “Search” button
+
 **THEN** I see all Tutors having reputation score higher than 0.9
+
 
 `====================================================================`
 
