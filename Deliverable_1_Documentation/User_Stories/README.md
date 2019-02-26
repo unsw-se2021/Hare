@@ -42,6 +42,7 @@ GIVEN, WHEN, THEN, AND, ... Note, this syntax can iterate, (e.g. GIVEN, WHEN, TH
 Putting it all together:
 
 `====================================================================`
+
 **Feature:** Search Tutor by reputationi score
 **As a** Student 
 
@@ -55,6 +56,7 @@ Putting it all together:
 **THEN** I should be on “Look for a Tutor” page
 **WHEN** I fill in “reputation’’ higher than” “0.9”
 **AND** I press “Search” button
-**THEN** I see all Tutors having reputation score higher than 0.9 
+**THEN** I see all Tutors having reputation score higher than 0.9
+
 `====================================================================`
 
