@@ -6,7 +6,7 @@ you can find out more about doing so here:
 `https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account`) 
 * A linux terminal (MacOS also works with HomeBrew), you can
 use your student CSE connection via SSH. 
-* Access to this repository (Check your emails for a collaboration invitation). 
+* This repository (Check your emails for a collaboration invitation). 
 
 ### To clone this repostiroy:
 1. Naviage to the green "Clone or Download" button at the top right
