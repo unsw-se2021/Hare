@@ -16,15 +16,15 @@ as guidance only."
 (4) There is no general forum for the students to interact with each other, 
 only a forumfor each individual 
 
-(5)Old course content is removed / hidden, thus not allowing students to 
+(5) Old course content is removed / hidden, thus not allowing students to 
 revisit already covered material.
 
-(6)The dashboard is not interactive enough and lacks information of 
+(6) The dashboard is not interactive enough and lacks information of 
 recentactivity from the course.
 
-(7)There is no Intuitive notification system. 
+(7) There is no Intuitive notification system. 
 
-(8)Major social hubs have been integrated poorly into the platform.
+(8) Major social hubs have been integrated poorly into the platform.
 ```
 
 "It is also possible to formulate a problem statement that targets a particular 
