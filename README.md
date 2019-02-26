@@ -11,7 +11,7 @@ use your student CSE connection via SSH.
 ### To clone this repostiroy:
 1. Naviage to the green "Clone or Download" button at the top right
 2. Click "SSH" as an option 
-3. In your linux terminal, type `git clone git@github.com:unsw-se2021/C.A.D-TE <Folder name of your choice>`
+3. In your linux terminal, type `git clone git@github.com:unsw-se2021/C.A.D-TEMP-NAME.git <Folder name of your choice>`
 4. Enter the directory and verify your clone is complete (`cd <Folder Name; git status`)
 
 If any of the above steps fail, make sure you have properly set up your SSH key for your github, and
