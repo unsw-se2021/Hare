@@ -1,5 +1,6 @@
-# Problem Statement
+# Problem Statement(s)
 
+`
 1. A consumer has no immediate way to find more about the effects or 
 health implications resulting from consumption of a specific product 
 when or after making a purchase.
@@ -14,9 +15,7 @@ when shopping to make a purchase.
 a mobile device to check if a product contains allergens or traces of
 substances they may react to. 
 
-(5.) ?
+`
 
-WHO: A worried consumer 
-WHAT: Would like to find infor
-WHERE: 
-WHY: 
+(5.)  
+
