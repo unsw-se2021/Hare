@@ -1,12 +1,11 @@
 # Problem Statement
 
-(1.) There is no easy way to find more information about the
-ingredients in a product without searching online when using/reviewing
-a consumer product 
+1. A consumer has no immediate way to find more about the effects or 
+health implications resulting from consumption of a specific product 
+when or after making a purchase.
 
-(2.) There is no way to get a clear overview of the primary
-ingredients in a consumer product with minimal effort, such as taking
-a picture of it. 
+2. A consumer cannot easily verify marketing claims about the health
+implications of a products' ingredients when shopping or reviewing it. 
 
 (3.) There is no accessible system available to consumers
 to compare ingredients between two consumer products quickly
