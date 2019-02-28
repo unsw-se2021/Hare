@@ -38,3 +38,4 @@ group of users or a community (e.g. teenagers, elderly or region specific)."
 5. Customers could not find short, clear abstraction of info which highlight the relevant features.
 6. Patients could not quickly check whether a product contains some certain substances, for instant their allergen ,perspectives ,alcohol or sugar.
 7. Customers have no efficient way to know the limitation of daily intake of certain substances.
+8. Customers could not understand information printed on product box in foreign languages.
