@@ -1,7 +1,7 @@
 # Problem Statement(s)
 
 ```
-1. Consumers have no immediate, and accessible way to find out about
+1. There is no immediate, and accessible way to find out about
 ingredients in a product while or after shopping.
 
 2. Consumers cannot quickly verify the health benefits/implications
@@ -17,16 +17,16 @@ in two packaged products without manual entry and comparison.
 5. Travellers or consumers shopping for packaged products in another
 language don't have an easy way to translate the ingredient's list.
 
-6. Consumers may find it difficult to determine if a product contains
+6. It may be to difficult to determine if a product contains
 allergens or substances they might not be able to consume if product
 packaging is not clear. 
 
 7. Finding synonyms for ingreidents' names on product packaging is 
 not intuitive and easy while shopping or reviewing items. 
 
-8. Consumers don't have a way of categorizing and sorting ingredients
-in packaged products automatically so that they can intuitively
-review what they are purchasing. 
+8. There is no  way of categorizing and sorting ingredients
+in packaged products automatically so that consumers can 
+intuitively review what they are purchasing. 
 
-9. ??
+9. ???
 ```
