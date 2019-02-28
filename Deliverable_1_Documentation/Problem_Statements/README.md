@@ -29,3 +29,12 @@ recentactivity from the course.
 
 "It is also possible to formulate a problem statement that targets a particular 
 group of users or a community (e.g. teenagers, elderly or region specific)."
+
+//////////////////////////////////////////__Draft__/////////////////////////////////////////////////
+1. Customers get suspicious of ingredients of a product but have no knowledge of them.
+2. Customers have no fast,easy way to search ingredients on product box in one time.
+3. Customers could not use normal OCR technique to detect words on curved box.
+4. Customers could not find reliable source to compare similar product if they find current product unsatisfied.
+5. Customers could not find short, clear abstraction of info which highlight the relevant features.
+6. Patients could not quickly check whether a product contains some certain substances, for instant their allergen ,perspectives ,alcohol or sugar.
+7. Customers have no efficient way to know the limitation of daily intake of certain substances.
