@@ -1,25 +1,32 @@
 # Problem Statement(s)
 
 ```
-1. A consumer has no immediate way to find more about the effects or 
-health implications resulting from consumption of a specific product 
-when or after making a purchase.
+1. Consumers have no immediate, and accessible way to find out about
+ingredients in a product while or after shopping.
 
-2. A consumer cannot easily verify marketing claims about the health
-implications of a products' ingredients when shopping or reviewing it. 
+2. Consumers cannot quickly verify the health benefits/implications
+of certain ingredients included in a product while shopping easily.
 
-3. A consumer cannot quickly compare two or more products' ingredients
-when shopping to make a purchase. 
+3. Consumers must manually type ingredients on product packaging
+to search for information about them online, repeating for each other
+substance. 
 
-4. Consumers with allergies do not have a fast and efficient way to use
-a mobile device to check if a product contains allergens or traces of
-substances they may react to. 
+4. There is not an easy way to compare the types of ingredients 
+in two packaged products without manual entry and comparison.
 
-5. ??? 
+5. Travellers or consumers shopping for packaged products in another
+language don't have an easy way to translate the ingredient's list.
 
-6. ???
+6. Consumers may find it difficult to determine if a product contains
+allergens or substances they might not be able to consume if product
+packaging is not clear. 
 
-7. ???
+7. Finding synonyms for ingreidents' names on product packaging is 
+not intuitive and easy while shopping or reviewing items. 
 
-8. ??? 
+8. Consumers don't have a way of categorizing and sorting ingredients
+in packaged products automatically so that they can intuitively
+review what they are purchasing. 
+
+9. ??
 ```
