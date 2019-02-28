@@ -1,9 +1,9 @@
 # Part 1: Problem statement
 
 "Describe a few problem statements. Remember, while you are allowed to 
-explore and negotiatewithregard to the problems you are going to absolve, 
-the following phases of the projectwill require you to abide by these requirements. 
-Below is asummarised example from previous students, which should be used 
+explore and negotiate with regard to the problems you are going to absolve, 
+the following phases of the project will require you to abide by these requirements. 
+Below is a summarised example from previous students, which should be used 
 as guidance only." 
 
 ```
@@ -31,11 +31,12 @@ recentactivity from the course.
 group of users or a community (e.g. teenagers, elderly or region specific)."
 
 //////////////////////////////////////////__Draft__/////////////////////////////////////////////////
-1. Customers get suspicious of ingredients of a product but have no knowledge of them.
-2. Customers have no fast,easy way to search ingredients on product box in one time.
-3. Customers could not use normal OCR technique to detect words on curved box.
-4. Customers could not find reliable source to compare similar product if they find current product unsatisfied.
-5. Customers could not find short, clear abstraction of info which highlight the relevant features.
-6. Patients could not quickly check whether a product contains some certain substances, for instant their allergen ,perspectives ,alcohol or sugar.
-7. Customers have no efficient way to know the limitation of daily intake of certain substances.
-8. Customers could not understand information printed on product box in foreign languages.
+
+1. Customers get suspicious about the ingredients in a product because they have not heard of them.
+2. Customers have no simple and quick way to look up all the ingredients on a products box in one go.
+3. Customers have trouble extracting a list of ingredients off oddly shaped packaging.
+4. Customers could not easily discover a better and healthier product than the one they have found.
+5. Customers could not find relevant, concise and reliable information about ingredients contained in a product.
+6. Patients with allergies or health considerations could not quickly determine whether a product may be harmful.
+7. Customers have no efficient way to know and track the reccomended daily intake for certain substances.
+8. Customers could not understand information printed on a products box in foreign languages.
