@@ -15,13 +15,13 @@ substance.
 in two packaged products without manual entry and comparison.
 
 5. Travellers or consumers shopping for packaged products in another
-language don't have an easy way to translate the ingredient's list.
+language don't have an easy way to translate the ingredients list.
 
 6. It may be to difficult to determine if a product contains
 allergens or substances they might not be able to consume if product
 packaging is not clear. 
 
-7. Finding synonyms for ingreidents' names on product packaging is 
+7. Finding synonyms for ingredients' names on product packaging is 
 not intuitive and easy while shopping or reviewing items. 
 
 8. There is no  way of categorizing and sorting ingredients
