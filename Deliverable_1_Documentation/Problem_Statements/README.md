@@ -32,11 +32,13 @@ group of users or a community (e.g. teenagers, elderly or region specific)."
 
 //////////////////////////////////////////__Draft__/////////////////////////////////////////////////
 
-1. Customers get suspicious about the ingredients in a product because they have not heard of them.
-2. Customers have no simple and quick way to look up all the ingredients on a products box in one go.
-3. Customers have trouble extracting a list of ingredients off oddly shaped packaging.
-4. Customers could not easily discover a better and healthier product than the one they have found.
+1. Customers are suspicious about the potential risks of ingredients in a product because product labels are complicated and some ingredients may be unheard of.
+2. There is no quick way to obtain a detailed overview of the ingredients list from a product box in one go.
+3. Customers have trouble extracting the list of ingredients off oddly shaped packaging. 
+4. There is no efficient way to obtain a  side-by-side comparison of two products, thus allowing customer to make a well-informed decision.
 5. Customers could not find relevant, concise and reliable information about ingredients contained in a product.
-6. Patients with allergies or health considerations could not quickly determine whether a product may be harmful.
+6. Patients with allergies or health considerations are unable to quickly determine whether a product may be harmful.
 7. Customers have no efficient way to know and track the reccomended daily intake for certain substances.
-8. Customers could not understand information printed on a products box in foreign languages.
+8. Customers are unable understand information printed on a products box in foreign languages.
+9. There is no intuitive user interface that displays the collated information in a visually pleasing manner.
+
