@@ -13,7 +13,7 @@ of the ingredients in a list from a packaged product.
 
 REQ4. Ingredients obtained from packaged goods must be categorized
 such that a user is able to infer more information about how they
-are used, or their purpos in the product. 
+are used, or their purpose in the product. 
 
 REQ5. Users must be able to filter categories of ingredients for
 highlighting
@@ -28,12 +28,16 @@ product somewhere for later viewing or comparisons.
 REQ8. Users must be able to compare packaged products' ingredients
 lists'. 
 
-REQ9. Users must be able to save and load their preferences, highlighting
-and ingredient lists. 
+REQ9. Users must be able to save and load their preferences/filters, 
+highlighting and ingredient lists. 
 
 REQ10. Users must be able to infer serious health implications
 that may result from normal consumption of a listed ingredient. 
 
 REQ11. Users must be able to search for allergens or ingredients
 that may have a specific health implication for them. 
+
+REQ12. If a user doesn't want to save preferences and product
+profiles, they can still use the OCR and ingredient search features
+of the application.
 ```
