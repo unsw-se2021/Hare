@@ -1,5 +1,5 @@
 Feature: Log Out
-As a user:
+As a member:
 
 So that I can safely leave the Web App
 

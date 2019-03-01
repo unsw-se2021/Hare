@@ -1,5 +1,5 @@
 Feature: Scan with Camera
-As a user:
+As a member:
 
 So that I can find information about ingredients in a product and categorise them in a useful way
 

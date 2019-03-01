@@ -1,5 +1,5 @@
 Feature: Log In
-As a guest:
+As a member:
 
 So that I can set my own personal preferences, create custom categories and access additional app features
 
