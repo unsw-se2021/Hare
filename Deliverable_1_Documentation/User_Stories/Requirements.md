@@ -36,4 +36,8 @@ that may result from normal consumption of a listed ingredient.
 
 REQ11. Users must be able to search for allergens or ingredients
 that may have a specific health implication for them. 
+
+REQ12. If a user doesn't want to save preferences and product
+profiles, they can still use the OCR and ingredient search features
+of the application.
 ```
