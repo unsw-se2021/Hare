@@ -5,7 +5,7 @@ So that I can find information about ingredients in a product and categorise the
 
 I want to upload an image of the ingredients on a product
 
-Scenario: Upload an image of an ingredients list to receive catagorised information about each ingredient
+Scenario: Upload an image of an ingredients list to receive categorised information about each ingredient
 
 GIVEN: I am on the main page
 AND: I am logged in
