@@ -1,4 +1,5 @@
-Feature: Quick Scan with Upload As a guest:
+Feature: Quick Scan with Upload 
+As a guest:
 
 So that I can find information about ingredients in a product
 
@@ -8,9 +9,8 @@ Scenario: Upload a picture of an ingredients list to receive information about e
 
 GIVEN: I am on the main page
 AND: I have not logged in
-WHEN: I click the 'Quick Scan' button
-AND: I click the upload icon
+WHEN: I click the upload icon
 THEN: I should be on a file selection window/page
 WHEN: I select an image
-AND: I press upload
-THEN: I should be on a page with information about the ingredients in the picture
+AND: I click upload
+THEN: I should be on a page with details about the ingredients in the picture
