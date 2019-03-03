@@ -1,8 +1,8 @@
 Feature: Compare two product ingredients As a member
 
-So that I can make an well-informed decision about which product to buy
+So that I can make a well-informed decision about which product to buy
 
-I want a side-by-side comparison of the ingredients list of two chosen products
+I want to obtain a side-by-side comparison of the ingredients list of two chosen products
 
 Scenario: Chose two products to receive a detailed description and an ingredients list of both products for comparison
 
