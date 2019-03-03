@@ -11,7 +11,6 @@
 **Scenario:** Take a picture of an ingredients list to receive information about each ingredient  
 
 **GIVEN:** I am on the default landing page  
-
 **AND:** I have not logged in  
 **WHEN:** I click the camera icon   
 **THEN:** I should be on the camera preview page   
