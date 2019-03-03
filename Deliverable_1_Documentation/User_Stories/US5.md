@@ -1,15 +1,21 @@
-Feature: Log In
-As a member:
+# US-5 
 
-So that I can set my own personal preferences, create custom categories and access additional app features
+**Feature:** Log In  
+**As a** Member  
 
-I want to log into the app with my Google account
+**So that** I can set my own personal preferences, create   
+custom categories of ingredients to highlight and access  
+additional app features.  
 
-Scenario: Log In with Google
+**I want** to log into the app 
+<hr> 
 
-GIVEN: I am on any page within the web app
-AND: I am not logged in
-WHEN: I click the 'Log In' button
-THEN: I should be on a Google Log In page
-WHEN: I correctly enter my credtials
-THEN: I should be on the previous page, logged in
+**Scenario:** Log In  
+
+**GIVEN:** I am on any page within the web app  
+**AND:** I am not logged in  
+**WHEN:** I click the 'Log In' button  
+**THEN:** I should be on a Login page  
+**WHEN:** I correctly enter my credtials  
+**THEN:** I should be on the previous page, logged in  
+
