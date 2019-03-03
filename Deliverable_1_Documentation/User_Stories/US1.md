@@ -1,17 +1,19 @@
-Feature: Quick Scan with Camera
-As a Guest:
+# US 1 
 
-So that I can find information about ingredients in a product
+**Feature**: Quick Scan of packaging with Camera
+**As a** Guest
 
-I want to take a picture of the ingredients on a product
+**So that** I can find information about ingredients in a product
+
+**I want to** take a picture of the ingredients on a product
 
 
-Scenario: Take a picture of an ingredients list to receive information about each ingredient
+**Scenario:** Take a picture of an ingredients list to receive information about each ingredient
 
-GIVEN: I am on the main page
-AND: I have not logged in
-WHEN: I click the camera icon
-THEN: I should be on the camera preview page
-WHEN: I take a picture
-AND: Confirm the picture I took is the one I want to use
-THEN: I should be on a page with details about the ingredients in the picture
+**GIVEN:** I am on the default landing page 
+**AND:** I have not logged in
+**WHEN:** I click the camera icon
+**THEN:** I should be on the camera preview page
+**WHEN:** I take a picture of the packaging information
+**AND:** Confirm the picture I took is the one I want to use
+**THEN:** I see a page with information about the product
