@@ -1,4 +1,4 @@
-# US 1 
+# US-1 
 
 **Feature**: Quick Scan of packaging with Camera
 **As a** Guest
