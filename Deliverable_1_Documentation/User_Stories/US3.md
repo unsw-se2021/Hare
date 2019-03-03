@@ -18,5 +18,5 @@ information about each ingredient\
 **THEN:** I should be on a camera preview page\
 **WHEN:** I take a picture of the packaging\
 **AND:** I confirm the picture I took is the one I want to use\
-**THEN:** I should be on a page with information about the\  
-ingredients in the picture\ 
+**THEN:** I should be on a page with information about the   
+ingredients in the picture  
