@@ -1,0 +1,116 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 0;
+    padding: 10pt;
+    padding-bottom: 0;
+
+    height: 100pt;
+    line-height: 100pt;
+}
+
+.header-container {
+    height: 100%;
+    width: 65%;
+
+    margin-left: auto;
+    margin-right: auto; 
+    padding-bottom: 30pt;
+    border-bottom : 5px solid #4fb0b0;   
+}
+
+.header-container > h1 {
+    width: 25%;
+    float: left;
+    
+    height: 40pt;
+}
+
+.header-container-right {
+    margin-top: 30pt;
+    padding: 0;
+    float:right; 
+    height: 40pt;
+}
+
+.button-container {
+    margin-top: 30pt;
+    padding: 0;
+    float:right; 
+    height: 100%;
+}
+ 
+ .logo-container {
+    height:100%;
+    width: 20%;
+    float:left;
+    margin :0;
+    padding:0;
+}
+
+#Logo {
+    height: 100%;
+}
+
+.hello-text {
+    float : left;
+    color: #4fb0b0;
+}
+
+.btn-outline-info {
+    margin-left:20pt;
+    float: right;
+}
+
+.buttons {
+    margin: 20pt;
+    padding: 10pt;
+    height: 1500pt;
+}
+
+.buttons-container {
+    height: 100%;
+    width: 65%;
+
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+.line-container-1{
+    height :25%; 
+}
+
+.line-container-2{
+    height :25%; 
+    background-color: #f4fdfa;
+}
+
+.img-button {
+    float:left;
+    width : 30%;
+    margin-left: 50pt;      
+}
+
+.button-text {
+    float:right;
+    width : 30%;
+    margin-right: 50pt;   
+}
+
+#img-setting, #img-upload, #img-camera, #img-lense {
+    width: 100%;
+}
+
+.slider {
+    margin: 50pt;
+    padding: 10pt;
+    background-color: #4fb0b0;
+
+    height: 160pt;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;    
+}
