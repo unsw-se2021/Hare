@@ -18,8 +18,6 @@ sudo apt-get install php
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install grunt 
-sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-sudo wget -O ~/.vimrc https://gist.githubusercontent.com/BraedonWooding/2c677e7004a9ab1ec4afe34c01120fe8/raw/70b5774bc36b843ea18c36a4dfda32b8871e6553/.vimrc 
 
 echo "================================================="
 echo "================================================="
