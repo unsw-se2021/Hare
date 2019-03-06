@@ -9,7 +9,7 @@ class Navbar extends Component {
 	render() { 
 		return(
 			<Box
-				tag='header' // Tag that appears in rendered HTML
+			tag='header' // Tag that appears in rendered HTML
 			background='neutral-3' // Colour of fill 
 			align='center'
 			pad='small' // Internal padding | --> contents <-- |
@@ -21,31 +21,21 @@ class Navbar extends Component {
 			<Heading level={3} margin='none'>
 				<strong>App</strong>
 			</Heading>
+			{// THESE NEEDS TO BECOME SEPARATE CLASSES 
+			}
 			<Box direction="row">
-				<Menu
-					id='help_button'
+				<Menu id='help_button'
+					items={[
+						{ label: '1', onClick: () => {console.log("HELP 1 REQUESTED")} },
+						{ label: '2' },
+						{ label: '3' }
+					]}
+					icon={<Icons.Help color='white'/>}	 
+					alignSelf='end'/>
+				<Menu id='user_button'
 					items={
-						[
-							{ label: '1', onClick: () => {console.log("HELP 1 REQUESTED")} },
-							{ label: '2' },
-							{ label: '3' }
-						]
-					}
-					icon={
-						<Icons.Help color='white'/>
-					}	 
-					alignSelf='end'
-				/>
-				<Menu
-					items={
-						[
-							{label: 'Log in', onClick: () => {console.log("LOG IN REQUESTED")} }
-						]
-					}
-					icon={
-						<Icons.Apps color='white'/>
-					}
-				/>
+						[{label: 'Log in', onClick: () => {console.log("LOG IN REQUESTED")}}]}
+					icon={<Icons.Apps color='white'/>}/>
 			</Box>
 		</Box>
 		);
