@@ -4,13 +4,15 @@ import { Grommet } from 'grommet';
 import Theme from './Theme.js'; 
 
 class App extends Component { 
-	render() {  
-		return ( 
-			<Grommet className="App" theme={Theme}> 
-				<h1>Hello</h1>
-			</Grommet>
-		);
-	}
+
 };
+
+class Navbar extends Component { 
+
+};
+
+class Footer extends Component { 
+
+}; 
 
 export default App;
