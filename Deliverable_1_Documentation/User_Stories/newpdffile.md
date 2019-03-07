@@ -96,6 +96,10 @@ ingredients in the picture
 
 # US-5 
 
+>>>>>As a Member I want to be able to Log In to my personal profile, so that I can set my own personal preferences, create   
+custom categories of ingredients to highlight and access  
+additional app features.<<<<<<<<<<<<
+
 **Feature:** Log In  
 **As a** Member  
 
