@@ -1,5 +1,7 @@
 # US-1 
 
+>>>>>>>>As a Guest I want to have a Quick Scan of packaging of my desired product with Camera,So that I can find information about ingredients in a product.<<<<<<<<<
+
 **Feature**: Quick Scan of packaging with Camera
 **As a** Guest
 
