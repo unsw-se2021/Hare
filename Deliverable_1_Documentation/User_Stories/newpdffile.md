@@ -21,7 +21,7 @@
 **THEN:** I see a page with information about the product
     
 # US-2 
->>>>>>>>As a Guest I want to have a Quick Scan of packaging of my desired product with Uploaded image of it from my cameraroll, so that I can find information about ingredients in a product.<<<<<<<<<<
+>>>>>>>>As a Guest I want to have a Quick Scan of packaging of my desired product with Uploaded image of it from my cameraroll, so that I can find information about ingredients in a product.<<<<<<<<<
 
 **Feature:** Quick Scan of packaging with Uploaded image\
 **As a** guest  
