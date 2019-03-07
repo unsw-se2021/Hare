@@ -141,6 +141,7 @@ additional app features.
 **THEN:** I am taken to the default landing page and am not longer logged in  
   
 # US-7 
+>>>>>>>>>>As a** Member I want to Select pre-set highlighting preferences for ingredients, so that I can easily identifiy ingredients of common preferences.
 
 **Feature:** Select pre-set highlighting preferences for ingredients  
 **As a** Member  
