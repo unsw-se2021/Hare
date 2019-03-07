@@ -160,7 +160,9 @@ additional app features.
 **THEN:** Future ingredient scans should colour code certain ingredients  
   
 # US-8
+As a Member I want to be able to Define custome highlighting rules for viewing ingredients, so that I can easily identifiy ingredients.
 
+ 
 **Feature:** Define custome highlighting rules for viewing ingredients  
 **As a** Member  
 
