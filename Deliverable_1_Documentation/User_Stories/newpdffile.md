@@ -141,7 +141,7 @@ additional app features.
 **THEN:** I am taken to the default landing page and am not longer logged in  
   
 # US-7 
->>>>>>>>>>As a** Member I want to Select pre-set highlighting preferences for ingredients, so that I can easily identifiy ingredients of common preferences.
+>>>>>>>>>>As a** Member I want to Select pre-set highlighting preferences for ingredients, so that I can easily identifiy ingredients of common preferences.<<<<<<
 
 **Feature:** Select pre-set highlighting preferences for ingredients  
 **As a** Member  
@@ -160,7 +160,7 @@ additional app features.
 **THEN:** Future ingredient scans should colour code certain ingredients  
   
 # US-8
-As a Member I want to be able to Define custome highlighting rules for viewing ingredients, so that I can easily identifiy ingredients.
+>>>>>>As a Member I want to be able to Define custome highlighting rules for viewing ingredients, so that I can easily identifiy ingredients.<<<<<<<<
 
  
 **Feature:** Define custome highlighting rules for viewing ingredients  
@@ -185,7 +185,7 @@ As a Member I want to be able to Define custome highlighting rules for viewing i
 **AND:** My new pre-set should be selected  
   
 # US-9 
-As a** Member I want to Compare the ingredients of two packaged items, so that can make a well-informed decision about which product to buy. 
+>>>>>>As a** Member I want to Compare the ingredients of two packaged items, so that can make a well-informed decision about which product to buy. <<<<<
   
 **Feature:** Compare the ingredients of two packaged items  
 **As a** Member  
@@ -205,6 +205,10 @@ As a** Member I want to Compare the ingredients of two packaged items, so that c
 **WHEN:** I select two items from the modal
 **THEN:** I see a page with a side-by-side comparison of the two items. 
 # US-10
+
+>>>>>>As a member I want to Translate ingredients list from a foreign language to english So that I can find information about ingredients written in a langauge I do not understand.<<<<<<
+
+
 Feature: Translate ingredients list from a foreign language to english As a member
 
 So that I can find information about ingredients written in a langauge I do not understand
