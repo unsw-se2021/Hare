@@ -70,7 +70,7 @@ ingredients in the picture
 
   
 # US-4
-
+>>>>>As a member I want to Scan an Uploaded Image of product packaging, so that I can view categorized information about the usage or purpose of ingredients in a product.<<<<<<<
  
 
 **Feature:** Scan an Uploaded Image of product packaging  
