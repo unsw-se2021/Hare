@@ -4,6 +4,7 @@ import * as Icons from 'grommet-icons';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom'; 
 import Home from './Home'; 
 import Help from './Help';
+import UploadPage from './Upload'; 
 
 class View extends Component { 
 
@@ -18,13 +19,14 @@ class View extends Component {
 		return(
 			<Router>
 				<Box flex={true} fill={true} direction="row">
-					<Box pad='small' flex={true} background="dark-3"/>
-					<Box pad='small' width='large' flex={true} pad="xlarge" background="light-3"> 
-						<Route exact path="/" component={Home} />	
-						<Route path='/home' component={Home} /> 
-						<Route path='/help' component={Help} />
-					</Box>
-					<Box pad='small' flex={true} background="dark-3"/> 
+					<Box pad='small' flex={true} background="dark-3" />
+					<Box pad='small' width='large' flex={true} pad="xlarge" background="light-3" overflow="scroll"> 
+							<Route exact path="/" component={Home} />	
+							<Route path='/home' component={Home} /> 
+							<Route path='/help' component={Help} />
+							<Route path='/upload' component={UploadPage} />
+						</Box>
+					<Box pad='small' flex={true} background="dark-3" /> 
 				</Box>
 			</Router> 
 		);	

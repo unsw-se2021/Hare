@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 import { Grommet, grommet, Box, Heading, Menu } from 'grommet';
 import * as Icons from 'grommet-icons';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'; 
+import Home from './Home'; 
 
 class Navbar extends Component { 
 	
@@ -17,7 +19,7 @@ class Navbar extends Component {
 			flex={false}>
 
 			<Heading level={3} margin='none'>
-				<strong>TemporaryAppName</strong>
+				DefaultAppName
 			</Heading>
 			{
 			}
@@ -33,7 +35,7 @@ class Navbar extends Component {
 				<Menu id='user_button'
 					items={
 						[{label: 'Log in', onClick: () => {console.log("LOG IN REQUESTED")}}]}
-					icon={<Icons.Apps color='black'/>}/>
+					icon={<Icons.ContactInfo color='black'/>}/>
 			</Box>
 		</Box>
 		);
