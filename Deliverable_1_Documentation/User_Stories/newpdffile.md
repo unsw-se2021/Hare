@@ -203,4 +203,18 @@ As a Member I want to be able to Define custome highlighting rules for viewing i
 **THEN:** A drop-down modal appears with items I have saved
 **WHEN:** I select two items from the modal
 **THEN:** I see a page with a side-by-side comparison of the two items. 
+# US-10
+Feature: Translate ingredients list from a foreign language to english As a member
 
+So that I can find information about ingredients written in a langauge I do not understand
+
+I want to view ingredients on a product in english
+
+Scenario: Translate a products ingredients list from a foreign langauge to english 
+
+GIVEN: I am on the main page
+AND: I have logged in
+WHEN: I click an ‘Upload’ or 'Camera' button
+THEN: I should be on the camera page, or given the option to select a file
+WHEN: I submit an image with text in a foreign language
+THEN: I should be on a page with information about the ingredients on the picture in english
