@@ -120,7 +120,9 @@ additional app features.
 **THEN:** I should be on the previous page, logged in  
 
 # US-6 
-  
+>>>>>>As a Member I want to be able to log out, so that I can safely leave the Web App.<<<<<<<
+
+
 **Feature:** Log Out  
 **As a** Member  
   
