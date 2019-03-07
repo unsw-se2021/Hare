@@ -185,6 +185,7 @@ As a Member I want to be able to Define custome highlighting rules for viewing i
 **AND:** My new pre-set should be selected  
   
 # US-9 
+As a** Member I want to Compare the ingredients of two packaged items, so that can make a well-informed decision about which product to buy. 
   
 **Feature:** Compare the ingredients of two packaged items  
 **As a** Member  
