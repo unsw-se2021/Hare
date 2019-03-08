@@ -1,6 +1,6 @@
 # US-1 
 
-**Feature**: Quick Scan of packaging with Camera  
+**Feature**: Quick Scan of packaging with Camera
 **As a** Guest
 
 **So that** I can find information about ingredients in a product
@@ -14,6 +14,6 @@
 **AND:** I have not logged in  
 **WHEN:** I click the camera icon   
 **THEN:** I should be on the camera preview page   
-**WHEN:** I take a picture of the product ingredient details
+**WHEN:** I take a picture of the packaging information   
 **AND:** Confirm the picture I took is the one I want to use   
-**THEN:** I see a page with details about the ingredients in the picture
+**THEN:** I see a page with information about the product    

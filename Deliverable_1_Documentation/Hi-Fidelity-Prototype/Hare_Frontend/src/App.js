@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* FILENAME: App.js
+ * DESCRIPTION: This file is where the application is actually 
+ *			put together for the browser. All component calls 
+ *			will be made from here, and the final product 
+ *			(a Component called "App") is exported to index.js
+ *			to be rendered with ReactDOM under 'root'
+*/
+import React, { Component } from 'react'; 
+import { Grommet, grommet, Box, Heading, Menu } from 'grommet';
+import * as Icons from 'grommet-icons';
+import { Router, browserHistory as History } from 'react-router';
+import routes from './Routes';
+import Navbar from './components/Navbar.js';
+import View from './components/View.js';
+import Footer from './components/Footer.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+//<!--<Router routes={routes} /> -->
+class App extends Component { 
+	render() { 
+		return ( 
+	<Grommet theme={grommet} full={true}>
+		<Box alignContent='between' fill={true}>
+			<Navbar />
+				<View>
+				</View>		
+			<Footer />
+		</Box>
+	</Grommet>
+		);
+	}
+};
 
-export default App;
+export default App; 

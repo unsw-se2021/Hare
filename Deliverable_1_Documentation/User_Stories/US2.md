@@ -11,12 +11,12 @@
 **Scenario:** Upload a picture of an ingredients list to receive 
 information about each ingredient\
 
-**GIVEN:** I am on the default landing page\
+**GIVEN:** I am on the main page\
 **AND:** I have not logged in\
 **WHEN:** I click the upload icon\
 **THEN:** I should be on a file selection window/page\
 **WHEN:** I select an image\
-**AND:** I click sumbit\
-**THEN:** I see a page with details about the ingredients in the picture  
+**AND:** I click upload\
+**THEN:** I should be on a page with details about the ingredients in the picture  
   
 

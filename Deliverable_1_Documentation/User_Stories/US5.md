@@ -16,6 +16,6 @@ additional app features.
 **AND:** I am not logged in  
 **WHEN:** I click the 'Log In' button  
 **THEN:** I should be on a Login page  
-**WHEN:** I correctly enter my credentials  
-**THEN:** I should be on the user home page, logged in  
+**WHEN:** I correctly enter my credtials  
+**THEN:** I should be on the previous page, logged in  
 
