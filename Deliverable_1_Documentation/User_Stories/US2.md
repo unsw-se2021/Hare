@@ -16,7 +16,7 @@ information about each ingredient\
 **WHEN:** I click the upload icon\
 **THEN:** I should be on a file selection window/page\
 **WHEN:** I select an image\
-**AND:** I click upload\
+**AND:** I click sumbit\
 **THEN:** I should be on a page with details about the ingredients in the picture  
   
 
