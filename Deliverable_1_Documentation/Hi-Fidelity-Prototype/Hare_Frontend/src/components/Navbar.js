@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Grommet, grommet, Box, Button, Heading, Menu } from 'grommet';
 import * as Icons from 'grommet-icons';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'; 
+import Help from './Help'; 
 import Home from './Home'; 
 
 class Navbar extends Component { 
 
 	render() { 
+
 		return(
 			<Box
 				tag='header' // Tag that appears in rendered HTML
@@ -23,30 +25,22 @@ class Navbar extends Component {
 			</Heading>
 			{
 			}
-			<Router>
-				<Box direction="row">
-					<Link to='/help'>
-						<Button
-							icon={<Icons.Help color='black' />}
-							onClick={() => {}}
-							alignSelf='end'
-						/>	
-					</Link>
-					<Menu id='user_button'
-						items={
-							[
-								{ label: "You aren't logged in", disabled: true},
-								{ label: 'Register', onClick: () => { /* ROUTE TO REGISTER */ } },
-								{ label: 'Log in', onClick: () => { /*ROUTE TO LOG IN */ } }
-							]
-						}
+			<Box direction="row">
+				<Link to='/help'> <Icons.Help color='black'/></Link>
+				<Menu id='user_button'
+					items={
+						[
+							{ label: "You aren't logged in", disabled: true},
+							{ label: 'Register', onClick: () => { /* ROUTE TO REGISTER */ } },
+							{ label: 'Log in', onClick: () => { /*ROUTE TO LOG IN */ } }
+						]
+					}
 
-						icon={<Icons.ContactInfo color='black'/>} 
-					/>
-				</Box>
-			</Router> 
+					icon={<Icons.ContactInfo color='black'/>} 
+				/>
+			</Box>
 		</Box>
 		);
-		}
-		} 
-		export default Navbar; 
+	}
+} 
+export default Navbar; 
