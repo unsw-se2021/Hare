@@ -15,7 +15,7 @@ class UploadPage extends Component {
 					<Button 
 						icon={<Icons.Gallery size="xlarge"/> }
 						alignSelf="center"
-						justify="center"	
+						justify="center"
 						size="xlarge"
 						fill={true}
 						width="large" 
