@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import { Grommet, grommet, Box, Heading, Menu, Paragraph } from 'grommet';
 import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
+import { Button } from 'grommet';
 
 class UploadPage extends Component { 
 
 	render() { 
 		return(
 			<div>
-				<h1>Upload Image</h1>
+				<h1 align="center">Upload Image</h1>
 				<br />
-				<Box alignSelf="center" border={{ color:"dark-3", size: "large"}} pad="medium">
-					<Icons.Camera alignSelf="center" size="xlarge" />
+				<Box>
+					<Button 
+						icon={<Icons.Gallery size="xlarge"/> }
+						alignSelf="center"
+						justify="center"	
+						size="xlarge"
+						fill={true}
+						width="large" 
+					/>
+					
 				</Box>
 				<br />
 				<Box alignSelf="center" border={{ color:"dark-3", size: "large"}} pad="medium">
