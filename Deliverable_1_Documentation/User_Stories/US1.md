@@ -1,6 +1,6 @@
 # US-1 
 
-**Feature**: Quick Scan of packaging with Camera
+**Feature**: Quick Scan of packaging with Camera  
 **As a** Guest
 
 **So that** I can find information about ingredients in a product
