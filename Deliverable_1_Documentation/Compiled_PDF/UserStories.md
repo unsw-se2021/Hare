@@ -44,7 +44,7 @@ information about each ingredient\
 # US-3 
 
 **Feature:** Scan packaged item with Camera
-As a Member
+**As a** Member
 
 **So that** I can view categorized information about the usage\ 
 or purpose of ingredients in a product.
