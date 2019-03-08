@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import Home from './Home'; 
 import Help from './Help';
 import UploadPage from './Upload'; 
+import Product from './Product'; 
 
 class View extends Component { 
 
@@ -19,14 +20,15 @@ class View extends Component {
 		return(
 			<Router>
 				<Box flex={true} fill={true} direction="row">
-					<Box pad='small' flex={true} background="dark-3" />
-					<Box pad='small' width='large' flex={true} pad="xlarge" background="light-3" overflow="scroll"> 
+					<Box width="10%" background="dark-3" />
+					<Box pad="medium" fill={true}  background="light-3" overflow-y="scroll"> 
 							<Route exact path="/" component={Home} />	
 							<Route path='/home' component={Home} /> 
 							<Route path='/help' component={Help} />
 							<Route path='/upload' component={UploadPage} />
+							<Route path='/product' component={Product} /> 
 						</Box>
-					<Box pad='small' flex={true} background="dark-3" /> 
+					<Box width="10%" background="dark-3" /> 
 				</Box>
 			</Router> 
 		);	
