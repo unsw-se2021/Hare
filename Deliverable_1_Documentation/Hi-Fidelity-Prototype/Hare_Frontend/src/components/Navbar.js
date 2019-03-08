@@ -1,38 +1,56 @@
 import React, { Component } from 'react'; 
 import { Grommet, grommet, Box, Button, Heading, Menu } from 'grommet';
 import * as Icons from 'grommet-icons';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'; 
+import { Redirect, Route, Link, Router, withRouter } from 'react-router-dom';
 import Help from './Help'; 
 import Home from './Home'; 
+import Login from './Login'; 
+import Register from './Register'; 
 
 class Navbar extends Component { 
+
+	navigateToHome = () => { 
+		this.props.history.push('/home'); 
+	} 
+
+	navigateToHelp = () => {
+		this.props.history.push('/help');
+	}
+
+	navigateToLogin = () => { 
+		this.props.history.push('/login'); 
+	} 
+
+	navigateToRegister = () => { 
+		this.props.history.push('/register'); 
+	} 
 
 	render() { 
 
 		return(
 			<Box
 				tag='header' // Tag that appears in rendered HTML
-			background='white' // Colour of fill 
+			background='light-3' // Colour of fill 
 			align='center'
 			pad='small' // Internal padding | --> contents <-- |
-			elevation='xsmall' // Drop shadow "distance" above ground
+			elevation='medium' // Drop shadow "distance" above ground
 			justify='between' // Pushes items inside of box to both sides
 			direction='row' // Stretch sideways instead of upwards 
 			flex={false}>
-
-			<Heading level={3} margin='none'>
-				DefaultAppName
-			</Heading>
-			{
-			}
+			<Link to='/home' style={{ textDecoration: 'none' }}> 	
+				<Box direction="row" gap="small" width="medium" align="center" alignContent="center"> 
+					<Icons.Image />
+					<h3>Hare</h3>				
+				</Box>
+			</Link>
 			<Box direction="row">
-				<Link to='/help'> <Icons.Help color='black'/></Link>
+				<Button icon={<Icons.CircleQuestion />} onClick={() => { this.navigateToHelp(); } } />
 				<Menu id='user_button'
 					items={
 						[
 							{ label: "You aren't logged in", disabled: true},
-							{ label: 'Register', onClick: () => { /* ROUTE TO REGISTER */ } },
-							{ label: 'Log in', onClick: () => { /*ROUTE TO LOG IN */ } }
+							{ label: 'Register', onClick: () => { this.navigateToRegister(); } },
+							{ label: 'Log in', onClick: () => { this.navigateToLogin(); } }
 						]
 					}
 
@@ -43,4 +61,4 @@ class Navbar extends Component {
 		);
 	}
 } 
-export default Navbar; 
+export default withRouter(Navbar); 
