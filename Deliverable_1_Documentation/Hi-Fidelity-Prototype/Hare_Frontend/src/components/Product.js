@@ -20,18 +20,24 @@ class Product extends Component {
 					<Heading>Product</Heading>
 				</Box>
 				<Box direction="row">
-					<Box width="50%" gap="small">
-						<Carousel fill={true} width="small" height="small">
-							<Image cover="fit" src="https://media.fooducate.com/comments/images/527AA37C-0C96-B54A-42FF-AE0D93A15C2C.jpeg"/>
-							<Image cover="fit" src="https://images-na.ssl-images-amazon.com/images/I/71mgm8fudZL._SY355_.jpg"/>
-							<Image cover="fit" src="https://scontent.fsyd2-1.fna.fbcdn.net/v/t1.0-9/13557810_157211808029772_7403455430232334858_n.jpg?_nc_cat=107&_nc_ht=scontent.fsyd2-1.fna&oh=55e50201ad36fe30cb1b381884753396&oe=5D207E26"/>
+					<Box width="50%">
+						<Carousel width="large">
+							<Box width="large" height="large" background="light-3">
+								<Text>Product photo 1</Text>
+							</Box>
+							<Box width="large" height="large" background="light-3">
+								<Text>Product photo 2</Text>
+							</Box>
+							<Box width="large" height="large" background="light-3">
+								<Text>Product photo 3</Text>
+							</Box>
 						</Carousel>
 					</Box>
-					<Box width="50%" gap="small">
-						<Box margin="medium" round="small">
-							{bullet("rgb(100,30,10)", <Text>No hazardous substances</Text>)}
-							{bullet("rgb(210,200,10)", <Text>No allergens</Text>)}
-							{bullet("rgb(10,30,100)", <Text>No preseratives</Text>)}
+					<Box width="50%" gap="small" direction="row" justify="center" align="center" alignContent="center">
+						<Box margin="medium" gap="medium" round="small" background="light-3" pad="small">
+							{bullet("dark-2", <Text>No hazardous substances</Text>)}
+							{bullet("dark-3", <Text>No allergens</Text>)}
+							{bullet("dark-4", <Text>No preseratives</Text>)}
 						</Box>
 					</Box>
 				</Box>

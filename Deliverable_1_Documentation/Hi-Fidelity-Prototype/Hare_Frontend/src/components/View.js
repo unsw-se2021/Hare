@@ -20,8 +20,8 @@ class View extends Component {
 				<Navbar />
 				<Box flex={true} fill={true} direction="row">
 					<Box direction="row" fill={true} overflow="scroll">
-						<Box width="10%" background="light-1" />
-						<Box pad="small" fill={true}  background="light-1" > 
+						<Box width="18%"/>
+						<Box pad="small" fill={true}> 
 							<Switch>
 								<Route exact path="/" component={Home} />	
 								<Route path='/home' component={Home} /> 
@@ -33,7 +33,7 @@ class View extends Component {
 								<Route path='/login' component={Login} /> 
 							</Switch> 
 						</Box>
-						<Box width="10%" background="light-1" /> 
+						<Box width="18%"/> 
 					</Box>
 				</Box>
 				<Footer />
