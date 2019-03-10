@@ -70,6 +70,10 @@ class UploadPage extends Component {
 						</Box>
 					</Box>
 				</Box>
+				<br /> 
+				<br /> 
+				<br /> 
+				<br /> 
 			</div>
 		);	
 	}

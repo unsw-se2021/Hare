@@ -10,8 +10,10 @@ import Login from './Login';
 import Navbar from './Navbar'; 
 import Footer from './Footer';  
 import Errors from './Error'; 
-
-
+import FourOFour from './404.js';
+import User from './User'; 
+import UserProduct from './UserProduct';
+import Registration from './Register';
 class View extends Component { 
 
 	render() { 
@@ -30,7 +32,11 @@ class View extends Component {
 								<Route path='/badupload' component={Errors.BadUpload} /> 
 								<Route path='/badscan' component={Errors.BadScan} /> 
 								<Route path='/product' component={Product} />
-								<Route path='/login' component={Login} /> 
+								<Route path='/login' component={Login} />
+								<Route path='/404' component={FourOFour} />
+								<Route path='/user' component={User} />
+								<Route path='/userproduct' component={UserProduct} /> 
+								<Route path='/Register' component={Registration} />
 							</Switch> 
 						</Box>
 						<Box width="18%"/> 
