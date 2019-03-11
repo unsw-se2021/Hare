@@ -1,18 +1,42 @@
-# Cloning this repository: 
+# <a href='m.senghare.xyz:8080'><img src='' height='20' width='20' alt='Hare Logo' aria-label='m.senghare.xyz'/></a> 
 
-To get access to this repository, you will need access to: 
-* Your github account from your terminal (If you haven't already set up an SSH key, 
-you can find out more about doing so [here](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) 
-* A linux terminal (MacOS also works with HomeBrew), you can
-use your student CSE connection via SSH. 
-* This repository (Check your emails for a collaboration invitation). 
+Hare is a consumer product ingredient search tool. It's as simple as taking a picture of the back labelling of a packaged item, and provides a detailed - customizable user interface for learning about the substances you consume. 
 
-### To clone this repostiroy:
-1. Naviage to the green "Clone or Download" button at the top right
-2. Click "SSH" as an option 
-3. In your linux terminal, type `git clone git@github.com:unsw-se2021/C.A.D-TEMP-NAME.git <Folder name of your choice>`
-4. Enter the directory and verify your clone is complete (`cd <Folder Name>; git status`)
 
-If any of the above steps fail, make sure you have properly set up your SSH key for your github, and
-that your username/password have been configured on your linux user. 
-(i.e `git config --global user.name "Michael-Lloyd"` should have been put down at one point for me) 
+This service is offered on a variety of platforms, and is designed to be cross compatible across most browsers and devices with Javascript enabled.
+
+## Reliability
+
+#### US Food & Drugs Administration 
+
+## Features 
+
+#### OCR and Extended computer vision
+
+#### Translation
+
+#### Highlighting and substance selection 
+
+#### Ingredients Query 
+
+#### Cross product comparisons 
+
+#### Export/Import of user settings 
+
+## Real World Usage
+
+#### Demo
+A live demo of our website can be found [here.](m.senghare.xyz:8080) 
+
+## Mobile compatibility 
+
+#### Android 
+
+#### iOS
+
+#### Mobile Web View 
+
+## Changelog
+
+#### Ordering 
+As changes are made to this application, they will be appended to this page, meaning that the newest changes will appear at the bottom of this page. If the changelog becomes too large, it will be cleaned and a note will be placed to indicate where the changelog has been moved to. 
