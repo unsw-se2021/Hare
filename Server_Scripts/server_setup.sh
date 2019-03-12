@@ -51,7 +51,4 @@ echo "..."
 echo "TO ENABLE OPTIMIZED VIM, IN VIM TYPE :PlugInstall"
 echo "OUTSIDE OF ANY SELECTION/EDIT MODE"
 echo "NOTE: YOU ARE NO LONGER ROOT."
-<<<<<<< HEAD
-=======
 
->>>>>>> (001)_Deliverable_1_Documentation
