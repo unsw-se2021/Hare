@@ -14,11 +14,11 @@ import FourOFour from './404.js';
 import User from './User'; 
 import UserProduct from './UserProduct';
 import Registration from './Register';
-class View extends Component { 
 
+class View extends Component { 
 	render() { 
 		return(
-			<Box alignContent='between' fill={true} >
+			<Box alignContent='between' fill={true} > 
 				<Navbar />
 				<Box flex={true} fill={true} direction="row">
 					<Box direction="row" fill={true} overflow="scroll">

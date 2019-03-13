@@ -32,6 +32,8 @@ sudo npm install -g create-react-app
 sudo npm install -g node-inspector 
 sudo npm install -g gulp 
 sudo npm i -g eslint 
+sudo npm install grommet 
+
 clear
 echo "================================================="
 echo "================================================="
