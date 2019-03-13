@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "================================================="
 echo "================================================="
 echo "================================================="
@@ -28,12 +27,12 @@ echo "================================================="
 echo "================================================="
 echo "================================================="
 sudo apt-get install nodejs 
+sudo apt-get install npm 
 sudo npm install -g create-react-app
 sudo npm install -g node-inspector 
 sudo npm install -g gulp 
 sudo npm i -g eslint 
-sudo npm install grommet 
-
+sudo npm install -g mern-cli
 clear
 echo "================================================="
 echo "================================================="
