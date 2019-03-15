@@ -16,21 +16,28 @@ cd ~/Downloads
 ```
   
 Then, on your AWS console, right click on your running instance and click the `connect` option. You will be presented with a screen that looks somewhat like this:  
-![My AWS connect screen]() 
+![My AWS connect screen]('./a1.png') 
   
-The bottom command, for me `.`, will be used to connect to your AWS server for the first time. If you would like to add this key to your keychain with a custom command, you will need to manually add it to your `~/.ssh/authenticated_keys` file. 
-
+The bottom command, for me `ssh -i "seng_key.pem" ubuntu@ec2-54-252-168-81.ap-southeast-2.compute.amazonaws.com`, will be used to connect to your AWS server for the first time. If you would like to add this key to your keychain with a custom command, you will need to manually add it to your `~/.ssh/authenticated_keys` file. 
+  
+Paste this command and press enter in your terminal. You will be asked if you want to remember it as a host, type `yes` and press enter. 
+  
 ## General use of the server 
-
+  
+### Logging in 
+To get into the server, you will always be using the `ssh` command from your terminal. If you would like to create a custom command, for example, I have `ssh sengaws`, you must navigate 
+  
+### Copying files to the server
+  
+### Copying files from the server 
+  
+  
+### 
 ## Installing our dependencies 
 
 ## Updating Vim (Optional) 
 
 ## Using Vim (Optional) 
-
-## Coping files from your local PC to the server
-
-## Copying files from the server to your local PC 
 
 ## Rebooting the server 
 
