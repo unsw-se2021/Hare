@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "test_server_boot": "jest server.test"
+    "test": "jest server.test; jest ./autotests/*",
+	"test_server_boot": "jest server.test"
   },
   "author": "Michael Lloyd",
   "license": "MIT",

@@ -9,7 +9,7 @@ const https = require('https');
 const morgan = require('morgan'); 
 
 // Express declarations 
-const backport = 8081; 
+const backport = process.env.PORT || 8081; 
 const frontport = 8080;
 const deployport = 80;
 const app = express(); 
@@ -21,11 +21,12 @@ const start = () => {
 }; 
 
 // Database declarations 
-//const database = require('.//db_keys'); 
+const database = require('./config/db_keys').mongoURI; 
 
-
-
-
+// Mongoose connection to cloud database
+mongoose.connect(database)
+	.then(() => console.log('Mongo Database connected'))
+	.catch(err => {console.log('Database connection failed'); throw(err); });
 
 
 module.exports = {

@@ -20,6 +20,18 @@ The new structure of the server allows us to run some unique commands for separa
   
 Below are some of the current available test commands: 
 
+#### Run _all_ tests available: 
+```
+npm run test
+```
+   
+
+#### Test server boot and host: 
+```
+npm run test_server_boot
+```
+   
+
 #### Test API Handling inputs/outputs on the backend: 
 ```
 npm run test_api_handling
