@@ -10,7 +10,8 @@ const morgan = require('morgan');
 
 // Express declarations 
 const backport = 8081; 
-const frontport = 8081; 
+const frontport = 8080;
+const deployport = 80;
 const app = express(); 
 const start = () => { 
 	app.use(bodyParser.json()); 
@@ -20,7 +21,7 @@ const start = () => {
 }; 
 
 // Database declarations 
-const database = require('.//db_keys'); 
+//const database = require('.//db_keys'); 
 
 
 
@@ -28,7 +29,7 @@ const database = require('.//db_keys');
 
 
 module.exports = {
-	"backport": {backport}, 
-	"frontport": {frontport},
-	"deployport": "80"
+	"backport": backport, 
+	"frontport": frontport,
+	"deployport": deployport
 } 

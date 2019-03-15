@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test_server_boot": "jest server.test"
   },
   "author": "Michael Lloyd",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "http": "0.0.0",
     "https": "^1.0.0",
     "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
     "path": "^0.12.7"
   },
   "devDependencies": {
