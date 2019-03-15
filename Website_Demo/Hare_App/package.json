@@ -1,0 +1,17 @@
+{
+  "name": "(hare_app)",
+  "version": "1.0.0",
+  "description": "A cross platform web app that allows you to get more information about the ingredients in a packaged product ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "server": "nodemon server.js"
+  },
+  "author": "Michael Lloyd",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10"
+  }
+}
