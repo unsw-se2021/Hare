@@ -4,16 +4,23 @@
   "description": "",
   "main": "server.js ",
   "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Lloyd",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
     "concurrently": "^4.1.0",
+    "cookie-parser": "^1.4.4",
     "eslint": "^5.15.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "mongoose": "^5.4.19",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "jest": "^24.5.0"
