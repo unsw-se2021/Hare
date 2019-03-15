@@ -12,6 +12,7 @@ npm install
 You may also want to install the global dependencies: 
 ```
 npm i -g create-react-app
+npm i -g jest 
 ```  
   
 # 02 - Running server commands 
