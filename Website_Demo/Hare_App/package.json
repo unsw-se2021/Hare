@@ -1,17 +1,20 @@
 {
-  "name": "(hare_app)",
+  "name": "hare_app",
   "version": "1.0.0",
-  "description": "A cross platform web app that allows you to get more information about the ingredients in a packaged product ",
-  "main": "server.js",
+  "description": "",
+  "main": "server.js ",
   "scripts": {
-    "start": "node server.js",
-    "test": "jest",
-    "server": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Lloyd",
   "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
+  },
   "devDependencies": {
-    "jest": "^24.5.0",
-    "nodemon": "^1.18.10"
+    "jest": "^24.5.0"
   }
 }
