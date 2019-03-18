@@ -40,7 +40,7 @@ class HighlightDropButton extends Component {
 		return (
 			<Box background='light-2'>
 				<DropButton
-					label=Ingredient
+					label={Ingredient}
 					open={open}
 					onClose={() => this.setState({ open: undefined })}
 					dropContent={<DropHighlightContent onClose={this.onClose}/>}
