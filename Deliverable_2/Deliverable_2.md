@@ -31,37 +31,59 @@ https://v2.grommet.io/
 
 ### Event handling
 https://reactjs.org/docs/handling-events.html
-#### Client based controller
-
-#### Middleware REST API
-#### Middleware Proxy Layer 
+#### Dispatching actions/events
+Promises, Callbacks, Ajax w/ Axios 
+#### RESTful API for decoupling 
+REST API: https://www.youtube.com/watch?v=v0t42xBIYIs
 
 ### Back-End Hosting 
+https://en.wikipedia.org/wiki/Data_access_layer
 #### Express Server Framework  
-#### Server-Side Routing 
-#### API & Back-End Handlers 
+https://expressjs.com/
+#### Server-Side Controller 
+https://expressjs.com/en/resources/frameworks.html
+#### Server-Side Model
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 #### Database API 
+https://expressjs.com/en/guide/database-integration.html
 
 
 ### Data Storage 
+https://en.wikipedia.org/wiki/Database
 #### NoSQL Vs SQL
+https://en.wikipedia.org/wiki/NoSQL
 #### MongoDB
+https://en.wikipedia.org/wiki/MongoDB
+https://www.mongodb.com/
 #### MongoDB Atlas Hosting 
-
+https://www.mongodb.com/cloud/atlas/mongodb-google-cloud
 
 ### Build Tools & Testing
-#### Gulp / Grunt 
-#### Code Pipelines with AWS 
-#### Testing with Jest  
+#### CI/CD Tools 
+https://aws.amazon.com/getting-started/projects/set-up-ci-cd-pipeline/
+#### Testing with Jest
+https://jestjs.io/
+#### Code Pipelining 
+https://docs.aws.amazon.com/codepipeline/index.html
 
 
 ### External API's 
 #### Google Cloud
+https://cloud.google.com/
+##### Google Vision Image Modification 
+https://cloud.google.com/vision/docs/detecting-crop-hints
 ##### Google Vision OCR 
+https://cloud.google.com/vision/docs/ocr
 ##### Google Translate API 
+https://cloud.google.com/translate/docs/
 #### OpenFDA 
+https://open.fda.gov/
 ##### OpenFDA's substance query 
+https://open.fda.gov/apis/
 #### Wikimedia's Wikipedia API 
+https://www.mediawiki.org/wiki/API:Main_page
+
+
 
 ## 03 Software Architecture
 https://en.wikipedia.org/wiki/Software_architecture
