@@ -99,18 +99,16 @@ class Product extends Component {
 				</Box>
 				<Accordion width="100%">
 					<AccordionPanel label="Nutrients">
-						<Box background="light-2">Thiamine hydrochloride</Box>
-						<Box background="light-2">niacinamide</Box>
-						<Box background="light-2">folic acid</Box>						
+						<HighlightDropButton ingredient="Thiamine Hydrochloride" description="Thiamine Hydrochloride is the hydrochloride salt form of thiamine, a vitamin essential for aerobic metabolism, cell growth, transmission of nerve impulses and acetylcholine synthesis." uses="Thiamine injection is used to treat beriberi, a serious condition caused by prolonged lack of vitamin B1." />
+						<HighlightDropButton ingredient="Niacinamide" description="Niacinamide is one of the two forms of vitamin B3 — the other being nicotinic acid. Vitamin B3 is also known as niacin. Niacinamide and nicotinic acid both provide vitamin B3 activity, but they differ in chemical structure and how they affect your health." uses="As a supplement, nicotinic acid is a form of niacin used to reduce cholesterol levels and lower your risk of heart disease."/>						
 					</AccordionPanel>
 					<AccordionPanel label="Humectants">
-						<Box background="light-2">Glycerin</Box>
-						<Box background="light-2">sorbitol</Box>
+						<HighlightDropButton ingredient="Sorbitol" description="Sorbitol is a sugar alcohol found in fruits and plants with diuretic, laxative and cathartic property. Unabsorbed sorbitol retains water in the large intestine through osmotic pressure thereby stimulating peristalsis of the intestine and exerting its diuretic, laxative and cathartic effect." uses="Sorbitol can be used as a laxative when taken orally or as an enema. Sorbitol works as a laxative by drawing water into the large intestine, stimulating bowel movements."/>
 					</AccordionPanel>
 					<AccordionPanel label="Preservatives">
 						<HighlightDropButton ingredient="Ascorbic Acid" description="Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement." uses="It is used to prevent and treat scurvy."/>
-						<Box background="light-2">potassium sorbate</Box>
-						<Box background="light-2">sodium benzoate</Box>
+						<HighlightDropButton ingredient="Potassium sorbate" description="Potassium sorbate is a chemical additive. It's widely used as a preservative in foods, drinks, and personal care products. It is an odorless and tasteless salt synthetically produced from sorbic acid and potassium hydroxide." uses="Potassium sorbate is used to inhibit molds and yeasts in many foods, such as cheese, wine, yogurt, dried meats, apple cider, soft drinks and fruit drinks, and baked goods."/>
+						<HighlightDropButton ingredient="Sodium benzoate" description="It is a widely used food preservative, with an E number of E211. It is the sodium salt of benzoic acid and exists in this form when dissolved in water. It can be produced by reacting sodium hydroxide with benzoic acid." uses="Sodium benzoate is a preservative, with the E number E211. It is most widely used in acidic foods such as salad dressings (i.e. acetic acid in vinegar), carbonated drinks (carbonic acid), jams and fruit juices (citric acid), pickles (acetic acid), condiments and frogurt toppings."/>
 					</AccordionPanel>
 				</Accordion>
 				<br />
