@@ -4,28 +4,23 @@ import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Ingredient = "Ascorbic acid"
-const Description = "Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement."
-const Uses = "It is used to prevent and treat scurvy."
-
-const DropHighlightContent = ({ onClose }) => (
+const DropHighlightContent = ({ onClose, description, uses }) => (
 	<div>
 		<Box direction="column">
 			<Button icon={<Icons.Close />} onClick={onClose} />
 			<Box direction="column">
 				<h4 backgroun='light-1'>Descriptions:</h4>
 			
-				<Box>{Description}</Box>
-				<Box>{Uses}</Box>
+				<Box>{description}</Box>
+				<Box>{uses}</Box>
 			</Box>
 		</Box>
 	</div>
 );
 
-DropHighlightContent.propTypes = {
-	onClose: PropTypes.func.isRequired
-};
-
+DropHighlightContent.propTypes = { onClose: PropTypes.func.isRequired };
+DropHighlightContent.propTypes = { description: PropTypes.func.isRequired };
+DropHighlightContent.propTypes = { uses: PropTypes.func.isRequired };
 
 class HighlightDropButton extends Component {
 	state = {};
@@ -34,16 +29,19 @@ class HighlightDropButton extends Component {
 		this.setState({ open: false });
 		setTimeout(() => this.setState({ open: undefined }), 1);
 	};
+	
+	description = this.props.description;
+	uses = this.props.uses;
 
 	render() {
 		const { open } = this.state;
 		return (
 			<Box background='light-2'>
 				<DropButton
-					label={this.props.Ingredient}
+					label={this.props.ingredient}
 					open={open}
 					onClose={() => this.setState({ open: undefined })}
-					dropContent={<DropHighlightContent onClose={this.onClose}/>}
+					dropContent={<DropHighlightContent onClose={this.onClose} description={this.description} uses={this.uses}/>}
 				>Customize Preferences</DropButton>
 			</Box>
 		);
@@ -110,7 +108,7 @@ class Product extends Component {
 						<Box background="light-2">sorbitol</Box>
 					</AccordionPanel>
 					<AccordionPanel label="Preservatives">
-						<HighlightDropButton Ingredient="Absorpic Acid or somethin"/>
+						<HighlightDropButton ingredient="Ascorbic Acid" description="Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement." uses="It is used to prevent and treat scurvy."/>
 						<Box background="light-2">potassium sorbate</Box>
 						<Box background="light-2">sodium benzoate</Box>
 					</AccordionPanel>
