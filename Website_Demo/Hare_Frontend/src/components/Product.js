@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 
 const DropHighlightContent = ({ onClose, description, uses }) => (
 	<div>
-		<Box direction="column">
+		<Box direction="column" size={{ width: {max:'small'} }} ad="small">
 			<Button icon={<Icons.Close />} onClick={onClose} />
-			<Box direction="column">
-				<h4 backgroun='light-1'>Descriptions:</h4>
+			<Box direction="column" wrap="true">
+				<h4 background='light-1'>Descriptions:</h4>
 			
-				<Box>{description}</Box>
-				<Box>{uses}</Box>
+				<Box wrap="true">{description}</Box>
+				<Box wrap="true">{uses}</Box>
 			</Box>
 		</Box>
 	</div>
