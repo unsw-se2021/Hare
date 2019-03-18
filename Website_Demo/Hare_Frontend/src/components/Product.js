@@ -4,6 +4,10 @@ import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+const Ingredient = "Ascorbic acid"
+const Description = "Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement."
+const Uses = "It is used to prevent and treat scurvy."
+
 const DropHighlightContent = ({ onClose }) => (
 	<div>
 		<Box direction="column">
@@ -11,8 +15,8 @@ const DropHighlightContent = ({ onClose }) => (
 			<Box direction="column">
 				<h4 backgroun='light-1'>Descriptions:</h4>
 			
-				<Box>Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement.</Box>
-				<Box>It is used to prevent and treat scurvy.</Box>
+				<Box>{Description}</Box>
+				<Box>{Uses}</Box>
 			</Box>
 		</Box>
 	</div>
@@ -36,7 +40,7 @@ class HighlightDropButton extends Component {
 		return (
 			<Box background='light-2'>
 				<DropButton
-					label="Ascorbic acid"
+					label=Ingredient
 					open={open}
 					onClose={() => this.setState({ open: undefined })}
 					dropContent={<DropHighlightContent onClose={this.onClose}/>}
