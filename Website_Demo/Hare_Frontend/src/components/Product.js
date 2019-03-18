@@ -40,7 +40,7 @@ class HighlightDropButton extends Component {
 		return (
 			<Box background='light-2'>
 				<DropButton
-					label={Ingredient}
+					label={this.props.Ingredient}
 					open={open}
 					onClose={() => this.setState({ open: undefined })}
 					dropContent={<DropHighlightContent onClose={this.onClose}/>}
@@ -110,7 +110,7 @@ class Product extends Component {
 						<Box background="light-2">sorbitol</Box>
 					</AccordionPanel>
 					<AccordionPanel label="Preservatives">
-						<HighlightDropButton />
+						<HighlightDropButton Ingredient="Absorpic Acid or somethin"/>
 						<Box background="light-2">potassium sorbate</Box>
 						<Box background="light-2">sodium benzoate</Box>
 					</AccordionPanel>
