@@ -8,11 +8,11 @@ const DropHighlightContent = ({ onClose, description, uses }) => (
 	<div>
 		<Box direction="column" pad="small">
 			<Button icon={<Icons.Close />} onClick={onClose} />
-			<Box direction="column" wrap="true">
+			<Box direction="column">
 				<h4 background='light-1'>Descriptions:</h4>
 			
-				<Box wrap="true">{description}</Box>
-				<Box wrap="true">{uses}</Box>
+				<Box>{description}</Box>
+				<Box>{uses}</Box>
 			</Box>
 		</Box>
 	</div>
