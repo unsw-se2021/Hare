@@ -24,9 +24,9 @@ const start = () => {
 const database = require('./config/db_keys').mongoURI; 
 
 // Mongoose connection to cloud database
-mongoose.connect(database)
-	.then(() => console.log('Mongo Database connected'))
-	.catch(err => {console.log('Database connection failed'); throw(err); });
+//mongoose.connect(database)
+//	.then(() => console.log('Mongo Database connected'))
+//	.catch(err => {console.log('Database connection failed'); throw(err); });
 
 
 module.exports = {
