@@ -32,7 +32,7 @@ Data will appear as:
 * List of ID's of DT4's for products scanned and saved   
 * ID of DT3 containing ingredient preferences   
   
-####<DT 3 "Ingredient Preferences linked to User"> 
+#### <DT 3 "Ingredient Preferences linked to User"> 
 * Database object ID   
 * User ID (Inherited from DT1/DT2)   
 * Default Preference selected: True/False  
@@ -48,7 +48,7 @@ Data will appear as:
   
 ### Ingredient/Substance Data 
   
-####<DT 5 "Ingredient Passive Type">
+#### <DT 5 "Ingredient Passive Type">
 * Database object ID   
 * Ingredient name: ""   
 * Ingredient synonyms: "", "", "", "", "", "", ...   
@@ -62,11 +62,12 @@ Data will appear as:
 ### System logging 
 
 #### <DT 7 "User database log">
-* Database object ID   
-* User ID (Inherited from DT1)   
-* List of objects in the form of:   
-*	"FUNCTION" (i.e [STORE] Registering User)  
-*	Database ID of particular action  
+```
+{ 
+  "db_id": String() 
+  "log": [(String(), <db_id>), ...]
+} 
+```
    
 ## Functional Requirements 
    
