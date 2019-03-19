@@ -13,7 +13,7 @@ and user data to be keyed together.
 ### User Information       
 
 #### <DT 1 "Registration Data">   
-```json
+```js
 {
   "db_id": String(), 
   "uid": this."db_id",
@@ -27,7 +27,7 @@ and user data to be keyed together.
 ```
 
 #### <DT 2 "Profile Data">    
-```json
+```js
 {
     "db_id": String(), 
     "uid": DT1.uid,
@@ -45,11 +45,24 @@ and user data to be keyed together.
 ```  
   
 #### <DT 3 "Ingredient Preferences linked to User"> 
-* Database object ID   
-* User ID (Inherited from DT1/DT2)   
-* Default Preference selected: True/False  
-* List of key-paired substance categories (0, 1, 2, 3, 4, 5, #)  
-* List of key-pairs of ingredients colours (0 - Blue, 1 - Green, 2 - Yellow, 3 - Orange, 4 - Red, 5 - Purple, #XXXXXX - Custom)   
+```js
+{ 
+    "db_id": String(), 
+    "uid": DT1.uid, 
+    "default": (true || false),
+    "categories": [("category_A", 0), ...],
+    "ingredients": [("ingredient_A", 2), ...],
+}
+
+// Note: "category" and "ingredients" [1] value is from [0-5], where: 
+/*  0 - Blue 
+*   1 - Green
+*   2 - Yellow
+*   3 - Orange
+*   4 - Red
+*   5 - Purple 
+*/
+```
   
 #### <DT 4 "Product Result Profile"> 
 * Database object ID   
@@ -74,7 +87,7 @@ and user data to be keyed together.
 ### System logging 
 
 #### <DT 7 "User database log">
-```
+```js
 { 
   "db_id": String() 
   "log": [(String(), <db_id>), ...]
