@@ -65,24 +65,44 @@ and user data to be keyed together.
 ```
   
 #### <DT 4 "Product Result Profile"> 
-* Database object ID   
-* Name: ""  
-* Date: "" (Generated upon save)   
-* List of img srcs: "" (Route)   
-* List of DT5's   
+```js 
+{ 
+  "db_id": String(), 
+  "Name": (String() || `Result [{this.timestamp}]`), 
+  "timestamp": Date(), 
+  "img_srcs": [ String(), ... ], 
+  "ingredients": [ DT5.name(), ...] 
+}
+```
   
 ### Ingredient/Substance Data 
   
 #### <DT 5 "Ingredient Passive Type">
-* Database object ID   
-* Ingredient name: ""   
-* Ingredient synonyms: "", "", "", "", "", "", ...   
-* Description: ""  
-* Appearances: (long long int)   
+```js
+{ 
+    "db_id": String(), 
+    "name": String(), 
+    "synonyms": [String(), ... ], 
+    "description": String(),
+    "wikilink": String(), 
+    "tally": Number()
+} 
+```
 
 #### <DT 6 "Substance data cache"> (Optional, List is ranked alphabetically by object name) 
-* Database object ID   
-* List of ingredient triples with appearance numbers: (DT5 object ID, Name: "", Appearances: (long long int))   
+```js
+{ 
+    "db_id": String(), 
+    "cache": [
+        { 
+            "id": DT5.db_id,
+            "name": DT5.name, 
+            "tally": DT5.tally
+        }, 
+        ...
+    ]
+}
+```
   
 ### System logging 
 
