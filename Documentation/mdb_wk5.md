@@ -11,62 +11,108 @@ and user data to be keyed together.
 ## Data types   
   
 ### User Information       
-When a user registers with us, an instantiation of a user ID keyed with their authenticaiton information must be made. This  
-Data will appear as:    
 
 #### <DT 1 "Registration Data">   
-* A database object ID   
-* A user ID number (Originating from database object ID)   
-* Username  
-* Password (Not encrypted for now)   
-* Date of account creation (based on when DT1 is made)   
+```js
+{
+  "db_id": String(), 
+  "uid": this."db_id",
+  "user": { 
+      "name": String(), 
+      "email": String(), 
+      "password": String()
+  }, 
+  "timestamp": Date()
+}
+```
 
 #### <DT 2 "Profile Data">    
-* Database object ID   
-* User ID (inherited from DT1)    
-* User account creation date (Inherited from DT1)   
-* User email object:  
-*	Set: true/false  
-*	email: "their email"   
-* Number of saved products   
-* List of ID's of DT4's for products scanned and saved   
-* ID of DT3 containing ingredient preferences   
+```js
+{
+    "db_id": String(), 
+    "uid": DT1.uid,
+    "timestamp": DT1.timestamp, 
+    "email": { 
+        "changed": (true || false), 
+        "value": DT1.user.email
+    },
+    "history": { 
+        "size": DT4.size,
+        "location": DT4.db_id
+    } 
+    "preferences": DT3.db_id
+}
+```  
   
-####<DT 3 "Ingredient Preferences linked to User"> 
-* Database object ID   
-* User ID (Inherited from DT1/DT2)   
-* Default Preference selected: True/False  
-* List of key-paired substance categories (0, 1, 2, 3, 4, 5, #)  
-* List of key-pairs of ingredients colours (0 - Blue, 1 - Green, 2 - Yellow, 3 - Orange, 4 - Red, 5 - Purple, #XXXXXX - Custom)   
+#### <DT 3 "Ingredient Preferences linked to User"> 
+```js
+{ 
+    "db_id": String(), 
+    "uid": DT1.uid, 
+    "default": (true || false),
+    "categories": [("category_A", 0), ...],
+    "ingredients": [("ingredient_A", 2), ...],
+}
+
+// Note: "category" and "ingredients" [1] value is from [0-5], where: 
+/*  0 - Blue 
+*   1 - Green
+*   2 - Yellow
+*   3 - Orange
+*   4 - Red
+*   5 - Purple 
+*/
+```
   
 #### <DT 4 "Product Result Profile"> 
-* Database object ID   
-* Name: ""  
-* Date: "" (Generated upon save)   
-* List of img srcs: "" (Route)   
-* List of DT5's   
+```js 
+{ 
+  "db_id": String(), 
+  "Name": (String() || `Result [{this.timestamp}]`), 
+  "timestamp": Date(), 
+  "img_srcs": [ String(), ... ], 
+  "ingredients": [ DT5.name(), ...] 
+}
+```
   
 ### Ingredient/Substance Data 
   
-####<DT 5 "Ingredient Passive Type">
-* Database object ID   
-* Ingredient name: ""   
-* Ingredient synonyms: "", "", "", "", "", "", ...   
-* Description: ""  
-* Appearances: (long long int)   
+#### <DT 5 "Ingredient Passive Type">
+```js
+{ 
+    "db_id": String(), 
+    "name": String(), 
+    "synonyms": [String(), ... ], 
+    "description": String(),
+    "wikilink": String(), 
+    "tally": Number()
+} 
+```
 
 #### <DT 6 "Substance data cache"> (Optional, List is ranked alphabetically by object name) 
-* Database object ID   
-* List of ingredient triples with appearance numbers: (DT5 object ID, Name: "", Appearances: (long long int))   
+```js
+{ 
+    "db_id": String(), 
+    "cache": [
+        { 
+            "id": DT5.db_id,
+            "name": DT5.name, 
+            "tally": DT5.tally
+        }, 
+        ...
+    ]
+}
+```
   
 ### System logging 
 
 #### <DT 7 "User database log">
-* Database object ID   
-* User ID (Inherited from DT1)   
-* List of objects in the form of:   
-*	"FUNCTION" (i.e [STORE] Registering User)  
-*	Database ID of particular action  
+```js
+{ 
+  "db_id": String() 
+  "log": [(String(), <db_id>), ...]
+} 
+```
    
 ## Functional Requirements 
    
