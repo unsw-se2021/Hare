@@ -11,26 +11,38 @@ and user data to be keyed together.
 ## Data types   
   
 ### User Information       
-When a user registers with us, an instantiation of a user ID keyed with their authenticaiton information must be made. This  
-Data will appear as:    
 
 #### <DT 1 "Registration Data">   
-* A database object ID   
-* A user ID number (Originating from database object ID)   
-* Username  
-* Password (Not encrypted for now)   
-* Date of account creation (based on when DT1 is made)   
+```json
+{
+  "db_id": String(), 
+  "uid": this."db_id",
+  "user": { 
+      "name": String(), 
+      "email": String(), 
+      "password": String()
+  }, 
+  "timestamp": Date()
+}
+```
 
 #### <DT 2 "Profile Data">    
-* Database object ID   
-* User ID (inherited from DT1)    
-* User account creation date (Inherited from DT1)   
-* User email object:  
-*	Set: true/false  
-*	email: "their email"   
-* Number of saved products   
-* List of ID's of DT4's for products scanned and saved   
-* ID of DT3 containing ingredient preferences   
+```json
+{
+    "db_id": String(), 
+    "uid": DT1.uid,
+    "timestamp": DT1.timestamp, 
+    "email": { 
+        "changed": (true || false), 
+        "value": DT1.user.email
+    },
+    "history": { 
+        "size": DT4.size,
+        "location": DT4.db_id
+    } 
+    "preferences": DT3.db_id
+}
+```  
   
 #### <DT 3 "Ingredient Preferences linked to User"> 
 * Database object ID   
