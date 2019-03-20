@@ -65,4 +65,6 @@ const create_result_page = () => {
 const create_ingredient = () => { 
 } 
 
-module.exports = insert_data;  
+module.exports = {
+	insert_data: insert_data,
+};  

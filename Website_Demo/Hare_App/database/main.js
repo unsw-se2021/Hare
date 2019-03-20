@@ -5,43 +5,16 @@ const bodyParser = require('body-parser');
 const key = require('./config/db_keys').mongoURI;
 const db_name = 'HareDB'; 
 
-//Insertion functions
-const insert_data = require('./insert'); 
+// Database functions
+const db_do = require('./helpers');
+// Contains all document schema's to be used 
+const db_model = require('./models/export'); 
 
-// TEMPORARY TEST
-const user_auth = require('./models/user_auth');
-const product = require('./models/product'); 
-
-const Joe = new user_auth(
-	{
-		uid: new mongoose.mongo.ObjectId(),
-		user: { 
-			name: "John Doe",
-			email: "johndoe@gmail.com",
-			password: "123"
-		},
-		timestamp: new Date() 
-	}
-); 
-
-const Apple = new product({
-	owner: Joe.uid,
-	name: "Big apple",
-	img_srcs: ["https://attractionsontario.ca/wp-content/uploads/2017/04/The-Big-Apple.jpg"],
-});
-
-const test_db = (Joe) => { 
-	console.log("\x1b[31m[TEST]:\x1b[0m Running harcoded database saves");
-	insert_data(Joe);
-	insert_data(Apple);
-}; 
-
-
+// Runtime mongoose connection. To test programmatic insertions, include under .then() 
 mongoose.connect(key, {useNewUrlParser: true})
-	.then((err) => {	
-		console.log("\x1b[36m[DATABASE]:\x1b[0m Main.js connected");
-		console.log("[INFO]: Press ctrl+c to exit...");
-		// Uncomment this to test your database. 
-		test_db(Joe);
+	.then((err) => {
+		//db_do.log(log_type, msg, color)
+		db_do.log("DB_BOOT", "Main.js Connected to cloud", "green");
+		db_do.log("DB_RUN", "Press ctrl+c to exit", "green");
 	})
 	.catch(err => {console.log("[ERROR]: " + err)})
