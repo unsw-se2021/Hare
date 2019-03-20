@@ -54,7 +54,7 @@ const db_log = (log_type, message, color) => {
 	};
 	let msg = `[${timestamp}][${log_type}]: ${message}`
 	write_to_log(msg); 	
-	msg = "[" + timestamp + "]" + print_col + "[" + log_type + "]: " + message + "\x1b[0m"; 
+	msg = "[" + timestamp + "]" + print_col + "[" + log_type + "]:		" + message + "\x1b[0m"; 
 	console.log(msg);
 };
 
