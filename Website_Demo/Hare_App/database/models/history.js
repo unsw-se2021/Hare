@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserAuthSchema = new Schema({
+const HistorySchema = new Schema({
 	uid: { 
 		type: Schema.Types.ObjectId,
 		required: true, 
 		description: "Must be a string, and is the root of user profile schema linkages"
 	},
-	user: { 
-		name: String, 
-		email: String,
-		password: String
-	}, 
-	timestamp: Date 
+	log: [
+		{ 
+			event: String,
+			eid: { type: Schema.Types.ObjectId, required: true }
+		}
+	]
 });
 
-module.exports = user_auth = mongoose.model('user_auth', UserAuthSchema); 
+module.exports = history = mongoose.model('history', HistorySchema); 

@@ -69,6 +69,7 @@ const db_do = {
 		this.log("TEST", "____", "bgreen"); 
 	}, 
 	insert_data: require('./insert').insert_data,
+	create_user_auth: require('./insert').create_user_auth,
 };
 
 
