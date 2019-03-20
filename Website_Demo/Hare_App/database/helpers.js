@@ -1,6 +1,4 @@
 
-
-
 const write_to_log = (msg) => { 
 	const fs = require('fs');
 	const date = new Date(); 
