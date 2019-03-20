@@ -1,4 +1,16 @@
-const insert_functions = require('./insert'); 
+
+
+
+const write_to_log = (msg) => { 
+	const fs = require('fs');
+	const date = new Date(); 
+	let filename = `${date.getYear()}.${date.getMonth()}.${date.getDay()}.database_codes.log`
+	fs.appendFileSync(`./logs/${filename}`, msg + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+	}); 
+}; 
 
 const get_timestamp = () => { 
 	let currentdate = new Date(); 
@@ -40,7 +52,10 @@ const db_log = (log_type, message, color) => {
 			print_col = "\x1b[0m";
 			break;
 	};
-	console.log("[%s]%s[%s]: %s\x1b[0m", timestamp, print_col, log_type, message);
+	let msg = `[${timestamp}][${log_type}]: ${message}`
+	write_to_log(msg); 	
+	msg = "[" + timestamp + "]" + print_col + "[" + log_type + "]: " + message + "\x1b[0m"; 
+	console.log(msg);
 };
 
 const db_do = {
@@ -53,7 +68,7 @@ const db_do = {
 		this.log("TEST", "____", "green"); 
 		this.log("TEST", "____", "bgreen"); 
 	}, 
-	insert_data: insert_functions.insert_data,
+	insert_data: require('./insert').insert_data,
 };
 
 
