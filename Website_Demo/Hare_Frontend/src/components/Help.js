@@ -23,6 +23,9 @@ class Help extends Component {
 	    <AccordionPanel label = "How to add ingredients to highlight?">
 	        <Box Background = "light-2">Create a pre-set to highlight chosen ingredients or ingredient categories in your preference page</Box>
 	    </AccordionPanel>
+	   <AccordionPanel label = "How to view details about the product after your picture has been uploaded?">
+		<Box Background="light-2">After the picture is uploaded click on submit and on the product page cliuck on the drop down from each ingredient category to read more about it</Box>
+		</AccordionPanel>
 	</Accordion>
        
             
