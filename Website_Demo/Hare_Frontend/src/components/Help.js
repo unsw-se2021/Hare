@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Grommet, grommet, Box, Paragraph, Text } from 'grommet';
+import { Grommet, grommet, Box, Paragraph, Text, Accordion, AccordionPanel, Heading } from 'grommet';
 import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 
@@ -9,58 +9,23 @@ class Help extends Component {
 	render() { 
 		return(
 			<div>
-        <Box
-          direction="row"
-          border={{ color: "brand", size: "small" }}
-          margin="small"
-        >
-          <Box pad="medium" background="dark-3">
-            <Icons.CircleQuestion />
-          </Box>
-          <Box pad="small" >
-            <p>Why login?</p>
-            <Text margin="small">
-              Login to have a personal profile to use smart comparison and
-              ingredients highlightings!
-            </Text>
-            <Text margin="small">
-              You could login with your google or facebook account, if you dont
-              have either click register button to create a new account!
-            </Text>
-          </Box>
-        </Box>
+	<Box>
 
-        <Box
-          direction="row"
-          border={{ color: "brand", size: "small" }}
-          margin="small"
-        >
-          <Box pad="medium" background="dark-3">
-            <Icons.CircleQuestion />
-          </Box>
-          <Box pad="small">
-            <p>How to use compare multiple products?</p>
-            <Text margin="small">
-              Login as our client, choose from history files to make comparison!
-            </Text>
-          </Box>
-        </Box>
-
-        <Box
-          direction="row"
-          border={{ color: "brand", size: "small" }}
-          margin="small"
-        >
-          <Box pad="medium" background="dark-3">
-            <Icons.CircleQuestion />
-          </Box>
-          <Box pad="small">
-            <p>How to add ingredients to highlight? </p>
-			<Text margin="small">
-              Create a pre-set to highlight chosen ingredients or ingredient categories in your preference page
-            </Text>
-          </Box>
-        </Box>
+	<Heading margin="none" alignSelf = "center">Need Help?</Heading>	
+       </Box>
+	<Accordion>
+            <AccordionPanel label = "Why Login?">
+	        <Box background = "light-2">Login to have a personal profile to use smart comparisons and ingredients highlightings, You could login with your google or facebook account, if you dont have either click register button to create a new account!!</Box>
+	     </AccordionPanel>
+	    <AccordionPanel label = "How to use compare multiple products?">
+	        <Box Background="light-2">Login as our client, choose from history files to make comparison!</Box>
+	    </AccordionPanel>
+	    <AccordionPanel label = "How to add ingredients to highlight?">
+	        <Box Background = "light-2">Create a pre-set to highlight chosen ingredients or ingredient categories in your preference page</Box>
+	    </AccordionPanel>
+	</Accordion>
+       
+            
       </div>
 		);	
 	}
