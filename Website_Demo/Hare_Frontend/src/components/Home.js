@@ -29,6 +29,7 @@ class Home extends Component {
 				<Box responsive='true'>
 					<h1>Homepage</h1>
 					<br />
+			          <Box direction ="row" alignSelf = "center">
 				        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="light-3">
 						<Box>
 							<Icons.CloudUpload alignSelf="center" size="xlarge" />
@@ -37,10 +38,11 @@ class Home extends Component {
 					</Box>
                                          <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="light-3" >
                                                 <Box>
-                                                        <Icons.CloudUpload alignSelf="center" size="xlarge" />
-                                                        <Link to="/compare">Compare Image</Link>
+                                                        <Icons.CloudUpload alignSelf="center" size="xlarge" />                                   
+                                                        <Link to="/compare">Compare Image</Link>                                       
                                                 </Box>
                                         </Box>
+			        </Box>
 
 					<br />
 					<br />
