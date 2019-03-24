@@ -14,7 +14,7 @@ import FourOFour from './404.js';
 import User from './User'; 
 import UserProduct from './UserProduct';
 import Registration from './Register';
-
+import compare from './compare';
 class View extends Component { 
 	render() { 
 		return(
@@ -37,6 +37,7 @@ class View extends Component {
 								<Route path='/user' component={User} />
 								<Route path='/userproduct' component={UserProduct} /> 
 								<Route path='/Register' component={Registration} />
+			                                        <Route path='/compare' component={compare} />
 							</Switch> 
 						</Box>
 						<Box width="18%"/> 
