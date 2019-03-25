@@ -61,7 +61,7 @@ const check_login_withUseremail = (user_collection, useremail, userpws) => {
 };
 
 //get userID by username
-const get_userID_by_username = (user_collection, username) => {
+const get_userId_by_username = (user_collection, username) => {
   return new Promise((resolve, reject) => {
     user_collection.find({ "user.name": username }, (err, result) => {
       const user_count = result.length;
@@ -76,7 +76,7 @@ const get_userID_by_username = (user_collection, username) => {
 };
 
 //get userId by useremail
-const get_userID_by_useremail = (user_collection, useremail) => {
+const get_userId_by_useremail = (user_collection, useremail) => {
   return new Promise((resolve, reject) => {
     user_collection.find({ "user.email": useremail }, (err, result) => {
       const user_count = result.length;
@@ -91,30 +91,30 @@ const get_userID_by_useremail = (user_collection, useremail) => {
 };
 
 //get username by userId
-const get_username_by_userId = (user_collection, username) => {
+const get_username_by_userId = (user_collection, userId) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ "user.name": username }, (err, result) => {
+    user_collection.find({ "user.uid": userId }, (err, result) => {
       const user_count = result.length;
       if (user_count === 0) {
-        reject("invalid useremail");
+        reject("invalid userId");
       } else {
-        const user_id = result[0].id;
-        resolve(user_id);
+        const username = result[0].name;
+        resolve(username);
       }
     });
   });
 };
 
 //get useremail by userId
-const get_useremail_by_userId = (user_collection, useremail) => {
+const get_useremail_by_userId = (user_collection, userId) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ "user.email": useremail }, (err, result) => {
+    user_collection.find({ "user.uid": userId }, (err, result) => {
       const user_count = result.length;
       if (user_count === 0) {
-        reject("invalid useremail");
+        reject("invalid userId");
       } else {
-        const user_id = result[0].id;
-        resolve(user_id);
+        const useremail = result[0].email;
+        resolve(useremail);
       }
     });
   });
@@ -159,7 +159,7 @@ const get_categories_by_preferences = (preferences_collection, preferences) => {
 //get categories by userId
 const get_categories_by_userId = (profile_collection, userId) => {
   return new Promise((resolve, reject) => {
-    profile_collection.find({ "peofile.uid": userId }, (err, result) => {
+    profile_collection.find({ "profile.uid": userId }, (err, result) => {
       const user_count = result.length;
       if (user_count === 0) {
         reject("invalid userId");
@@ -190,11 +190,16 @@ const get_categories_by_userId = (profile_collection, userId) => {
 //get drugbank link from ingrients collection
 //get tally from ingrients collection
 
+//D6 and D7
+//dg.log
+
 module.exports = {
   check_username_unique: check_username_unique,
   check_useremail_unique: check_useremail_unique,
   check_login_withUsername: check_login_withUsername,
   check_login_withUseremail: check_login_withUseremail,
+  get_userId_by_username: get_userId_by_username,
+  get_userId_by_useremail: get_userId_by_useremail,
   get_username_by_userId: get_username_by_userId,
   get_useremail_by_userId: get_useremail_by_userId,
   get_preference_by_userId: get_preference_by_userId,
