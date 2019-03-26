@@ -26,15 +26,22 @@ class compare extends Component {
                                                 >
                                                         <Icons.Camera alignSelf="center" size="xlarge"/>
                                                 </Box>
-                                                <Box width="medium" background="light-3" round="small" pad="small">
-                                                        <Button
-                                                                width="100%"
-                                                                icon={<Icons.FolderOpen/>}
-                                                                label="choose from history"
-                                                        >
-                                                                Browse
-                                                        </Button>
-                                                </Box>
+
+
+						 <Link full={true} to="/savedProduct">
+                                                        <Box width="medium" background="light-3" round="small" pad="small">
+                                                                <Button
+                                                                        width="100%"
+                                                                        icon={<Icons.Upload/>}
+                                                                        label="Choose from history"
+                                                                >
+                                                                        Submit
+                                                                </Button>
+                                                        </Box>
+                                                </Link>
+
+
+			 			
 			                         <Box width="medium" background="light-3" round="small" pad="small">
                                                         <Button
                                                                 width="100%"
@@ -62,15 +69,23 @@ class compare extends Component {
                                                 >
                                                         <Icons.Camera alignSelf="center" size="xlarge"/>
                                                 </Box>
-                                                <Box width="medium" background="light-3" round="small" pad="small">
-                                                        <Button
-                                                                width="100%"
-                                                                icon={<Icons.FolderOpen/>}
-                                                                label="choose from history"
-                                                        >
-                                                                Browse
-                                                        </Button>
-                                                </Box>
+
+
+
+						 <Link full={true} to="/savedProduct">
+                                                        <Box width="medium" background="light-3" round="small" pad="small">
+                                                                <Button
+                                                                        width="100%"
+                                                                        icon={<Icons.Upload/>}
+                                                                        label="Choose from history"
+                                                                >
+                                                                        Submit
+                                                                </Button>
+                                                        </Box>
+                                                </Link>
+
+	
+
                                                  <Box width="medium" background="light-3" round="small" pad="small">
                                                         <Button
                                                                 width="100%"
