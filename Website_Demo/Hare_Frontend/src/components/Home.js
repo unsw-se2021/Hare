@@ -36,13 +36,8 @@ class Home extends Component {
 							<Link to="/upload">Upload Image</Link>
 						</Box>
 					</Box>
-                                         <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="light-3" >
-                                                <Box>
-                                                        <Icons.CloudUpload alignSelf="center" size="xlarge" />                                   
-                                                        <Link to="/compare">Compare Image</Link>                                       
-                                                </Box>
                                         </Box>
-			        </Box>
+			        
 
 					<br />
 					<br />
