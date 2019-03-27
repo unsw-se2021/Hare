@@ -38,7 +38,7 @@ and user data to be keyed together.
     },
     "history": { 
         "size": DT4.size,
-        "products": [DT4.id(),...]
+        "history": DT4.db_id
     } 
     "preferences": DT3.db_id
 }

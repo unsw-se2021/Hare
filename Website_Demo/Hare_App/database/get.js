@@ -131,7 +131,7 @@ const get_preferenceId_by_userId = (profile_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const preference_id = result.preferences;
+        const preference_id = result[0].preferences;
         resolve(preference_id);
       }
     });
@@ -146,7 +146,7 @@ const get_preference_by_userId = (profile_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const preference_id = result.preferences;
+        const preference_id = result[0].preferences;
         const preference = profile_collection.children.id(preference_id);
         resolve(preference);
       }
@@ -164,7 +164,7 @@ const get_categories_by_preferences = (preferences_collection, preferences) => {
         if (preferences_count === 0) {
           reject("invalid preferences");
         } else {
-          const catergories = result.catergories;
+          const catergories = result[0].catergories;
           resolve(catergories);
         }
       }
@@ -180,7 +180,7 @@ const get_categories_by_userId = (profile_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const preference_id = result.preferences;
+        const preference_id = result[0].preferences;
         const preference = profile_collection.children.id(preference_id);
         const catergories = preference.catergories;
         resolve(catergories);
@@ -188,6 +188,26 @@ const get_categories_by_userId = (profile_collection, userId) => {
     });
   });
 };
+
+/*
+functions for product history go with this DT2
+<DT 2 "Profile Data">    
+{
+    "db_id": String(), 
+    "uid": DT1.uid,
+    "timestamp": DT1.timestamp, 
+    "email": { 
+        "changed": (true || false), 
+        "value": DT1.user.email
+    },
+    "history": { 
+        "size": DT4.size,
+        "history_log:-----", //for keeping track of change
+        "products": [DT4.id(),...]
+    } 
+    "preferences": DT3.db_id
+}
+*/
 
 //get history by userId
 const get_history_by_userId = (profile_collection, userId) => {
@@ -197,7 +217,7 @@ const get_history_by_userId = (profile_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const history_list = result.products;
+        const history_list = result[0].history.products;
         resolve(history_list);
       }
     });
@@ -212,7 +232,7 @@ const get_history_size_by_userId = (profile_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const history_size = result.history.size;
+        const history_size = result[0].history.size;
         resolve(history_size);
       }
     });
