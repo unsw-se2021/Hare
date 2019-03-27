@@ -189,6 +189,92 @@ const get_categories_by_userId = (profile_collection, userId) => {
   });
 };
 
+//get history by userId
+const get_history_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const history_list = result.products;
+        resolve(history_list);
+      }
+    });
+  });
+};
+
+//get history size by userId
+const get_history_size_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const history_size = result.history.size;
+        resolve(history_size);
+      }
+    });
+  });
+};
+
+//get product by product Id
+const get_product_by_productId = (product_collection, productId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.find({ db_id: productId }, (err, result) => {
+      const product_count = result.length;
+      if (product_count === 0) {
+        reject("invalid productId");
+      } else {
+        resolve(result[0]);
+      }
+    });
+  });
+};
+
+//get product name by product Id
+const get_productName_by_productId = (product_collection, productId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.find({ db_id: productId }, (err, result) => {
+      const product_count = result.length;
+      if (product_count === 0) {
+        reject("invalid productId");
+      } else {
+        resolve(result[0].name);
+      }
+    });
+  });
+};
+
+//get product image by product Id
+const get_productImg_by_productId = (product_collection, productId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.find({ db_id: productId }, (err, result) => {
+      const product_count = result.length;
+      if (product_count === 0) {
+        reject("invalid productId");
+      } else {
+        resolve(result[0].img_srcs);
+      }
+    });
+  });
+};
+
+//get product image by product Id
+const get_productIngrdt_by_productId = (product_collection, productId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.find({ db_id: productId }, (err, result) => {
+      const product_count = result.length;
+      if (product_count === 0) {
+        reject("invalid productId");
+      } else {
+        resolve(result[0].ingredients);
+      }
+    });
+  });
+};
+
 //what left is :
 //get email status
 //get preference by userId
@@ -221,5 +307,11 @@ module.exports = {
   get_preferenceId_by_userId: get_preferenceId_by_userId,
   get_preference_by_userId: get_preference_by_userId,
   get_categories_by_preferences: get_categories_by_preferences,
-  get_categories_by_userId: get_categories_by_userId
+  get_categories_by_userId: get_categories_by_userId,
+  get_history_by_userId: get_history_by_userId,
+  get_history_size_by_userId: get_history_size_by_userId,
+  get_product_by_productId: get_product_by_productId,
+  get_productName_by_productId: get_productName_by_productId,
+  get_productImg_by_productId: get_productImg_by_productId,
+  get_productIngrdt_by_productId: get_productIngrdt_by_productId
 };

@@ -35,9 +35,13 @@ const create_user_auth = (username, email, password) => {
   const db_do = require("./helpers");
   const mongoose = require("mongoose");
   const check_username = require("./get").check_username_unique;
+  const check_useremail = require("./get").check_useremail_unique;
 
   check_username(user_auth, username)
-    .then(value => {
+    .then(() => {
+      return check_useremail(user_auth, email);
+    })
+    .then(() => {
       let userid = new mongoose.mongo.ObjectId();
       let new_user = new user_auth({
         _id: userid,
@@ -146,7 +150,32 @@ const create_result_page = () => {};
  *
  *
  */
-const create_ingredient = () => {};
+const create_ingredient = (
+  db_do,
+  userId,
+  ingrdtName,
+  synonyms,
+  description,
+  wikilink
+) => {
+  const ingredient = require("./models/export").ingredient;
+  const db_do = require("./helpers");
+  const mongoose = require("mongoose");
+
+  let ingredient_id = new mongoose.mongo.ObjectId();
+  let new_ingredient = new ingredient({
+    _id: ingredient_id,
+    uid: userId,
+    name: ingrdtName,
+    synonyms: synonyms,
+    description: description,
+    wikilink: wikilink,
+    tally: 1
+  });
+  insert_data(db_do, new_ingredient);
+  return ingredient_id;
+};
+
 module.exports = {
   insert_data: insert_data,
   create_user_auth: create_user_auth,

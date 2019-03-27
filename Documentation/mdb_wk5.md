@@ -38,11 +38,11 @@ and user data to be keyed together.
     },
     "history": { 
         "size": DT4.size,
-        "location": DT4.db_id
+        "products": [DT4.id(),...]
     } 
     "preferences": DT3.db_id
 }
-```  
+```
   
 #### <DT 3 "Ingredient Preferences linked to User"> 
 ```js
@@ -113,6 +113,8 @@ and user data to be keyed together.
   "log": [(String(), <db_id>), ...]
 } 
 ```
+
+   
    
 ## Functional Requirements 
    
