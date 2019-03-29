@@ -1,11 +1,13 @@
 import React, { Component } from 'react'; 
-import { Grommet, grommet, DropButton,Button, Box, Heading, Menu, Paragraph, Carousel, Accordion, AccordionPanel, Text, Image, Distribution} from 'grommet';
+import { Grommet, grommet, DropButton,Button, Layer, Box, Heading, Menu, Paragraph, Carousel, Accordion, AccordionPanel, Text, Image, Distribution} from 'grommet';
 import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+
+
 const DropHighlightContent = ({ onClose, description, uses }) => (
-	<div>
+	<Layer>
 		<Box direction="column" pad="small">
 			<Button icon={<Icons.Close />} onClick={onClose} />
 			<Box direction="column">
@@ -15,7 +17,7 @@ const DropHighlightContent = ({ onClose, description, uses }) => (
 				<Box>{uses}</Box>
 			</Box>
 		</Box>
-	</div>
+	</Layer>
 );
 
 DropHighlightContent.propTypes = { onClose: PropTypes.func.isRequired };
