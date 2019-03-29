@@ -4,13 +4,12 @@ import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
-
-const DropHighlightContent = ({ onClose, description, uses }) => (
+const DropHighlightContent = ({ onClose, name, description, uses }) => (
 	<Layer>
 		<Box direction="column" pad="small">
 			<Button icon={<Icons.Close />} onClick={onClose} />
 			<Box direction="column">
+				<h3 background='light-1'>{name}</h3>
 				<h4 background='light-1'>Descriptions:</h4>
 			
 				<Box>{description}</Box>
@@ -31,7 +30,8 @@ class HighlightDropButton extends Component {
 		this.setState({ open: false });
 		setTimeout(() => this.setState({ open: undefined }), 1);
 	};
-	
+
+	name = this.props.ingredient;
 	description = this.props.description;
 	uses = this.props.uses;
 
@@ -43,7 +43,7 @@ class HighlightDropButton extends Component {
 					label={this.props.ingredient}
 					open={open}
 					onClose={() => this.setState({ open: undefined })}
-					dropContent={<DropHighlightContent onClose={this.onClose} description={this.description} uses={this.uses}/>}
+					dropContent={<DropHighlightContent onClose={this.onClose} name={this.name} description={this.description} uses={this.uses}/>}
 				>Customize Preferences</DropButton>
 			</Box>
 		);
