@@ -55,8 +55,9 @@ class Product extends Component {
 		return(
 			<div>
 				<Box>
-					<Box>
-						<Button label="Back" href="/upload"/>
+					<Box direction="row" justify="between">
+						<Button alignSelf="center" label="Back" href="/upload"/>
+						<Button alignSelf="center" label="Save Scan"/>
 					</Box>
 				</Box>
 				<Box direction="row" justify="between" align="center" alignContent="center">
