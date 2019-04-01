@@ -35,19 +35,16 @@ class Login extends Component {
 	render() { 
 		return(
 			<div>
-				<Box direction='row'>
-					<Box width='33%'/>
-					<Box width='33%'>
-				<Box width="medium" margin='medium' direction="row"  align="center" round="small" border>
-					<TextInput placeholder="Enter username" />
-				</Box>
-				<PasswordInput /> 	
-				<Link to='/user'>
-					<Box round="xsmall" height="40px" margin='medium' width='100%' justify="center" align="center" background="neutral-3"><Paragraph color="white">Log In</Paragraph></Box>
-				</Link>
-			</Box>
-				<Box width='33%'/>
+				<Box direction='row' with='33%'>
+					<Box width="medium" margin='medium' direction="row"  align="center" round="small" border>
+						<TextInput placeholder="Enter username" />
+					</Box>
 
+					<PasswordInput />
+
+					<Box round="xsmall" height="40px" margin='medium' width='100%' justify="center" align="center" background="neutral-3">
+						<Button href='/user' label="Log In"/>
+					</Box>
 				</Box>
 			</div>
 		);	
