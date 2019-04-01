@@ -4,34 +4,6 @@ import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const SaveScanContent = ({ onClose }) => (
-	<Layer
-         onEsc={() => this.setState({ open: false})}
-         onClickOutside={() => this.setState({ open: false })}
-     >
-         <Box pad="small">
-             <h2>Save Scan</h2>
-         </Box>
-     </Layer>
-);
-
-SaveScanPopUp.propTypes = { onClose: PropTypes.func.isRequired };
-
-class SaveScanPopUp extends Component {
-	state = {};
-
-	onClose = () => {
-		this.setState({ open: false });
-	}
-
-	render() {
-		const { open } = this.state;
-		return (
-			<Button label="Save Scan" onClick={() => this.setState({ open: true })}/>
-		)
-	}
-}
-
 const DropHighlightContent = ({ onClose, name, description, uses }) => (
 	<Layer>
 		<Box direction="column" pad="small">
@@ -84,8 +56,7 @@ class Product extends Component {
 			<div>
 				<Box>
 					<Box>
-						<Link to="/upload">back</Link>
-						<SaveScanPopUp/>
+						<Button to="/upload">back</Button>
 					</Box>
 				</Box>
 				<Box direction="row" justify="between" align="center" alignContent="center">
