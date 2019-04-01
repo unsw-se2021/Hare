@@ -56,7 +56,7 @@ class Product extends Component {
 			<div>
 				<Box>
 					<Box>
-						<Button to="/upload">back</Button>
+						<Button label="Back" href="/upload"/>
 					</Box>
 				</Box>
 				<Box direction="row" justify="between" align="center" alignContent="center">
