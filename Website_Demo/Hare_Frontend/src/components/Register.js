@@ -8,27 +8,27 @@ class Registration extends Component {
 	render() { 
 		return(
 			<div>
-			<Box pad="medium" gap="small">  
-			<h3> Register your details </h3>
-			<TextInput
-				placeholder="Name"
-			/>
-			<TextInput 
-				placeholder="Username"
-			/> 
-			<TextInput
-				placeholder="Password" 
-			/> 
-			<TextInput 
-				placeholder="Confirm Password"
-			/> 
-			<TextInput 
-				placeholder="Email"
-			/> 
-		</Box>
-		<Box round="xsmall" height="40px" justify="center" align="center" background="neutral-3">
-			<Button label="Submit"/>
-		</Box>
+				<Box pad="medium" gap="small">  
+					<h3> Register your details </h3>
+					<TextInput
+						placeholder="Name"
+					/>
+					<TextInput 
+						placeholder="Username"
+					/> 
+					<TextInput
+						placeholder="Password" 
+					/> 
+					<TextInput 
+						placeholder="Confirm Password"
+					/> 
+					<TextInput 
+						placeholder="Email"
+					/> 
+				</Box>
+				<Box round="xsmall" height="40px" justify="center" align="center">
+					<Button label="Submit"/>
+				</Box>
 			</div>
 		);	
 	}
