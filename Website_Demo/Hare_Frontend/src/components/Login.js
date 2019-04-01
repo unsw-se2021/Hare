@@ -7,16 +7,10 @@ const PasswordInput = ({ value, ...rest }) => {
 	const [inputValue, setValue] = useState(value);
 	const [reveal, setReveal] = useState(false);
 	return (
-		<Box
-			width="medium"
-			direction="row"
-			align="center"
-			margin='medium'
-			round="small"
-			border
-		>
+		<Box round="small" margin="medium" width="medium" align="center" direction="row" border >
 			<TextInput
 				plain
+				placeholder="Enter Password"
 				type={reveal ? "text" : "password"}
 				value={inputValue}
 				onChange={event => setValue(event.target.value)}
@@ -35,14 +29,13 @@ class Login extends Component {
 	render() { 
 		return(
 			<div>
-				<Box direction='row' with='33%'>
-					<Box width="medium" margin='medium' direction="row"  align="center" round="small" border>
-						<TextInput placeholder="Enter username" />
-					</Box>
-
-					<PasswordInput />
-
-					<Box round="xsmall" height="40px" margin='medium' width='100%' justify="center" align="center" background="neutral-3">
+				<Box align="center" alignSelf="center" direction='column'>
+					<Box alignContents="stretch" width="medium" margin="medium" align="center" round="small">
+						<Box round="small" direction="row" margin="medium" width="medium">
+							<TextInput placeholder="Enter Username" />
+						</Box>
+	
+						<PasswordInput />
 						<Button href='/user' label="Log In"/>
 					</Box>
 				</Box>
