@@ -21,11 +21,9 @@ class Home extends Component {
 				<Box responsive='true'>
 					<h1>Homepage</h1>
 					<br />
-			        <Box direction ="row" alignSelf = "center">
-				        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="light-3">
+				    <Box alignSelf="center" align="center" alignConent="center" pad="medium" justify="center" round="small" background="light-3">
 							<Icons.CloudUpload alignSelf="center" size="xlarge" />
 							<Button href="/upload" label="Upload Image"/>
-						</Box>
 					</Box>
 					<br />
 					<br />
