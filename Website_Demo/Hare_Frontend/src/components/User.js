@@ -106,24 +106,22 @@ class User extends Component {
                                         </Box>
                                         </Box>
 
+				  <hr />
+				
+				 <Box direction ="row" alignSelf = "end">
+                                        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="dark-3">
+                                                <Box>
+                                                        <Icons.Save alignSelf="center" size="large" />
+                                                        <Link to="/highlightPage">View Highlight preferences</Link>
+                                                </Box>
+                                        </Box>
+                                        </Box>
+
 
 
 
  
 				
-			        <hr />
-			        
-				<h2>Highlighting Preferences</h2> 
-				<br /> 
-				<h4>Sample settings</h4> 
-				<Box background="dark-1" /> 
-				<br /> 
-				<Box background="dark-1" /> 
-				<br /> 
-				<HighlightDropButton />
-				<br /> 
-				<br /> 
-				<br /> 
 				<br />
 
 
