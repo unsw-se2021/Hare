@@ -7,7 +7,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "test": "jest server.test; jest ./autotests/*",
-	"test_server_boot": "jest server.test"
+    "test_server_boot": "jest server.test"
   },
   "author": "Michael Lloyd",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "express": "^4.16.4",
     "http": "0.0.0",
     "https": "^1.0.0",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.4.20",
     "morgan": "^1.9.1",
     "path": "^0.12.7"
   },
