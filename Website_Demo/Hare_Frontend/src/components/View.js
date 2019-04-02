@@ -17,6 +17,7 @@ import Registration from './Register';
 import compare from './compare';
 import savedProduct from './savedProduct';
 import personalSetting from './personalSetting';
+import compareResult from './compareResult';
 
 class View extends Component { 
 	render() { 
@@ -43,6 +44,7 @@ class View extends Component {
 			                                        <Route path='/compare' component={compare} />
 			                                         <Route path='/savedProduct' component={savedProduct} />
 								 <Route path='/personalSetting' component={personalSetting} />
+								<Route path='/compareResult' component={compareResult} />
 							</Switch> 
 						</Box>
 						<Box width="18%"/> 
