@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-	Grommet,
-	grommet,
-	Box,
-	Heading,
-	Menu,
-	Paragraph,
-	Image,
-	Text } from "grommet";
+import { Grommet, grommet, Box, Button, Heading, Menu, Paragraph, Image, Text } from "grommet";
 import * as Icons from "grommet-icons";
 import { Route, Link, Router, BrowserRouter } from "react-router-dom";
 
@@ -26,14 +18,12 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Box respinsive='true'>
+				<Box responsive='true'>
 					<h1>Homepage</h1>
 					<br />
-					<Box alignSelf="center" pad="medium" direction="row" justify="center" round="small" background="light-3">
-						<Box>
+				    <Box alignSelf="center" align="center" alignConent="center" pad="medium" justify="center" round="small" background="light-3">
 							<Icons.CloudUpload alignSelf="center" size="xlarge" />
-							<Link to="/upload">Upload Image</Link>
-						</Box>
+							<Button href="/upload" label="Upload Image"/>
 					</Box>
 					<br />
 					<br />

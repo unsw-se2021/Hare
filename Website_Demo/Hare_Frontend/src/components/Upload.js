@@ -1,8 +1,7 @@
 import React, { Component } from 'react'; 
-import { Grommet, grommet, Box, Heading, Menu, Paragraph, Text } from 'grommet';
+import { Grommet, grommet, Box, Button, Heading, Menu, Paragraph, Text } from 'grommet';
 import * as Icons from 'grommet-icons';
 import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
-import { Button } from 'grommet';
 
 const tipHeader = (icon, title) => {
 	return	<Box direction="row" align="center" alignContent="center" gap="small">

@@ -10,13 +10,21 @@ const DropHighlightContent = ({ onClose }) => (
 		<Box pad="small" direction="column" wrap="" justify="between">
 			<Button icon={<Icons.Close />} onClick={onClose} />
 			<br />
-			<TextInput placeholder={<Icons.Search/>}/>  
+			 
 			<br /> 
 			<Box background="dark-2" justify="between" direction="row" > 
 				<Box >Ingredient X </Box> 	
-				
+			
 				<Box pad="small" background="red" /> 	
-			</Box> 
+			</Box>
+
+
+			 <Box background="dark-2" justify="between" direction="row" >
+                                <Box >Ingredient Y </Box>
+
+                                <Box pad="small" background="red" />
+                        </Box>
+
 		</Box>
 		<Text>Content</Text> 
 	</div>
@@ -55,42 +63,74 @@ class User extends Component {
 	render() { 
 		return(
 			<div>
-				<h1>User: {user_name}</h1>
+				<h1>Welcome {user_name}</h1>
 				<br /> 
-				<hr />
-				<h2>Account Settings</h2> 
-				<br /> 
-				<TextInput placeholder="Name" /> 
-				<TextInput placeholder="Email" />
-				<Link to='/user'>
-					<Box pad="small" background="dark-3" >Update</Box> 
-					<br />
-				</Link> 
-				<Box pad="small" background="dark-3">Change Password</Box> 
+
+				 <Box direction ="row" alignSelf = "center">
+                                        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="dark-3">
+                                                <Box>
+                                                        <Icons.UserSettings alignSelf="center" size="large" />
+                                                        <Link to="/personalSetting">View personal settings</Link>
+                                                </Box>
+                                        </Box>
+                                        </Box>
+
+			                <hr />
+
+
+
+
+
+				<Box direction ="row" alignSelf = "center">
+                                        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="dark-3">
+                                                <Box>
+                                                        <Icons.Compare alignSelf="center" size="large" />
+                                                        <Link to="/compare">Compare two products</Link>
+                                                </Box>
+                                        </Box>
+                                        </Box>
+
+	
+						                                        <hr />
+
+	
+                                                 
+                         
+ 
+                                <Box direction ="row" alignSelf = "end">
+                                        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="dark-3">
+                                                <Box>
+                                                        <Icons.Save alignSelf="center" size="large" />
+                                                        <Link to="/savedProduct">View Saved products</Link>
+                                                </Box>
+                                        </Box>
+                                        </Box>
+
+				  <hr />
+				
+				 <Box direction ="row" alignSelf = "end">
+                                        <Box alignSelf ="center" pad = "medium"  justify ="center" round = "small"  background="dark-3">
+                                                <Box>
+                                                        <Icons.Save alignSelf="center" size="large" />
+                                                        <Link to="/highlightPage">View Highlight preferences</Link>
+                                                </Box>
+                                        </Box>
+                                        </Box>
+
+
+
+
+ 
+				
 				<br />
-				<hr />
-				<h2>Saved Products</h2> 
-				<br /> 
-				<Link to='/userproduct'> 
-					Product A, Product B, Product C
-				</Link>
-				<br /> 
-				<hr /> 
-				<h2>Highlighting Preferences</h2> 
-				<br /> 
-				<h4>Sample settings</h4> 
-				<Box background="dark-1" /> 
-				<br /> 
-				<Box background="dark-1" /> 
-				<br /> 
-				<HighlightDropButton />
-				<br /> 
-				<br /> 
-				<br /> 
-				<br /> 
+
+
+
+
+ 
 			</div>
 		);	
-	}
+         	}
 } 
 
 export default User; 
