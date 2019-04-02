@@ -18,7 +18,7 @@ import compare from './compare';
 import savedProduct from './savedProduct';
 import personalSetting from './personalSetting';
 import compareResult from './compareResult';
-
+import highlightPage from './highlightPage';
 class View extends Component { 
 	render() { 
 		return(
@@ -45,6 +45,9 @@ class View extends Component {
 			                                         <Route path='/savedProduct' component={savedProduct} />
 								 <Route path='/personalSetting' component={personalSetting} />
 								<Route path='/compareResult' component={compareResult} />
+								 <Route path='/highlightPage' component={highlightPage} />
+
+
 							</Switch> 
 						</Box>
 						<Box width="18%"/> 
