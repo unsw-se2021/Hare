@@ -96,9 +96,19 @@ class compare extends Component {
                                                         </Button>
                                                 </Box>
 
+			
+                        	    </Box>
 
-                            </Box>
+
+
 			 </Box>
+
+
+			 <Box direction = "column"> 
+			<Button href="/compareResult" alignSelf="center" label="submit"/>
+
+			 </Box>
+
 
 
 			 </div>
