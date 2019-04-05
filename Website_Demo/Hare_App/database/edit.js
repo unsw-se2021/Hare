@@ -1,34 +1,9 @@
-//assume user name couldnt be changed
-
 //update useremail by userId in user collection
-//shoud be used with update_useremail_by_userId_Profile simultaneously
-const update_useremail_by_userId_User = (user_collection, userId, newEmail) => {
+const update_useremail_by_userId = (user_collection, userId, newEmail) => {
   return new Promise((resolve, reject) => {
     user_collection.update(
       { uid: userId },
       { "user.email": newEmail },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
-      }
-    );
-  });
-};
-
-//update useremail by userId in profile collection
-//shoud be used with update_useremail_by_userId_User simultaneously
-const update_useremail_by_userId_Profile = (
-  profile_collection,
-  userId,
-  newEmail
-) => {
-  return new Promise((resolve, reject) => {
-    profile_collection.update(
-      { uid: userId },
-      { "user.email.change": true, "user.email.value": newEmail },
       (err, result) => {
         if (err) {
           reject(err);
@@ -74,25 +49,25 @@ const update_username_by_userId = (user_collection, userId, newname) => {
   });
 };
 
-//update_pref_categories_colour
-//assume colour is between 0 to 5
-const update_pref_categorie_colour = (
-  profile_collection,
+//update_pref_category_color
+//assume get preference id by user id,so the user is known
+//assume color has been checked ( between 0 to 5)
+const update_pref_category_color = (
+  prefrence_collection,
   prefId,
-  userId,
-  category,
-  colour
+  category_name,
+  newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = profile_collection.children.id(prefId);
+    const preference = prefrence_collection.children.id(prefId);
     const new_categories = preference.categories.map(x => {
-      if (x[0] === category) {
-        x[1] = colour;
+      if (x.category.toLowerCase() === category_name.toLowerCase()) {
+        x.color = newcolor;
       }
       return x;
     });
     preference.update(
-      { uid: userId },
+      { uid: prefId },
       { categories: new_categories },
       (err, result) => {
         if (err) {
@@ -105,25 +80,25 @@ const update_pref_categorie_colour = (
   });
 };
 
-//update_pref_ingredients_colour
-//assume colour is between 0 to 5
-const update_pref_ingredient_colour = (
-  profile_collection,
+//update_pref_ingredient_color
+//assume get preference id by user id,so the user is known
+//assume color has been checked ( between 0 to 5)
+const update_pref_ingredient_color = (
+  prefrence_collection,
   prefId,
-  userId,
-  ingredient,
-  colour
+  ingredient_name,
+  newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = profile_collection.children.id(prefId);
-    const new_ingredients = preference.categories.map(x => {
-      if (x[0] === ingredient) {
-        x[1] = colour;
+    const preference = prefrence_collection.children.id(prefId);
+    const new_ingredients = preference.ingredients.map(x => {
+      if (x.ingredient.toLowerCase() === ingredient_name.toLowerCase()) {
+        x.color = newcolor;
       }
       return x;
     });
     preference.update(
-      { uid: userId },
+      { uid: prefId },
       { ingredients: new_ingredients },
       (err, result) => {
         if (err) {
@@ -136,16 +111,10 @@ const update_pref_ingredient_colour = (
   });
 };
 
-//what is left is:
-//function to validate the colour(between 0 to 5)
-//update tally for ingredients
-//update Product info and ingredients/substance data if neccessary(need to talk with michael and front end)
-
 module.exports = {
-  update_useremail_by_userId_User: update_useremail_by_userId_User,
-  update_useremail_by_userId_Profile: update_useremail_by_userId_Profile,
+  update_useremail_by_userId: update_useremail_by_userId,
   update_userpws_by_userId: update_userpws_by_userId,
   update_username_by_userId: update_username_by_userId,
-  update_pref_categorie_colour: update_pref_categorie_colour,
-  update_pref_ingredient_colour: update_pref_ingredient_colour
+  update_pref_category_color: update_pref_category_color,
+  update_pref_ingredient_color: update_pref_ingredient_color
 };
