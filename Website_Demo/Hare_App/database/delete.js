@@ -1,3 +1,21 @@
+const delete_product_by_productId = (product_collection, productId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.deleteOne({ db_id: productId }, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(true);
+      }
+    });
+  });
+};
+
+module.exports = {
+  delete_product_by_productId: delete_product_by_productId
+};
+
+//not sure what do these code do
+/*
 // Database client setup 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
@@ -51,3 +69,4 @@ const insertDocuments = function(db, callback) {
     callback(result);
   });
 }
+*/
