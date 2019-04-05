@@ -1,3 +1,4 @@
+//----------------------user info------------------------------
 //check duplication of user's name
 const check_username_unique = (user_collection, username) => {
   return new Promise((resolve, reject) => {
@@ -120,8 +121,7 @@ const get_useremail_by_userId = (user_collection, userId) => {
   });
 };
 
-//write the similiar functions for profile,product and rest of the object
-
+//--------------preferrence info---------------------------------------
 //get preferenceId by userId
 //used in setter functions to make changes
 const get_preferenceId_by_userId = (profile_collection, userId) => {
@@ -154,26 +154,8 @@ const get_preference_by_userId = (profile_collection, userId) => {
   });
 };
 
-//get categories by preference
-const get_categories_by_preferences = (preferences_collection, preferences) => {
-  return new Promise((resolve, reject) => {
-    preferences_collection.find(
-      { "preferences.db_id": preferences },
-      (err, result) => {
-        const preferences_count = result.length;
-        if (preferences_count === 0) {
-          reject("invalid preferences");
-        } else {
-          const catergories = result[0].catergories;
-          resolve(catergories);
-        }
-      }
-    );
-  });
-};
-
 //get categories by userId
-const get_categories_by_userId = (profile_collection, userId) => {
+const get_pref_categories_by_userId = (profile_collection, userId) => {
   return new Promise((resolve, reject) => {
     profile_collection.find({ uid: userId }, (err, result) => {
       const user_count = result.length;
@@ -189,43 +171,96 @@ const get_categories_by_userId = (profile_collection, userId) => {
   });
 };
 
-/*
-functions for product history go with this DT2
-<DT 2 "Profile Data">    
-{
-    "db_id": String(), 
-    "uid": DT1.uid,
-    "timestamp": DT1.timestamp, 
-    "email": { 
-        "changed": (true || false), 
-        "value": DT1.user.email
-    },
-    "history": { 
-        "size": DT4.size,
-        "history_log:-----", //for keeping track of change
-        "products": [DT4.id(),...]
-    } 
-    "preferences": DT3.db_id
-}
-*/
-
-//get history by userId
-const get_history_by_userId = (profile_collection, userId) => {
+//get ingredients by userId
+const get_pref_ingredients_by_userId = (profile_collection, userId) => {
   return new Promise((resolve, reject) => {
     profile_collection.find({ uid: userId }, (err, result) => {
       const user_count = result.length;
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const history_list = result[0].history.products;
-        resolve(history_list);
+        const preference_id = result[0].preferences;
+        const preference = profile_collection.children.id(preference_id);
+        const ingredients = preference.ingredients;
+        resolve(ingredients);
+      }
+    });
+  });
+};
+
+//get category color preferrence by userId and category name
+const get_category_color_pref_by_userId_and_category_name = (
+  profile_collection,
+  userId,
+  category_name
+) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const preference_id = result[0].preferences;
+        const preference = profile_collection.children.id(preference_id);
+        const catergories = preference.catergories;
+        for (let i = 0; i < catergories.length; i++) {
+          if (
+            catergories[i].category.toLowerCase() ===
+            category_name.toLowerCase()
+          )
+            resolve(catergories[i].color);
+        }
+        reject("category not found");
+      }
+    });
+  });
+};
+
+//get ingredient color preferrence by userId and ingredient name
+const get_ingredient_color_pref_by_userId_and_ingredient_name = (
+  profile_collection,
+  userId,
+  ingredient_name
+) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const preference_id = result[0].preferences;
+        const preference = profile_collection.children.id(preference_id);
+        const ingredients = preference.ingredients;
+        for (let i = 0; i < ingredients.length; i++) {
+          if (
+            ingredients[i].ingredient.toLowerCase() ===
+            ingredient_name.toLowerCase()
+          )
+            resolve(ingredients[i].color);
+        }
+        reject("ingredient not found");
+      }
+    });
+  });
+};
+
+//-------------------------history info-----------------------------------
+//get history by userId
+const get_user_history_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        resolve(result[0].history);
       }
     });
   });
 };
 
 //get history size by userId
-const get_history_size_by_userId = (profile_collection, userId) => {
+const get_user_history_size_by_userId = (profile_collection, userId) => {
   return new Promise((resolve, reject) => {
     profile_collection.find({ uid: userId }, (err, result) => {
       const user_count = result.length;
@@ -239,10 +274,72 @@ const get_history_size_by_userId = (profile_collection, userId) => {
   });
 };
 
+//get history size by userId
+const get_locationId_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        resolve(result[0].history.location);
+      }
+    });
+  });
+};
+
+//get location(user history object) by userId
+const get_location_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const location_id = result[0].history.location;
+        const location = profile_collection.children.id(location_id);
+        resolve(location);
+      }
+    });
+  });
+};
+
+//get log by userId
+const get_log_array_by_userId = (profile_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    profile_collection.find({ uid: userId }, (err, result) => {
+      const user_count = result.length;
+      if (user_count === 0) {
+        reject("invalid userId");
+      } else {
+        const location_id = result[0].history.location;
+        const location = profile_collection.children.id(location_id);
+        resolve(location.log);
+      }
+    });
+  });
+};
+
+//-------------------------product ino----------------------------------
+
+//get history products by userId throught product collection
+const get_history_products_by_userId = (product_collection, userId) => {
+  return new Promise((resolve, reject) => {
+    product_collection.find({ owner: userId }, (err, result) => {
+      const product_count = result.length;
+      if (product_count === 0) {
+        reject("the user hasnt saved any product");
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
 //get product by product Id
 const get_product_by_productId = (product_collection, productId) => {
   return new Promise((resolve, reject) => {
-    product_collection.find({ db_id: productId }, (err, result) => {
+    product_collection.find({ da_id: productId }, (err, result) => {
       const product_count = result.length;
       if (product_count === 0) {
         reject("invalid productId");
@@ -267,7 +364,7 @@ const get_productName_by_productId = (product_collection, productId) => {
   });
 };
 
-//get product image by product Id
+//get product images by product Id
 const get_productImg_by_productId = (product_collection, productId) => {
   return new Promise((resolve, reject) => {
     product_collection.find({ db_id: productId }, (err, result) => {
@@ -281,8 +378,8 @@ const get_productImg_by_productId = (product_collection, productId) => {
   });
 };
 
-//get product image by product Id
-const get_productIngrdt_by_productId = (product_collection, productId) => {
+//get product ingredients by product Id
+const get_productIngrdts_by_productId = (product_collection, productId) => {
   return new Promise((resolve, reject) => {
     product_collection.find({ db_id: productId }, (err, result) => {
       const product_count = result.length;
@@ -295,25 +392,74 @@ const get_productIngrdt_by_productId = (product_collection, productId) => {
   });
 };
 
-//what left is :
-//get email status
-//get preference by userId
-//get ingredients by preference
-//get ingredients by userId
+//-----------------------------ingredients info---------------------------------
+//get ingredient by ingredient Id
+const get_ingredient_by_ingredientId = (
+  ingredient_collection,
+  ingredientId
+) => {
+  return new Promise((resolve, reject) => {
+    ingredient_collection.find({ da_id: ingredientId }, (err, result) => {
+      const product_count = result.length;
+      if (ingredient_count === 0) {
+        reject("invalid ingredientId");
+      } else {
+        resolve(result[0]);
+      }
+    });
+  });
+};
 
-//location is production collection according to ducumentation librabry
-//get product by userId
-//get ingredients by product
-//get images by product
+//get ingredient name by ingredient Id
+const get_ingredientName_by_ingredientId = (
+  ingredient_collection,
+  ingredientId
+) => {
+  return new Promise((resolve, reject) => {
+    ingredient_collection.find({ da_id: ingredientId }, (err, result) => {
+      const ingredient_count = result.length;
+      if (ingredient_count === 0) {
+        reject("invalid ingredientId");
+      } else {
+        resolve(result[0].name);
+      }
+    });
+  });
+};
 
-//get name from ingrients collection
-//get synonyms from ingrients collection
-//get description from ingrients collection
-//get drugbank link from ingrients collection
-//get tally from ingrients collection
+//get ingredient description by ingredient Id
+const get_ingredient_desc_by_ingredientId = (
+  ingredient_collection,
+  ingredientId
+) => {
+  return new Promise((resolve, reject) => {
+    ingredient_collection.find({ da_id: ingredientId }, (err, result) => {
+      const ingredient_count = result.length;
+      if (ingredient_count === 0) {
+        reject("invalid ingredientId");
+      } else {
+        resolve(result[0].description);
+      }
+    });
+  });
+};
 
-//D6 and D7
-//dg.log
+//get ingredient wikilink by ingredient Id
+const get_ingredient_wikilink_by_ingredientId = (
+  ingredient_collection,
+  ingredientId
+) => {
+  return new Promise((resolve, reject) => {
+    ingredient_collection.find({ da_id: ingredientId }, (err, result) => {
+      const ingredient_count = result.length;
+      if (ingredient_count === 0) {
+        reject("invalid ingredientId");
+      } else {
+        resolve(result[0].wikilink);
+      }
+    });
+  });
+};
 
 module.exports = {
   check_username_unique: check_username_unique,
@@ -326,12 +472,22 @@ module.exports = {
   get_useremail_by_userId: get_useremail_by_userId,
   get_preferenceId_by_userId: get_preferenceId_by_userId,
   get_preference_by_userId: get_preference_by_userId,
-  get_categories_by_preferences: get_categories_by_preferences,
-  get_categories_by_userId: get_categories_by_userId,
-  get_history_by_userId: get_history_by_userId,
-  get_history_size_by_userId: get_history_size_by_userId,
+  get_pref_categories_by_userId: get_pref_categories_by_userId,
+  get_pref_ingredients_by_userId: get_pref_ingredients_by_userId,
+  get_category_color_pref_by_userId_and_category_name: get_category_color_pref_by_userId_and_category_name,
+  get_ingredient_color_pref_by_userId_and_ingredient_name: get_ingredient_color_pref_by_userId_and_ingredient_name,
+  get_user_history_by_userId: get_user_history_by_userId,
+  get_user_history_size_by_userId: get_user_history_size_by_userId,
+  get_locationId_by_userId: get_locationId_by_userId,
+  get_location_by_userId: get_location_by_userId,
+  get_log_array_by_userId: get_log_array_by_userId,
+  get_history_products_by_userId: get_history_products_by_userId,
   get_product_by_productId: get_product_by_productId,
   get_productName_by_productId: get_productName_by_productId,
   get_productImg_by_productId: get_productImg_by_productId,
-  get_productIngrdt_by_productId: get_productIngrdt_by_productId
+  get_productIngrdts_by_productId: get_productIngrdts_by_productId,
+  get_ingredient_by_ingredientId: get_ingredient_by_ingredientId,
+  get_ingredientName_by_ingredientId: get_ingredientName_by_ingredientId,
+  get_ingredient_desc_by_ingredientId: get_ingredient_desc_by_ingredientId,
+  get_ingredient_wikilink_by_ingredientId: get_ingredient_wikilink_by_ingredientId
 };
