@@ -65,24 +65,29 @@ const update_pref_category_color = (
   newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_categories = preference.categories.map(x => {
-      if (x.category.toLowerCase() === category_name.toLowerCase()) {
-        x.color = newcolor;
+    prefrence_collection.findById(prefId, (err, result) => {
+      if (err) reject(err);
+      else {
+        const preference = result;
+        const new_categories = preference.categories.map(x => {
+          if (x.category.toLowerCase() === category_name.toLowerCase()) {
+            x.color = newcolor;
+          }
+          return x;
+        });
+        preference.update(
+          { uid: prefId },
+          { categories: new_categories },
+          (err, result) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(true);
+            }
+          }
+        );
       }
-      return x;
     });
-    preference.update(
-      { uid: prefId },
-      { categories: new_categories },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
-      }
-    );
   });
 };
 
@@ -97,24 +102,29 @@ const update_pref_ingredient_color = (
   newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_ingredients = preference.ingredients.map(x => {
-      if (x.ingredient.toLowerCase() === ingredient_name.toLowerCase()) {
-        x.color = newcolor;
+    prefrence_collection.findById(prefId, (err, result) => {
+      if (err) reject(err);
+      else {
+        const preference = result;
+        const new_ingredients = preference.ingredients.map(x => {
+          if (x.ingredient.toLowerCase() === ingredient_name.toLowerCase()) {
+            x.color = newcolor;
+          }
+          return x;
+        });
+        preference.update(
+          { uid: prefId },
+          { ingredients: new_ingredients },
+          (err, result) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(true);
+            }
+          }
+        );
       }
-      return x;
     });
-    preference.update(
-      { uid: prefId },
-      { ingredients: new_ingredients },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
-      }
-    );
   });
 };
 
@@ -125,21 +135,26 @@ const update_pref_ingredient_color = (
 //assume the category has been checked to be exsiting
 const delete_pref_category = (prefrence_collection, prefId, category_name) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_categories = preference.categories.filter(x => {
-      return x.category.toLowerCase() !== category_name.toLowerCase();
-    });
-    preference.update(
-      { uid: prefId },
-      { categories: new_categories },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
+    prefrence_collection.findById(prefId, (err, result) => {
+      if (err) reject(err);
+      else {
+        const preference = result;
+        const new_categories = preference.categories.filter(x => {
+          return x.category.toLowerCase() !== category_name.toLowerCase();
+        });
+        preference.update(
+          { uid: prefId },
+          { categories: new_categories },
+          (err, result) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(true);
+            }
+          }
+        );
       }
-    );
+    });
   });
 };
 
@@ -153,21 +168,26 @@ const delete_pref_ingredient = (
   ingredient_name
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_ingredients = preference.ingredients.filter(x => {
-      return x.ingredient.toLowerCase() !== ingredient_name.toLowerCase();
-    });
-    preference.update(
-      { uid: prefId },
-      { ingredients: new_ingredients },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
+    prefrence_collection.findById(prefId, (err, result) => {
+      if (err) reject(err);
+      else {
+        const preference = result;
+        const new_ingredients = preference.ingredients.filter(x => {
+          return x.ingredient.toLowerCase() !== ingredient_name.toLowerCase();
+        });
+        preference.update(
+          { uid: prefId },
+          { ingredients: new_ingredients },
+          (err, result) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(true);
+            }
+          }
+        );
       }
-    );
+    });
   });
 };
 
@@ -184,19 +204,18 @@ const update_pref_with_new_category_and_color = (
   newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_categories = preference.categories.append({
-      category: new_category,
-      color: newcolor
-    });
-    preference.update(
+    prefrence_collection.update(
       { uid: prefId },
-      { categories: new_categories },
+      {
+        $push: {
+          categories: { category: new_category, color: newcolor }
+        }
+      },
       (err, result) => {
         if (err) {
           reject(err);
         } else {
-          resolve(true);
+          resolve(new_category);
         }
       }
     );
@@ -214,19 +233,18 @@ const update_pref_with_new_ingredient_and_color = (
   newcolor
 ) => {
   return new Promise((resolve, reject) => {
-    const preference = prefrence_collection.children.id(prefId);
-    const new_ingredients = preference.ingredients.append({
-      ingredient: new_ingredient,
-      color: newcolor
-    });
-    preference.update(
+    prefrence_collection.update(
       { uid: prefId },
-      { ingredients: new_ingredients },
+      {
+        $push: {
+          ingredients: { ingredient: new_ingredient, color: newcolor }
+        }
+      },
       (err, result) => {
         if (err) {
           reject(err);
         } else {
-          resolve(true);
+          resolve(new_ingredient);
         }
       }
     );

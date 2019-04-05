@@ -99,7 +99,7 @@ const get_username_by_userId = (user_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const username = result[0].name;
+        const username = result[0].user.name;
         resolve(username);
       }
     });
@@ -114,7 +114,7 @@ const get_useremail_by_userId = (user_collection, userId) => {
       if (user_count === 0) {
         reject("invalid userId");
       } else {
-        const useremail = result[0].email;
+        const useremail = result[0].user.email;
         resolve(useremail);
       }
     });
@@ -461,6 +461,23 @@ const get_ingredient_wikilink_by_ingredientId = (
   });
 };
 
+//get ingredient tally by ingredient Id
+const get_ingredient_tally_by_ingredientId = (
+  ingredient_collection,
+  ingredientId
+) => {
+  return new Promise((resolve, reject) => {
+    ingredient_collection.find({ da_id: ingredientId }, (err, result) => {
+      const ingredient_count = result.length;
+      if (ingredient_count === 0) {
+        reject("invalid ingredientId");
+      } else {
+        resolve(result[0].tally);
+      }
+    });
+  });
+};
+
 module.exports = {
   check_username_unique: check_username_unique,
   check_useremail_unique: check_useremail_unique,
@@ -489,5 +506,6 @@ module.exports = {
   get_ingredient_by_ingredientId: get_ingredient_by_ingredientId,
   get_ingredientName_by_ingredientId: get_ingredientName_by_ingredientId,
   get_ingredient_desc_by_ingredientId: get_ingredient_desc_by_ingredientId,
-  get_ingredient_wikilink_by_ingredientId: get_ingredient_wikilink_by_ingredientId
+  get_ingredient_wikilink_by_ingredientId: get_ingredient_wikilink_by_ingredientId,
+  get_ingredient_tally_by_ingredientId: get_ingredient_tally_by_ingredientId
 };

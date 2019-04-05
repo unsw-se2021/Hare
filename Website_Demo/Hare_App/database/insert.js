@@ -61,7 +61,7 @@ const create_user_auth = (username, email, password) => {
       insert_data(db_do, new_user);
       let history_id = create_history(db_do, userid);
       // call create_preferences();
-      let preference_id = create_preferences(db_do, userid);
+      let preference_id = create_preferences(db_do);
       // call create_profile();
       create_profile(db_do, userid, history_id, preference_id);
     })
@@ -79,9 +79,8 @@ const create_user_auth = (username, email, password) => {
 const create_profile = (db_do, userid, history_id, preference_id) => {
   const profile = require("./models/export").profile;
   const mongoose = require("mongoose");
-  let profile_id = new mongoose.mongo.ObjectId();
   const new_profile = new profile({
-    _id: profile_id,
+    _id: userid,
     uid: userid,
     history: {
       size: 0,
@@ -101,13 +100,13 @@ const create_profile = (db_do, userid, history_id, preference_id) => {
  *
  */
 
-const create_preferences = (db_do, userid) => {
+const create_preferences = db_do => {
   const preferences = require("./models/export").preferences;
   const mongoose = require("mongoose");
   let preference_id = new mongoose.mongo.ObjectId();
   let new_preference = new preferences({
     _id: preference_id,
-    uid: userid,
+    uid: preference_id,
     default: true,
     categories: [],
     ingredients: []
@@ -150,24 +149,15 @@ const create_result_page = () => {};
  *
  *
  */
-const create_ingredient = (
-  db_do,
-  userId,
-  ingrdtName,
-  synonyms,
-  description,
-  wikilink
-) => {
+const create_ingredient = (db_do, ingrdtName, description, wikilink) => {
   const ingredient = require("./models/export").ingredient;
-  const db_do = require("./helpers");
   const mongoose = require("mongoose");
 
   let ingredient_id = new mongoose.mongo.ObjectId();
   let new_ingredient = new ingredient({
     _id: ingredient_id,
-    uid: userId,
     name: ingrdtName,
-    synonyms: synonyms,
+    synonyms: [],
     description: description,
     wikilink: wikilink,
     tally: 1
