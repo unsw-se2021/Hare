@@ -1,6 +1,6 @@
 
 // Set Username
-const setUsernameLS = (username) => { 
+const setUsernameLS = (username) => {
 	localStorage.setItem('username', username);
 } 
 
@@ -23,7 +23,7 @@ const getPasswordLS = () => {
 
 // Log user in or out using set usr/pass
 const authenticateUser = () => {
-	let pass =getPasswordLS(); 
+	let pass = getPasswordLS(); 
 	let usr = getUsernameLS(); 
 
 	if(usr == "John" && pass == "123") { 
@@ -35,7 +35,7 @@ const authenticateUser = () => {
 
 // Find out if the user is logged in or out 
 const isAuthenticated = () => { 
-	return localStorage.getItem('auth'); 
+	return (localStorage.getItem('auth')); 
 } 
 
 export default { 

@@ -28,15 +28,30 @@ const NavbarDiv = () => {
 
 class UserButton extends Component {
 
-	render() { 
+	state = { auth: false } 
+
+	setAuth = (val) => { 
+		this.setState({ auth: val });  
+	} 
+
+	render() {
+		const { auth } = this.state;
+		console.log(auth);
 		return(
 			<DropButton
 				icon={<Icons.User color={Colors.dark3}/>}
 				dropAlign={{ top: 'bottom', right: 'right' }}
 				dropContent={
 					<Box pad="small" background="">
-						<RegisterModal/>
-						<LoginModal/>
+						{ (!auth) && (
+							<div>
+								<RegisterModal/> 
+								<LoginModal onSubmit={this.setAuth}/> 
+							</div> 
+						) } 
+						{ (auth) && (
+							<p>Logged in!</p> 
+						) }
 					</Box> 
 				}
 			/>
@@ -44,14 +59,49 @@ class UserButton extends Component {
 	}
 }
 
+class TextInputBar extends Component {
+	state = { value: "" };
+
+	ref = React.createRef();
+	onChange = event => { 
+		this.setState({ value: event.target.value })
+		this.setUsername(event.target.value); 	
+	};
+
+	setUsername = (usr) => this.props.onSet(usr); 
+
+	render() {
+		const { value } = this.state;
+		return (
+			<Box width="medium">
+				<TextInput ref={this.ref} value={value} onChange={this.onChange} />
+			</Box>
+		);
+	}
+}
+
 class LoginModal extends Component { 
 
 	state = {};
-
 	onOpen = () => this.setState({ open: true });
-
 	onClose = () => this.setState({ open: undefined });
+	setusername = (usr) => this.setState({ usr: usr });  
+	setpassword = (pss) => this.setState({ pss: pss }); 
 
+	sendLogin = () => { 
+		const { usr, pss } = this.state; 
+		AuthService.setUsernameLS(usr); 
+		AuthService.setPasswordLS(pss);
+		AuthService.authenticateUser();
+		let login_result = AuthService.isAuthenticated(); 
+
+		if(login_result) { 	
+			this.onClose();
+			this.props.onSubmit(true); 
+		} else { 
+			console.log("Login failed");
+		} 
+	} 
 
 	render() {
 		const { open } = this.state;
@@ -60,16 +110,21 @@ class LoginModal extends Component {
 				<Button icon={<Icons.Login color={Colors.dark3}/>}  onClick={this.onOpen} label="Log in" plain/>
 				{ open && (
 					<Layer position="center" modal onClickOutside={this.onClose} onEsc={this.onClose}>
-						<Box pad="medium" gap="small" width="medium" height="400px">
-							<Text size="24pt" color={Colors.dark3}> Log in </Text>
-							<Box height="20px"/>
-							<Text size="12pt"> Username </Text> 
-							<Box fill align="center" justify="start" pad="large">
-								<Box width="medium">
-									<TextInput ref={this.ref} value={value} onChange={this.onChange} />
-								</Box>
-							</Box>
-							<Text size="12pt"> Password</Text> 
+						<Box direction="row" pad={{ left: 'medium', right: 'medium', top: 'medium'}} justify="between"> 
+						<Text size="24pt" color={Colors.dark3}> Log in </Text>
+						<Button icon={<Icons.Close color={Colors.dark3} />} onClick={this.onClose}/>
+						</Box> 
+						
+						<Box pad='medium'>
+							<Text size="12pt" color={Colors.dark3}> Username </Text> 
+							<Box pad={{ bottom: 'xsmall' }}/>
+							<TextInputBar onSet={this.setusername}/>
+							<Box pad={{ bottom: 'medium' }}/>
+							<Text size="12pt" color={Colors.dark3}> Password </Text> 
+							<Box pad={{ bottom: 'xsmall' }}/>
+							<TextInputBar onSet={this.setpassword}/>
+							<Box pad={{ bottom: 'medium' }}/>
+							<Button label='SUBMIT' onClick={this.sendLogin}/>
 						</Box> 
 					</Layer> 
 				)} 
@@ -96,7 +151,7 @@ class RegisterModal extends Component {
 				{ open && (
 					<Layer position="center" modal onClickOutside={this.onClose} onEsc={this.onClose}>
 						<Box pad="medium" gap="small" width="medium" height="400px">
-							<Text size="24pt" color={Colors.dark3}> Log in </Text> 
+							<Text size="24pt" color={Colors.dark3}> This obviously doesn't work.</Text> 
 						</Box> 
 					</Layer> 
 				)} 
