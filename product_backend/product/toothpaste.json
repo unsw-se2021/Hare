@@ -1,0 +1,81 @@
+{
+  "categories": {
+    "Ions": [
+      "Purified Water",
+      "Magnesium Aluminium Silicate",
+      "Potassium Nitrate"
+    ],
+    "Irrigating Solutions": [
+      "Purified Water",
+      "Sorbitol",
+      "Glycerin"
+    ],
+    "Alcohols": [
+      "Sorbitol",
+      "Glycerin",
+      "Sodium Lauryl Sulphate"
+    ],
+    "Electrolytes": [
+      "Purified Water",
+      "Magnesium Aluminium Silicate",
+      "Potassium Nitrate"
+    ],
+    "Laxatives": [
+      "Sorbitol",
+      "Glycerin",
+      "Potassium Nitrate"
+    ],
+    "Osmotic Laxative": [
+      "Sorbitol",
+      "Glycerin",
+      "Potassium Nitrate"
+    ],
+    "Acids": [
+      "Sodium Lauryl Sulphate",
+      "Magnesium Aluminium Silicate",
+      "Potassium Nitrate"
+    ],
+    "Acids, Noncarboxylic": [
+      "Sodium Lauryl Sulphate",
+      "Magnesium Aluminium Silicate",
+      "Potassium Nitrate"
+    ],
+    "Anions": [
+      "Purified Water",
+      "Magnesium Aluminium Silicate",
+      "Potassium Nitrate"
+    ],
+    "Drugs for Constipation": [
+      "Sorbitol",
+      "Glycerin"
+    ],
+    "Not Found": [
+      "Dicalcium Phosphate Dihydrate",
+      "Hydroxyethylcellulose",
+      "Sodium Saccharin",
+      "Potassium Sorbate",
+      "Sodium Monofluorophosphate"
+    ],
+    "others": [
+      "Propolis",
+      "Mentha Piperita Oil",
+      "Menthol"
+    ]
+  },
+  "ingredients": {
+    "Dicalcium Phosphate Dihydrate": null,
+    "Purified Water": "Water (chemical formula: H2O) is a transparent fluid which forms the world's streams, lakes, oceans and rain, and is the major constituent of the fluids of organisms. As a chemical compound, a water molecule contains one oxygen and two hydrogen atoms that are connected by covalent bonds. Water is a liquid at standard ambient temperature and pressure, but it often co-exists on Earth with its solid state, ice; and gaseous state, steam (water vapor).",
+    "Sorbitol": "A polyhydric alcohol with about half the sweetness of sucrose. Sorbitol occurs naturally and is also produced synthetically from glucose. It was formerly used as a diuretic and may still be used as a laxative and in irrigating solutions for some surgical procedures.",
+    "Glycerin": "A trihydroxy sugar alcohol that is an intermediate in carbohydrate and lipid metabolism.",
+    "Sodium Lauryl Sulphate": "Sodium Lauryl Sulfate (SLS) is an anionic surfactant naturally derived from coconut and\/or palm kernel oil. It usually consists of a mixture of sodium alkyl sulfates, mainly the lauryl. SLS lowers surface tension of aqueous solutions and is used as fat emulsifier, wetting agent, and detergent in cosmetics, pharmaceuticals and toothpastes. It is also used in creams and pastes to properly disperse the ingredients and as research tool in protein biochemistry. SLS also has some microbicidal activity.",
+    "Hydroxyethylcellulose": null,
+    "Magnesium Aluminium Silicate": "Magnesium aluminum silicate is a naturally occurring mineral obtained from silicate ores of the montmorillonite group [A32782]. It is refined to a powder for use in cosmetic and pharmaceutical applications as an absorbent, anticaking agent, opacifying agent, viscosity-increasing agent, suspending agent, tablet and capsule disintegrant, and&#13;",
+    "Propolis": "Propolis wax is naturally produced by honeybees by mixing the resin or exudate collected from tree buds, sap flows, or other botanical sources with beeswax that contains fatty acids and bee enzymes. Propolis itself contains various chemical compounds including flavonoids, terpenoids, aldehydes, aromatic acids, aliphatic alcohols and ethers, amino acids, and sugars.&#13;",
+    "Mentha Piperita Oil": "Extracted from the stem, leaves, and flowers of _Mentha piperita_ L. plant, peppermint oil (Mentha piperita) is a popular essential oil used in aromatherapy for both external and internal use. Mentha piperita is a hybrid of spearmint (Mentha spicata) and water mint (Mentha aquatica) [A33065]. Medicinal use of herbal ingredients such as peppermint oil has a long history of treating digestive disorders and upper respiratory symptoms and cough [A33055]. There are various over-the-counter and commercial uses of peppermint oil due to its carminative, cholagogue, antibacterial, secretolytic, and choleretic actions [A33056]. Peppermint oil contains pulegone, which is a naturally-occurring pesticide [F77]. Other active constituents of peppermint oil include [DB00825], menthone, cineol, and several other volatile oils [A33055, A33056]. &#13;",
+    "Menthol": "Menthol is a covalent organic compound made synthetically or obtained from peppermint or other mint oils. It is a waxy, crystalline substance, clear or white in color, which is solid at room temperature and melts slightly above. The main form of menthol occurring in nature is (-)-menthol, which is assigned the (1R,2S,5R) configuration. Menthol has local anesthetic and counterirritant qualities, and it is widely used to relieve minor throat irritation.",
+    "Sodium Saccharin": null,
+    "Potassium Sorbate": null,
+    "Sodium Monofluorophosphate": null,
+    "Potassium Nitrate": "Potassium nitrate has a chemical formula of KNO3. It is an ionic salt of potassium ions K+ and nitrate ions NO3\u2212 and is, therefore, an alkali metal nitrate. It is a natural source of nitrate and has been used as a constituent for several different purposes, including food preservatives, fertilizers, tree stump removal, rocket propellants, and fireworks. Potassium nitrate is a common active ingredient in toothpaste, exerting an anti-sensitivity action. It provides increasing protection against painful sensitivity of the teeth to cold, heat, acids, sweets or contact [L1754, L1755].&#13;"
+  }
+}

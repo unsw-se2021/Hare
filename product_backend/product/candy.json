@@ -1,0 +1,74 @@
+{
+  "categories": {
+    "Acids, Acyclic": [
+      "azelaic acid",
+      "gluconolactone",
+      "caprylic acid"
+    ],
+    "Carbohydrates": [
+      "white sugar",
+      "gluconolactone",
+      "maltodextrin"
+    ],
+    "Food": [
+      "white sugar",
+      "butter",
+      "Vitamin D"
+    ],
+    "Food and Beverages": [
+      "white sugar",
+      "butter",
+      "Vitamin D"
+    ],
+    "Physiological Phenomena": [
+      "white sugar",
+      "butter",
+      "Vitamin D"
+    ],
+    "Lipids": [
+      "sodium",
+      "butter",
+      "caprylic acid"
+    ],
+    "Diet, Food, and Nutrition": [
+      "white sugar",
+      "butter",
+      "Vitamin D"
+    ],
+    "Calculi Dissolution Agent": [
+      "gluconolactone"
+    ],
+    "Hydroxy Acids": [
+      "gluconolactone",
+      "vanillic acid"
+    ],
+    "Polysaccharides": [
+      "white sugar"
+    ],
+    "others": [
+      "gelatin",
+      "Malt Extract",
+      "sodium citrate"
+    ],
+    "Not Found": [
+      "caramel",
+      "soy lecithin"
+    ]
+  },
+  "ingredients": {
+    "white sugar": "A nonreducing disaccharide composed of glucose and fructose linked via their anomeric carbons. It is obtained commercially from sugarcane, sugar beet (beta vulgaris), and other plants and used extensively as a food and a sweetener. [PubChem]",
+    "sodium": "An anionic surface-active agent used for its wetting properties in industry and used in medicine as an irritant and sclerosing agent for hemorrhoids and varicose veins.",
+    "butter": "Cocoa butter is an edible natural fat obtained from the _Theobroma cocoa_ seeds that is predominantly found in dark chocolate [A33033]. It is a rich source of monounsaturated and saturated fatty acids [A33040] that mainly contains approximately 33% [DB04224], 25% [DB03796], and 33% [DB03193] [A20409] but does not contain caffeine or theobromine. Fat cocoa solids, including cocoa butter, have lower phenolic content than non-fat cocoa solids but may contain some polyphenols of different structures of flavonoids with antioxidant properties [A33041].&#13;",
+    "Vitamin D": "Vitamin D ultimately comprises a group of lipid-soluble secosteroids responsible for a variety of biological effects, some of which include increasing the intestinal absorption of calcium, magnesium, and phosphate. With reference to human use, there are 2 main forms of vitamin D - vitamin D3 (cholecalciferol) and vitamin D2 (ergocalciferol). When non-specific references are made about 'vitamin d', the references are usually about the use of vitamin D3 and\/or D2.&#13;",
+    "azelaic acid": "Azelaic acid is a saturated dicarboxylic acid found naturally in wheat, rye, and barley. It is a natural substance that is produced by Malassezia furfur (also known as Pityrosporum ovale), a yeast that lives on normal skin. It is effective against a number of skin conditions, such as mild to moderate acne, when applied topically in a cream formulation of 20%. It works in part by stopping the growth of skin bacteria that cause acne, and by keeping skin pores clear. Azelaic acid's antimicrobial action may be attributable to inhibition of microbial cellular protein synthesis.",
+    "gluconolactone": "Gluconolactone is a naturally-occurring food additive used as a sequestrant, an acidifier, or a curing, pickling, or leavening agent. It is a cyclic ester of D-gluconic acid. Pure gluconolactone is a white odorless crystalline powder.",
+    "maltodextrin": "Maltodextrin is under investigation for the treatment and prevention of Autism, Pouchitis, Inflammation, Colonic Cancer, and Atopic Dermatitis, among others. Maltodextrin has been investigated for the prevention and treatment of Fatigue, Thalassemia, Constipation, Type I Diabetes, and Sickle Cell Anemia, among others.",
+    "vanillic acid": "A flavoring agent. It is the intermediate product in the two-step bioconversion of ferulic acid to vanillin. (J Biotechnol 1996;50(2-3):107-13).",
+    "gelatin": "Gelatin is a multifunctional ingredient that is used in foods, pharmaceuticals, cosmetics, and photographic films as a gelling agent, stabilizer, thickener, emulsifier, as well as film former [A32432]. &#13;",
+    "caramel": null,
+    "Malt Extract": "",
+    "soy lecithin": null,
+    "sodium citrate": "Sodium citrate is the sodium salt of citric acid. It is white, crystalline powder or white, granular crystals, slightly deliquescent in moist air, freely soluble in water,&#13;",
+    "caprylic acid": "Caprylic acid is the common name for the eight-carbon straight chain fatty acid known by the systematic name octanoic acid. It is found naturally in coconuts and breast milk. It is an oily liquid with a slightly unpleasant rancid-like smell that is minimally soluble in water."
+  }
+}
