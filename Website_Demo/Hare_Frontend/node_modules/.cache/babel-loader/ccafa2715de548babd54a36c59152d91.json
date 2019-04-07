@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { deepMerge } from './utils';\nimport { base } from './themes/base';\nexport var defaultProps = {\n  theme: base\n};\nexport var extendDefaultTheme = function extendDefaultTheme(theme) {\n  defaultProps.theme = deepMerge(base, theme);\n};","map":null,"metadata":{},"sourceType":"module"}

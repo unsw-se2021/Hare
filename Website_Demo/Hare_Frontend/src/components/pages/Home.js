@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grommet, grommet, Box, Button, Heading, Menu, Paragraph, Image, Text} from "grommet";
 import * as Icons from "grommet-icons";
-import { Route, Link, Router, BrowserRouter } from "react-router-dom";
+import { Route, Link, Router, BrowserRouter, NavLink } from "react-router-dom";
 
 import Colors from '../Color.js'
 import bgimg from '../homebg.png' 
@@ -24,11 +24,11 @@ const Spacer = () => {
 }
 
 const UploadButton = () => { 
-	return( 
+	return(
 		<Box alignSelf="center" background={Colors.primary} width="300px" height="50px" justify="center" align="center"> 
-			<Text size="16pt" color={Colors.grey3}> 
-				Scan something! 
-			</Text> 
+			<NavLink to='/upload' style={{ textDecoration: 'none' }}> 
+					<Text size="16pt" color={Colors.grey3}> Scan something! </Text> 
+			</NavLink> 
 		</Box>
 	); 
 } 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { css } from 'styled-components';\nexport var sizeStyle = function sizeStyle(name, value, theme) {\n  return css([\"\", \":\", \";\"], name, theme.global.size[value] || value);\n};","map":null,"metadata":{},"sourceType":"module"}

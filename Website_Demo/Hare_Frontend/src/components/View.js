@@ -1,19 +1,19 @@
 import React, { Component } from 'react'; 
 import { Grommet, grommet, Box, Heading, Menu } from 'grommet';
 import * as Icons from 'grommet-icons';
-import { Switch, Route, Link } from 'react-router-dom';
-
+import { Redirect, BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import AuthService from './AuthService';
 
 // PAGES IMPORTED 
 import Home from './pages/Home'; 
 //import Help from './Help';
-import UploadPage from './pages/Upload'; 
-import Product from './pages/Product'; 
+import UploadPage from './Upload'; 
+import ProductPage from './Product';
 //import Login from './Login'; 
 import Navbar from './Navbar';
 //import Footer from './Footer';  
 //import Errors from './Error'; 
-//import FourOFour from './404.js';
+import NoPage from './404.js';
 //import User from './User'; 
 //import UserProduct from './UserProduct';
 //import Registration from './Register';
@@ -25,43 +25,41 @@ import Navbar from './Navbar';
 import homebg from './homebg.png'; 
 import Colors from './Color.js';
 
-/*const bgstyle = { 
-	backgroundSize: 'cover',
-	overflow: 'hidden', 
-	zIndex: '1',
-} */
 
-/*const viewstyle = { 
-	zIndex: '2',
-	overflow: 'hidden', 
-} */
-
-/*const contentstyle = { 
-	position: 'fixed', 
-	top: '55px',
-	left: 0, 
-	zIndex: '2', 	
-} */
 
 // THE VIEW RENDERING OBJECT 
 class View extends Component { 
-	render() { 
+
+	componentDidMount() { 
+		AuthService.setUsernameLS("Joh");
+		AuthService.setPasswordLS("123"); 
+		AuthService.authenticateUser();
+		console.log("Authentication service started");
+		console.log(`User auth is ${AuthService.isAuthenticated()}`); 
+	} 
+	
+	render() {
+
+		let productid = "0"; 
 		return(
-			<Box alignContent='between' fill={true} > 
-				<Navbar />
-				<Box flex={true} fill={true} direction="row">
-					<Box direction="row" fill={true} overflow="scroll">
-						<Box pad={{ top: 'xsmall' }} fill={true}> 
-							<Switch>
-								<Route exact path="/" component={Home} />	
-								<Route path='/home' component={Home} /> 
-								<Route path='/upload' component={UploadPage} />
-								<Route path='/product' component={Product} />
-							</Switch> 
+			<Router>
+				<Switch>
+				<Box alignContent='between' fill={true} > 
+					<Box flex={true} fill={true} direction="row">
+						<Box direction="row" fill={true} overflow="scroll">
+							<Box pad={{ top: 'xsmall' }} fill={true}> 
+									<Navbar />
+									<Route exact path="/" component={Home} />	
+									<Route path='/home' component={Home} /> 
+									<Route path='/upload' component={UploadPage} />
+									<Route path={`/product/:productId`} component={ProductPage} />
+									<Route path='/404' component={NoPage} /> 
+							</Box>
 						</Box>
 					</Box>
 				</Box>
-			</Box>
+				</Switch> 
+			</Router> 
 		);	
 	}
 } 
