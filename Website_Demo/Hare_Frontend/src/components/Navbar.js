@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Grommet, grommet, Box, Button, Heading, Menu, Image, Text, Layer, DropButton} from 'grommet';
+import { Grommet, grommet, Box, Button, Heading, Menu, Image, Text, Layer, DropButton, TextInput} from 'grommet';
 import * as Icons from 'grommet-icons';
 import { browserHistory, Redirect, Route, Link, Router, withRouter } from 'react-router-dom';
 import Home from './pages/Home'; 
@@ -31,21 +31,21 @@ class UserButton extends Component {
 	render() { 
 		return(
 			<DropButton
-			icon={<Icons.User color={Colors.dark3}/>}
-			dropAlign={{ top: 'bottom', right: 'right' }}
-			dropContent={
-				<Box pad="small" background="">
-					<RegisterModal/>
-					<LoginModal/>
-				</Box> 
-			}
+				icon={<Icons.User color={Colors.dark3}/>}
+				dropAlign={{ top: 'bottom', right: 'right' }}
+				dropContent={
+					<Box pad="small" background="">
+						<RegisterModal/>
+						<LoginModal/>
+					</Box> 
+				}
 			/>
 		);
 	}
 }
 
 class LoginModal extends Component { 
-	
+
 	state = {};
 
 	onOpen = () => this.setState({ open: true });
@@ -61,7 +61,15 @@ class LoginModal extends Component {
 				{ open && (
 					<Layer position="center" modal onClickOutside={this.onClose} onEsc={this.onClose}>
 						<Box pad="medium" gap="small" width="medium" height="400px">
-							<Text size="24pt" color={Colors.dark3}> Log in </Text> 
+							<Text size="24pt" color={Colors.dark3}> Log in </Text>
+							<Box height="20px"/>
+							<Text size="12pt"> Username </Text> 
+							<Box fill align="center" justify="start" pad="large">
+								<Box width="medium">
+									<TextInput ref={this.ref} value={value} onChange={this.onChange} />
+								</Box>
+							</Box>
+							<Text size="12pt"> Password</Text> 
 						</Box> 
 					</Layer> 
 				)} 
@@ -72,7 +80,7 @@ class LoginModal extends Component {
 } 
 
 class RegisterModal extends Component { 
-	
+
 	state = {};
 
 	onOpen = () => this.setState({ open: true });
