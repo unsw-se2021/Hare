@@ -3,8 +3,8 @@ import { Grommet, grommet, Box, Button, Heading, Menu, Paragraph, Image, Text} f
 import * as Icons from "grommet-icons";
 import { Route, Link, Router, BrowserRouter, NavLink } from "react-router-dom";
 
-import Colors from '../Color.js'
-import bgimg from '../homebg.png' 
+import Colors from './Color.js'
+import bgimg from './homebg.png' 
 //import Navbar from '../page_elements/Navbar';
 
 const HomeTitle = (contents) => { 

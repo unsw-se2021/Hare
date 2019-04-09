@@ -5,7 +5,7 @@ import { Redirect, BrowserRouter as Router, Switch, Route, Link } from 'react-ro
 import AuthService from './AuthService';
 
 // PAGES IMPORTED 
-import Home from './pages/Home'; 
+import Home from './Home'; 
 //import Help from './Help';
 import UploadPage from './Upload'; 
 import ProductPage from './Product';

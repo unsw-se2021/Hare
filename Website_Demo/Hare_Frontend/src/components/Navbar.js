@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grommet, grommet, Box, Button, Heading, Menu, Image, Text, Layer, DropButton, TextInput} from 'grommet';
 import * as Icons from 'grommet-icons';
 import { browserHistory, Redirect, Route, Link, Router, withRouter } from 'react-router-dom';
-import Home from './pages/Home'; 
+import Home from './Home'; 
 //import Login from './Login'; 
 //import Register from './Register'; 
 import Colors from './Color'; 

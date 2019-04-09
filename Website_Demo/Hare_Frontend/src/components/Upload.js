@@ -3,8 +3,8 @@ import { Grommet, grommet, Box, Button, Heading, Menu, Paragraph, Text } from 'g
 import * as Icons from 'grommet-icons';
 import { Switch, BrowserRouter as Router, browserHistory, Redirect, withRouter, Link  } from 'react-router-dom';
 import Colors from './Color';
-import Home from './pages/Home'; 
-import StartDemo from './TestValues';  
+import Home from './Home'; 
+//import StartDemo from './TestValues';  
 
 const uploadTitle = (contents) => { 
 	return(
@@ -53,8 +53,8 @@ class UploadPage extends Component {
 		let reader = new FileReader(); 
 		reader.readAsDataURL(event.target.files[0]); 
 		reader.onload = (e) => {
-			StartDemo(e.target.result);
-			this.setState({ fileData: e.target.result }); 
+			//StartDemo(e.target.result);
+			//this.setState({ fileData: e.target.result }); 
 		} 
 		this.setState({
 			selectedFile: event.target.files[0],
