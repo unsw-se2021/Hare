@@ -10,6 +10,7 @@
     "react-dom": "^16.8.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^2.1.8",
+    "react-upload-button-v2": "^0.6.1",
     "styled-components": "^4.1.3"
   },
   "scripts": {

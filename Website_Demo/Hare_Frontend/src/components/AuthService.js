@@ -26,16 +26,37 @@ const authenticateUser = () => {
 	let pass = getPasswordLS(); 
 	let usr = getUsernameLS(); 
 
-	if(usr == "John" && pass == "123") { 
-		localStorage.setItem('auth', true); 
+	if((usr == null || usr === false) || (pass == null || pass === false)) {
+		console.log("[AuthService.js: authenticateUser()]: usr or pass is null"); 
+		console.log("[ARGS]: ", usr, pass);
+		localStorage.setItem("auth", false); 
+	} else if(usr == "John" && pass == "123") { 
+		localStorage.setItem("auth", true); 
 	} else { 
-		localStorage.setItem('auth', false); 
+		console.log("[AuthService.js: authenticateUser()]: invalid details entered");
+		console.log("[ARGS]: ", usr, pass); 
+		localStorage.setItem("auth", false); 
 	} 
 } 
 
 // Find out if the user is logged in or out 
 const isAuthenticated = () => { 
-	return (localStorage.getItem('auth')); 
+	let authval = String(localStorage.getItem('auth'));
+	if(Boolean(authval)) { 
+		console.log("[AuthService.js isAuthenticated()]: authval is truthy"); 
+		console.log("[ARGS]: ", authval); 
+		return authval; 	
+	} else { 
+		console.log("[AuthService.js isAuthenticated()]: Invalid authval"); 
+		console.log("[ARGS]: ", authval, "from", localStorage.getItem('auth')); 
+		return authval; 
+	} 
+} 
+
+const LogOut = () => { 
+	setPasswordLS(null); 
+	setUsernameLS(null); 
+	authenticateUser(); 
 } 
 
 export default { 
@@ -44,5 +65,6 @@ export default {
 	getUsernameLS, 
 	getPasswordLS, 
 	authenticateUser, 
-	isAuthenticated, 
+	isAuthenticated,
+	LogOut
 } 

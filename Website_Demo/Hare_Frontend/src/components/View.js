@@ -24,22 +24,21 @@ import NoPage from './404.js';
 //import highlightPage from './highlightPage';
 import homebg from './homebg.png'; 
 import Colors from './Color.js';
-
-
+import ProfilePage from './Profile';
 
 // THE VIEW RENDERING OBJECT 
 class View extends Component { 
 
-	componentDidMount() { 
-		AuthService.setUsernameLS("Joh");
-		AuthService.setPasswordLS("123"); 
+	componentDidMount() {
+		console.log("View has been mounted");  
 		AuthService.authenticateUser();
-		console.log("Authentication service started");
-		console.log(`User auth is ${AuthService.isAuthenticated()}`); 
+		console.log("[View.js componentDidMount()]: Authentication Service Start"); 
+		console.log("[RESULT]: Auth is set to " + AuthService.isAuthenticated()); 
+		this.setState({ loaded: true }); 
 	} 
-	
-	render() {
 
+
+	render() {
 		let productid = "0"; 
 		return(
 			<Router>
@@ -51,8 +50,11 @@ class View extends Component {
 									<Navbar />
 									<Route exact path="/" component={Home} />	
 									<Route path='/home' component={Home} /> 
+									<Route path='/about' component={NoPage} /> 
+									<Route path='/about/team' component={NoPage} />
 									<Route path='/upload' component={UploadPage} />
 									<Route path={`/product/:productId`} component={ProductPage} />
+									<Route path={`/profile/:profileId`} component={ProfilePage} />
 									<Route path='/404' component={NoPage} /> 
 							</Box>
 						</Box>

@@ -4,7 +4,7 @@ import * as Icons from 'grommet-icons';
 import { Switch, BrowserRouter as Router, browserHistory, Redirect, withRouter, Link  } from 'react-router-dom';
 import Colors from './Color';
 import Home from './pages/Home'; 
-
+import StartDemo from './TestValues';  
 
 const uploadTitle = (contents) => { 
 	return(
@@ -50,11 +50,16 @@ class UploadPage extends Component {
 	} 
 
 	onChangeHandler=event=>{
+		let reader = new FileReader(); 
+		reader.readAsDataURL(event.target.files[0]); 
+		reader.onload = (e) => {
+			StartDemo(e.target.result);
+			this.setState({ fileData: e.target.result }); 
+		} 
 		this.setState({
 			selectedFile: event.target.files[0],
 			loaded: 1,
-		})
-
+		})	
 		this.loaded = true 
 	}
 
@@ -68,12 +73,12 @@ class UploadPage extends Component {
 		); 
 	} 
 
-	getProductId = () => { 
-		return 1; 
+	getProductId = () => {
+		return "000000000000000000000000"; 
 	} 
 
 	// SUBMIT BUTTON 
-	submitButton = () => { 
+	submitButton = () => {
 		return( 
 			<Link to={`product/${this.getProductId()}`} style={{ textDecoration: 'none' }}> 
 				<Text size="12pt" color={Colors.grey3}> Submit</Text>

@@ -13,6 +13,7 @@ import View from './components/View.js';
 
 //<!--<Router routes={routes} /> -->
 class App extends Component { 
+	
 	render() { 
 		return (
 				<Grommet theme={grommet} full={true}>
