@@ -1,3 +1,14 @@
+//TODO
+/**
+ * Given the username/email and password, and db gives back uid. and if not valid err
+ * Given the uid, return the preference object
+ * Update preferences by uid
+ * Save the product object, delete product object
+ * Extras:
+ * Registration
+ * Updating user details
+ */
+
 //----------------------user info------------------------------
 //check duplication of user's name
 const check_username_unique = (user_collection, username) => {
