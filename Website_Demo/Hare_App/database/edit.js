@@ -135,26 +135,21 @@ const update_pref_ingredient_color = (
 //assume the category has been checked to be exsiting
 const delete_pref_category = (prefrence_collection, prefId, category_name) => {
   return new Promise((resolve, reject) => {
-    prefrence_collection.findById(prefId, (err, result) => {
-      if (err) reject(err);
-      else {
-        const preference = result;
-        const new_categories = preference.categories.filter(x => {
-          return x.category.toLowerCase() !== category_name.toLowerCase();
-        });
-        preference.update(
-          { uid: prefId },
-          { categories: new_categories },
-          (err, result) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(true);
-            }
-          }
-        );
+    prefrence_collection.update(
+      { uid: prefId },
+      {
+        $pull: {
+          categories: { category: category_name }
+        }
+      },
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
       }
-    });
+    );
   });
 };
 
@@ -168,26 +163,21 @@ const delete_pref_ingredient = (
   ingredient_name
 ) => {
   return new Promise((resolve, reject) => {
-    prefrence_collection.findById(prefId, (err, result) => {
-      if (err) reject(err);
-      else {
-        const preference = result;
-        const new_ingredients = preference.ingredients.filter(x => {
-          return x.ingredient.toLowerCase() !== ingredient_name.toLowerCase();
-        });
-        preference.update(
-          { uid: prefId },
-          { ingredients: new_ingredients },
-          (err, result) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(true);
-            }
-          }
-        );
+    prefrence_collection.update(
+      { uid: prefId },
+      {
+        $pull: {
+          ingredients: { ingredient: ingredient_name }
+        }
+      },
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
       }
-    });
+    );
   });
 };
 
