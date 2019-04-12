@@ -8,6 +8,7 @@ const db_name = "HareDB";
 
 // Database functions
 const db_do = require("./helpers");
+const getters = require("./get");
 // Contains all document schema's to be used
 const db_model = require("./models/export");
 
@@ -19,45 +20,14 @@ mongoose
       db_do.log("DB_BOOT", "Main.js Connected to cloud", "green");
       db_do.log("DB_RUN", "Press ctrl+c to exit", "green");
       //db_do.create_user_auth("Barack Obama", "brackboi@gmail.com", "joemyhomey");
+      getters.get_username_by_userId(db_do, "5caec50082a5ec4a710b8d0b")
+          .then(user => {
+              console.log("User name is %s", user)
+          })
+          .catch(reason => {
+              console.log("Username not found")
+          })
 
-      db_do
-          .get_userId_by_username(db_model.user_auth, "Barack Obama")
-          .then(console.log);
-        db_do
-            .get_userId_by_useremail(db_model.user_auth, "brackboi@gmail.com")
-            .then(console.log);
-      //
-      // db_do
-      //       .get_username_by_userId(db_model.user_auth, "5ca6db502304272e95ec79f1")
-      //       .then(console.log);
-      // db_do
-      //       .get_useremail_by_userId(db_model.user_auth, "5ca6db502304272e95ec79f1")
-      //       .then(console.log);
-    //
-    // db_do
-    //   .get_preferenceId_by_userId(db_model.profile, "5ca6db502304272e95ec79f1")
-    //   .then(id => {
-    //     db_do
-    //       .update_pref_with_new_category_and_color(
-    //         db_model.preferences,
-    //         id,
-    //         "Allergens",
-    //         1
-    //       )
-    //       .then(console.log);
-    //   });
-    // db_do
-    //   .get_preferenceId_by_userId(db_model.profile, "5ca6db502304272e95ec79f1")
-    //   .then(id => {
-    //     db_do
-    //       .update_pref_with_new_ingredient_and_color(
-    //         db_model.preferences,
-    //         id,
-    //         "Peanut",
-    //         1
-    //       )
-    //       .then(console.log);
-    //   });
   })
   .catch(err => {
     console.log("[ERROR]: " + err);

@@ -9,128 +9,275 @@
  * Updating user details
  */
 
-//----------------------user info------------------------------
-//check duplication of user's name
-const check_username_unique = (user_collection, username) => {
+const assert = require("assert");
+const mongoose = require("mongoose");
+const db_do = require("./helpers");
+const db_model = require("./models/export");
+const userAuthSchema = require("./models/user_auth");
+
+//---------------LOGIN----------------------
+const loginWithUsername = function (db_do, username, password){
+  return new Promise((resolve, reject) =>{
+    userAuthSchema.findOne({'user.name': username, 'user.password': password}, '-password', (err, user) =>{
+      if(user == null){
+        db_do.log("EVENT", "User cannot be authenticated", "red");
+        reject("Incorrect credentials")
+      }else{
+        db_do.log("EVENT", "User authenticated", "blue");
+        resolve(user)
+      }
+    })
+  })
+      .catch(err=>{
+        console.log("Incorrect credentials")
+      })
+}
+
+//Login with email
+const loginWithEmail = function (db_do, email, password) {
+  return new Promise((resolve, reject) =>{
+    userAuthSchema.findOne({'user.email': email, 'user.password': password}, '-password', (err, user) =>{
+      if(user == null){
+        db_do.log("EVENT", "User cannot be authenticated", "red");
+        reject("Incorrect credentials")
+      }else{
+        db_do.log("EVENT", "User authenticated", "blue");
+        resolve(user)
+      }
+    })
+  })
+      .catch(err=>{
+        console.log("Incorrect credentials")
+      })
+}
+
+
+//-----------------------Getters from user_auth------------------
+// FInd a user by username
+const findByUsername = function (db_do, username) {
   return new Promise((resolve, reject) => {
-    user_collection.find({ "user.name": username }, (err, result) => {
-      const user_count = result.length;
-      if (user_count > 0) {
-        reject("Duplicated username");
+  userAuthSchema.findOne({ 'user.name': username },  '-password' ,(err, user) => {
+    if (user == null) {
+      db_do.log("EVENT", "User not found", "red");
+      reject("User not found by username");
+    } else {
+      db_do.log("EVENT", "User found", "blue");
+      resolve(user);
+    }
+  })
+      .catch(err=>{
+            console.log("User not found by username")
+      })
+  })
+}
+
+
+
+//Find a user by email
+const findByEmail = function (db_do, email) {
+  return new Promise((resolve, reject) => {
+    this.findOne({ 'user.email': email }, '-password', (err, user) => {
+      if (user == null) {
+        db_do.log("EVENT", "User not found", "red");
+        reject("User not found");
       } else {
-        resolve(true);
+        db_do.log("EVENT", "User found", "blue");
+        resolve(user);
       }
-    });
-  });
-};
-
-//check duplication of user's email
-const check_useremail_unique = (user_collection, useremail) => {
-  return new Promise((resolve, reject) => {
-    user_collection.find({ "user.email": useremail }, (err, result) => {
-      const user_count = result.length;
-      if (user_count > 0) {
-        reject("Duplicated user email");
-      } else {
-        resolve(true);
-      }
-    });
-  });
-};
-
-//check password and username for login
-const check_login_withUsername = (user_collection, username, userpws) => {
-  return new Promise((resolve, reject) => {
-    user_collection.find(
-      { "user.name": username, "user.password": userpws },
-      (err, result) => {
-        const user_count = result.length;
-        if (user_count === 0) {
-          reject("Username / password invalid");
-        } else {
-          resolve(true);
-        }
-      }
-    );
-  });
-};
-
-//check password and useremail for login
-const check_login_withUseremail = (user_collection, useremail, userpws) => {
-  return new Promise((resolve, reject) => {
-    user_collection.find(
-      { "user.email": useremail, "user.password": userpws },
-      (err, result) => {
-        const user_count = result.length;
-        if (user_count === 0) {
-          reject("Useremail / password invalid");
-        } else {
-          resolve(true);
-        }
-      }
-    );
-  });
-};
+    })
+  })
+}
 
 //get userID by username
-const get_userId_by_username = (user_collection, username) => {
+const get_userId_by_username = (db_do, username) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ "user.name": username }, (err, result) => {
-      const user_count = result.length;
-      if (user_count === 0) {
-        reject("invalid username");
+    userAuthSchema.findOne({ "user.name": username }, (err, user) => {
+      if (user == null) {
+        db_do.log("EVENT", "User not found", "red");
+        reject("User does not exist")
       } else {
-        const user_id = result[0].id;
-        resolve(user_id);
+        db_do.log("EVENT", "User ID found", "blue");
+        resolve( user.uid);
       }
-    });
-  });
-};
+    })
+  })
+}
 
 //get userId by useremail
-const get_userId_by_useremail = (user_collection, useremail) => {
+const get_userId_by_useremail = (db_do,  useremail) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ "user.email": useremail }, (err, result) => {
-      const user_count = result.length;
-      if (user_count === 0) {
-        reject("invalid useremail");
+    userAuthSchema.find({ "user.email": useremail }, (err, user) => {
+      if (user == null) {
+        db_do.log("EVENT", "User not found", "red");
+        reject("User does not exist")
       } else {
-        const user_id = result[0].id;
-        resolve(user_id);
+        db_do.log("EVENT", "User ID found", "blue");
+        resolve( user.uid );
       }
     });
   });
 };
 
 //get username by userId
-const get_username_by_userId = (user_collection, userId) => {
+const get_username_by_userId = (db_do, userId) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ uid: userId }, (err, result) => {
-      const user_count = result.length;
-      if (user_count === 0) {
-        reject("invalid userId");
+    userAuthSchema.findOne({ 'uid': userId }, (err, user) => {
+      if (user == null) {
+        db_do.log("EVENT", "User ID not found", "red");
+        reject("User ID does not exist")
       } else {
-        const username = result[0].user.name;
-        resolve(username);
+        db_do.log("EVENT", "User Name found", "blue");
+        resolve( user.user.name );
       }
     });
   });
 };
 
 //get useremail by userId
-const get_useremail_by_userId = (user_collection, userId) => {
+const get_useremail_by_userId = (db_do, userId) => {
   return new Promise((resolve, reject) => {
-    user_collection.find({ uid: userId }, (err, result) => {
-      const user_count = result.length;
-      if (user_count === 0) {
-        reject("invalid userId");
+    userAuthSchema.findOne({ 'uid' : userId }, (err, user) => {
+      if (user === null) {
+        db_do.log("EVENT", "User ID not found", "red");
+        reject("User ID does not exist")
       } else {
-        const useremail = result[0].user.email;
-        resolve(useremail);
+        db_do.log("EVENT", "User Email found", "blue");
+        resolve( user.user.email);
       }
-    });
-  });
-};
+    })
+  })
+}
+
+//-------------getters for Preferences Schema-------------------
+
+
+// //SETTERS
+// //Updating username
+// UserSchema.statics.setUsername = function(username, newUserName){
+//   return new Promise((resolve, reject) => {
+//     this.findOneAndUpdate({'username' : username} , {$set: {'username' : newUserName}} , {new:true} , function(err, user){
+//       if(user == null){
+//         db_do.log("EVENT", "Username changed", 'red');
+//         reject("Could not update username: %s", err)
+//       }else{
+//         resolve(user)
+//       }
+//     })
+//   })
+// }
+//
+// //Updating password
+// UserSchema.statics.setPassword= function(username, newPass){
+//   return new Promise((resolve, reject) => {
+//     this.findOneAndUpdate({'username' : username} , {$set: {'password' : newPass}} , {new:true} , function(err, user){
+//       if(user == null){
+//         db_do.log("EVENT", "Username not found", 'red');
+//         reject(err)
+//       }else{
+//         db_do.log("EVENT", "Password changed", 'blue');
+//         resolve(user)
+//       }
+//     })
+//   })
+// }
+//
+//
+// //Adding category preference by userName
+// UserSchema.statics.appendCategoryPref = function( username, color, categoryName ){
+//   return new Promise((resolve, reject) => {
+//     //Find user
+//     this.findByUsername(username)
+//         .then(user =>{
+//           //Find ingredient record from Ingredients record
+//           //If it exists, add reference, else add to ingredient record
+//           user.categorypref.push({'color' : color, 'category' : categoryName});
+//           user.save(function (err, user) {
+//             if (err) {
+//               return console.error(err);
+//             } else {
+//               console.log("Saved IN: %s", user)
+//               resolve(user)
+//             }
+//           })
+//         })
+//         .catch(reason => {
+//           reject(reason)
+//         })
+//   })
+// }
+//
+// //Adding an ingredientPreference by userName
+// UserSchema.statics.appendIngredientPref = function( username, color, ingredientName ){
+//   return new Promise((resolve, reject) => {
+//     //Find user
+//     this.findByUsername(username)
+//         .then(user =>{
+//           //Find ingredient record from Ingredients record
+//           //If it exists, add reference, else add to ingredient record
+//           db_do.log("EVENT", "User found" , "blue");
+//           IngredientSchema.findIngredientByName(ingredientName)
+//               .then(ingredient =>{
+//                 db_do.log("EVENT", "Ingredient found" , "blue");
+//                 user.ingredientpref.push({'color' : color, 'ingredient' : ingredient._id});
+//                 user.save(function (err, user) {
+//                   if (err) {
+//                     return console.error(err);
+//                   } else {
+//                     console.log("Saved IN: %s", user)
+//                     resolve(user)
+//                   }
+//                 })
+//               })
+//               .catch(reason => {
+//                 user.ingredientpref.push({'color' : color, 'ingredient' : ingredientName});
+//                 user.save(function (err, user) {
+//                   if (err) {
+//                     return console.error(err);
+//                   } else {
+//                     console.log("Saved IN: %s", user)
+//                     resolve(user)
+//                   }
+//                 })
+//               })
+//         })
+//         .catch(reason => {
+//           reject(reason)
+//         })
+//   })
+//----------------------user info------------------------------
+//check duplication of user's name
+// const check_username_unique = (user_collection, username) => {
+//   return new Promise((resolve, reject) => {
+//     user_collection.find({ "user.name": username }, (err, result) => {
+//       const user_count = result.length;
+//       if (user_count > 0) {
+//         reject("Duplicated username");
+//       } else {
+//         resolve(true);
+//       }
+//     });
+//   });
+// };
+//
+// //check duplication of user's email
+// const check_useremail_unique = (user_collection, useremail) => {
+//   return new Promise((resolve, reject) => {
+//     user_collection.find({ "user.email": useremail }, (err, result) => {
+//       const user_count = result.length;
+//       if (user_count > 0) {
+//         reject("Duplicated user email");
+//       } else {
+//         resolve(true);
+//       }
+//     });
+//   });
+// };
+
+
+
+
+
+
 
 //--------------preferrence info---------------------------------------
 //get preferenceId by userId
@@ -490,10 +637,13 @@ const get_ingredient_tally_by_ingredientId = (
 };
 
 module.exports = {
-  check_username_unique: check_username_unique,
-  check_useremail_unique: check_useremail_unique,
-  check_login_withUsername: check_login_withUsername,
-  check_login_withUseremail: check_login_withUseremail,
+  loginWithUsername: loginWithUsername,
+  loginWithEmail:loginWithEmail,
+  findByUsername:findByUsername,
+  //check_username_unique: check_username_unique,
+ // check_useremail_unique: check_useremail_unique,
+ // check_login_withUsername: check_login_withUsername,
+ // check_login_withUseremail: check_login_withUseremail,
   get_userId_by_username: get_userId_by_username,
   get_userId_by_useremail: get_userId_by_useremail,
   get_username_by_userId: get_username_by_userId,
