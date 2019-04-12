@@ -37,11 +37,11 @@ const create_user_auth = (username, email, password) => {
   const check_username = require("./get").check_username_unique;
   const check_useremail = require("./get").check_useremail_unique;
 
-  check_username(user_auth, username)
-    .then(() => {
-      return check_useremail(user_auth, email);
-    })
-    .then(() => {
+  // check_username(user_auth, username)
+  //   .then(() => {
+  //     return check_useremail(user_auth, email);
+  //   })
+  //   .then(() => {
       let userid = new mongoose.mongo.ObjectId();
       let new_user = new user_auth({
         _id: userid,
@@ -61,13 +61,13 @@ const create_user_auth = (username, email, password) => {
       insert_data(db_do, new_user);
       let history_id = create_history(db_do, userid);
       // call create_preferences();
-      let preference_id = create_preferences(db_do);
+      let preference_id = create_preferences(db_do, userid);
       // call create_profile();
       create_profile(db_do, userid, history_id, preference_id);
-    })
-    .catch(err => {
-      db_do.log("ERROR", "Duplicate profile creation prevented", "red");
-    });
+    // })
+    // .catch(err => {
+  //     //   db_do.log("ERROR", "Duplicate profile creation prevented", "red");
+  //     // });
 };
 
 /*
@@ -100,13 +100,13 @@ const create_profile = (db_do, userid, history_id, preference_id) => {
  *
  */
 
-const create_preferences = db_do => {
+const create_preferences = (db_do, userId) => {
   const preferences = require("./models/export").preferences;
   const mongoose = require("mongoose");
   let preference_id = new mongoose.mongo.ObjectId();
   let new_preference = new preferences({
     _id: preference_id,
-    uid: preference_id,
+    uid: userId,
     default: true,
     categories: [],
     ingredients: []
