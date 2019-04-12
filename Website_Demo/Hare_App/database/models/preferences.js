@@ -12,7 +12,9 @@ const ingredientPreference = new Schema({
 }); 
 
 const PreferencesSchema = new Schema({ 
-	uid: { type: Schema.Types.ObjectId, required: true },
+	uid: {
+		type: Schema.Types.ObjectId, required: true
+	},
 	default: Boolean,
 	categories: [categoryPreference],
 	ingredients: [ingredientPreference]

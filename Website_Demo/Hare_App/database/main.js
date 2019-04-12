@@ -19,14 +19,19 @@ mongoose
       //db_do.log(log_type, msg, color)
       db_do.log("DB_BOOT", "Main.js Connected to cloud", "green");
       db_do.log("DB_RUN", "Press ctrl+c to exit", "green");
-      //db_do.create_user_auth("Barack Obama", "brackboi@gmail.com", "joemyhomey");
-      getters.get_username_by_userId(db_do, "5caec50082a5ec4a710b8d0b")
-          .then(user => {
-              console.log("User name is %s", user)
-          })
-          .catch(reason => {
-              console.log("Username not found")
-          })
+      //db_do.create_user_auth("r","r@gmail.com", "pass");
+      // getters.get_username_by_userId(db_do, "5cafee97d511b1681250a4c8")
+      //     .then(user=>{
+      //         console.log("user  is %s", user)
+      //     })
+      getters.get_preference_by_userId(db_do, "5cafee97d511b1681250a4c8")
+                .then(pref => {
+                            console.log("Pref  is %s", pref)
+                        })
+                        .catch(reason => {
+                            console.log("USER ID not found")
+                        })
+
 
   })
   .catch(err => {
