@@ -21,8 +21,10 @@
     "http": "0.0.0",
     "https": "^1.0.0",
     "mongoose": "^5.4.20",
+    "mongoose-unique-validator": "^2.0.2",
     "morgan": "^1.9.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "jest": "^24.5.0"
