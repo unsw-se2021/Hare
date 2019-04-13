@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { css } from 'styled-components';\nimport { normalizeColor } from '../utils';\nexport var colorStyle = function colorStyle(name, value, theme, required) {\n  return css([\"\", \":\", \";\"], name, normalizeColor(value, theme, required));\n};","map":null,"metadata":{},"sourceType":"module"}

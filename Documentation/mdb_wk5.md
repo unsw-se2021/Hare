@@ -37,8 +37,8 @@ and user data to be keyed together.
         "value": DT1.user.email
     },
     "history": { 
-        "size": DT4.size,
-        "location": DT4.db_id
+        "size": DT7.size,
+        "location": DT7.db_id
     } 
     "preferences": DT3.db_id
 }

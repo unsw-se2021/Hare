@@ -1,126 +1,344 @@
 import React, { Component } from 'react'; 
-import { Grommet, grommet, DropButton,Button, Layer, Box, Heading, Menu, Paragraph, Carousel, Accordion, AccordionPanel, Text, Image, Distribution} from 'grommet';
+import { 
+	Grommet, 
+	grommet, 
+	DropButton,
+	Button, 
+	Box, 
+	Heading, 
+	Menu, 
+	Paragraph, 
+	Carousel, 
+	Accordion, 
+	AccordionPanel, 
+	Text, 
+	Image, 
+	Distribution, 
+	Layer
+} from 'grommet';
+
 import * as Icons from 'grommet-icons';
-import { Route, Link, Router, BrowserRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { 
+	withRouter, 
+	Route, 
+	Link, 
+	Router, 
+	BrowserRouter 
+} from 'react-router-dom';
 
-const DropHighlightContent = ({ onClose, name, description, uses }) => (
-	<Layer>
-		<Box direction="column" pad="small">
-			<Button icon={<Icons.Close />} onClick={onClose} />
-			<Box direction="column">
-				<h3 background='light-1'>{name}</h3>
-				<h4 background='light-1'>Descriptions:</h4>
-			
-				<Box>{description}</Box>
-				<Box>{uses}</Box>
-			</Box>
-		</Box>
-	</Layer>
-);
+import Colors from './Color'; 
+import AuthService from './AuthService' 
 
-DropHighlightContent.propTypes = { onClose: PropTypes.func.isRequired };
-DropHighlightContent.propTypes = { description: PropTypes.func.isRequired };
-DropHighlightContent.propTypes = { uses: PropTypes.func.isRequired };
+const Title = (contents) => { 
+	return(
+		<Text size="36pt" color={Colors.dark3}> 
+			{contents}
+		</Text> 
+	); 
+} 
 
-class HighlightDropButton extends Component {
-	state = {};
+const subTitle = (contents, size) => {
+	let ptsize = `${size}pt`
+	return( 
+		<Text size={ptsize} color={Colors.grey1}> 
+			{contents}
+		</Text> 
+	); 
+} 
 
-	onClose = () => {
-		this.setState({ open: false });
-		setTimeout(() => this.setState({ open: undefined }), 1);
-	};
+// TODO: 
+const cameraWindow = () => { 
+	return( 
+		<Box background={Colors.grey1} pad="10%">
+			<Icons.Camera color={Colors.grey3} size="large"/>
+		</Box> 
+	); 
+} 
 
-	name = this.props.ingredient;
-	description = this.props.description;
-	uses = this.props.uses;
+// TODO: 
+
+const horizontalSpacer = (amt) => { 
+	return( 
+		<Box width="100%" height={amt}> 
+		</Box> 
+	); 
+} 
+
+class SaveModal extends Component {
+
+	state = {}; 
+
+	onOpen = () => this.setState({ open: true });
+	onClose = () => this.setState({ open: undefined });
+
+	sendSave = () => {
+		// TODO 
+	}
+
+	renderModal = () => { 
+		return(
+			<Layer position="center" modal onClickOutside={this.onClose} onEsc={this.onClose}>
+				<Box direction="row" pad={{ left: 'medium', right: 'medium', top: 'medium'}} justify="between">
+					<Text size="24pt" color={Colors.dark3}> Save Ingredient</Text>
+					<Button icon={<Icons.Close color={Colors.dark3} />} onClick={this.onClose}/>
+				</Box>
+			</Layer>
+		);
+	}
 
 	render() {
 		const { open } = this.state;
-		return (
-			<Box background='light-2'>
-				<DropButton
-					label={this.props.ingredient}
-					open={open}
-					onClose={() => this.setState({ open: undefined })}
-					dropContent={<DropHighlightContent onClose={this.onClose} name={this.name} description={this.description} uses={this.uses}/>}
-				>Customize Preferences</DropButton>
+		return (			
+			<div>
+				<Button icon={<Icons.Save color={Colors.dark3}/>}  onClick={this.onOpen}  plain/>
+				{ open && this.renderModal()}
+			</div>
+		);
+	}
+
+}
+
+class IngredientModal extends Component {
+
+	state = {}; 
+
+	componentDidMount() { 
+		let data = this.getIngredientData(); 
+		this.setState({ ingredientname: data.name, ingredientdesc: data.desc});
+	} 
+
+	getIngredientData = () => { 
+		return this.props.ingredient; 	
+	}
+
+	getColor = () => {
+		if(this.props.color != undefined) {
+			return this.props.color; 
+		} else { 
+			return;
+		}	
+	} 
+
+	onOpen = () => this.setState({ open: true });
+	onClose = () => this.setState({ open: undefined });
+
+	renderModal = () => { 
+		return(
+			<Layer position="center" modal onClickOutside={this.onClose} onEsc={this.onClose}>
+				<Box direction="row" pad={{ left: 'medium', right: 'medium', top: 'medium'}} justify="between">
+					<Text size="24pt" color={Colors.dark3}> Ingredient: {this.state.ingredientname}</Text>
+					<Button icon={<Icons.Close color={Colors.dark3} />} onClick={this.onClose}/>
+				</Box>
+				<Box pad="medium"> 
+					<Text size="12pt" > {this.state.ingredientdesc}</Text> 
+				</Box> 
+			</Layer>
+		);
+	}
+
+	render() {
+		const { open } = this.state;
+		return (			
+			<Box>
+				<Button label={<Text size="10pt"  color={this.getColor()}>{`${this.state.ingredientname}, `}</Text>}  onClick={this.onOpen} plain />
+				{ open && this.renderModal()}
 			</Box>
 		);
 	}
+
 }
 
-class Product extends Component { 
+
+const renderIngredientIcon = (preferences, ingredientlist) => { 
+	let ingredientbuttons = []; 
+	let pref_colors = {
+		0: "", 
+		1: "#FF3333",
+		2: "#33D1FF", 
+		3: "#33D1FF", 
+		4: "#33D1FF", 
+		5: "#33D1FF", 
+	} 
+	let match = false;
+	let color = "";
+	let col_index = 0; 
+	ingredientlist.forEach(function (item) {
+		if(preferences != null ) {
+			match = false; 
+			Object.keys(preferences.special).forEach(function(key, index) {
+				if(preferences.special[key].name == item.name) { 
+					match = true;
+					col_index = preferences.special[index].color;
+					color = pref_colors[col_index]; 
+				}
+			});
+			
+			if(match == true) { 
+				ingredientbuttons.push(<IngredientModal ingredient={item} color={color} />); 
+			} else {
+				ingredientbuttons.push(<IngredientModal ingredient={item} />); 
+			}
+		} else { 
+			ingredientbuttons.push(<IngredientModal ingredient={item} />);
+		} 
+	});
+
+	return(
+		<div>
+			{ingredientbuttons}
+		</div> 
+	); 
+} 
+
+class ProductPage extends Component { 
+
+	constructor() { 
+		super(); 
+		let authval = AuthService.isAuthenticated(); 
+		this.state = {}; 
+		this.state.auth = authval;
+	} 
+
+	componentDidMount() {
+		let idnum = this.props.location.pathname; 
+		idnum = idnum.split("/");
+		idnum = idnum[2];
+		this.setState({ product_id: idnum}); 
+	} 
+
+
+	getImageB64 = () => {
+		const obj = JSON.parse(localStorage.getItem("000000000000000000000000")); 
+		const binary = obj.img_url; 
+		return binary; 
+	} 
+
+
+	renderIngredientsNormally = () => {
+		const obj = JSON.parse(localStorage.getItem("000000000000000000000000")); 
+		let ingredients = obj.contents; 
+		let panels = []; 
+		Object.keys(ingredients).forEach(function(key,index) {
+			if(ingredients[key].length != 0 && key != null) { 
+				panels.push( 
+					(
+						<AccordionPanel label={key}>
+							{renderIngredientIcon(null, ingredients[key])}  
+						</AccordionPanel> 
+					)
+				) 
+			} 
+		});
+
+		return( 
+			<Accordion> 
+				{panels}	
+			</Accordion> 
+		); 
+	} 
+
+	renderIngredientsPreferenced = () => { 
+		const product_obj = JSON.parse(localStorage.getItem("000000000000000000000000")); 
+		const userdata = JSON.parse(localStorage.getItem("userdata"));
+		let ingredients = product_obj.contents;
+		let panels = []; 
+
+		Object.keys(ingredients).forEach(function(key, index) { 
+			if(ingredients[key].length != 0 && key != null) { 
+				panels.push( 
+					<AccordionPanel label={key}> 
+						{renderIngredientIcon(userdata.preferences, ingredients[key])} 
+					</AccordionPanel> 
+				); 
+			} 
+		}); 
+
+		return( 
+			<Accordion>		
+				{panels} 
+			</Accordion> 
+		); 
+	} 
+
+	renderDistribution = () => {
+
+		let dist_content = [];
+		const obj = JSON.parse(localStorage.getItem("000000000000000000000000")); 
+		let ingredients = obj.contents;
+		let max = 0; 
+		Object.keys(ingredients).forEach(function(key,index) {
+			let curr_obj = {}; 
+			if(ingredients[key].length != 0 && key != null) { 
+				curr_obj = { value: Number(ingredients[key].length), label: String(key) };
+				dist_content.push(curr_obj);
+				max += ingredients[key].length; 
+			} 
+		});
+		dist_content.sort(); 
+
+		return( 
+			<Box width="400px" > 
+				<Distribution width="400px" values={dist_content}> 
+				{ value => (
+					<Box pad="small" background={Colors.primary} fill>
+						<Text size="12pt" color={Colors.grey3}>{value.value} {value.label}</Text>
+					</Box>
+				)}  
+			</Distribution>
+		</Box> 
+		);
+	} 
+
+	renderProductPage = () => {
+		return( 
+			<Box direction="column" pad="medium" align="center" width="625px" fill>
+				<Box direction="row" gap="medium" justify="between"> 
+					<Carousel pad="medium">
+						<img alt="Image not found" src={`${this.getImageB64()}`} height="200px" width="200px"/>
+					</Carousel>
+					{this.renderDistribution()}
+				</Box>
+
+				<Box margin="medium"  width="625px">
+					{eval(this.state.auth) ? (this.renderIngredientsPreferenced()): ( this.renderIngredientsNormally() )}
+				</Box>
+			</Box> 
+		); 
+	} 
+
+
+
 	render() { 
 		return(
 			<div>
-				<Box>
-					<Box direction="row" justify="between">
-						<Button alignSelf="center" label="Back" href="/upload"/>
-						<Button alignSelf="center" label="Save Scan"/>
-					</Box>
+				<Box margin="large" justify="center" align="center">
+					<Box justify="between" width="100%" direction="row"> 
+						<Box width="33%"  justify="center" align="start"   pad={{ left: "large" }}>
+							<Link to='/upload'>
+								{<Icons.LinkPrevious color={Colors.dark3} size="large" justify="left" align="left"/>}
+							</Link>
+						</Box> 
+						<Box width="33%" justify="center" align="center"> 
+							{Title("Scan Results:")}
+						</Box> 
+						<Box direction="row" width="33%" justify="start" pad={{ left: "medium" }}>
+							<Box direction="column" align="center"> 
+								{eval(this.state.auth) && <SaveModal />}
+							</Box> 
+						</Box> 
+					</Box> 
+					<div> 
+						<Text size="12pt" color={Colors.grey1}> Not sure how it works? You can find a guide </Text> 
+						<Text size="12pt" color={Colors.primary}> <a href='/help'>here</a></Text>
+					</div> 
+					{this.renderProductPage()}
+					<Box direction="row" justify="start" width="23.5%"> 
+						<Box width="10%"/>
+					</Box> 
 				</Box>
-				<Box direction="row" justify="between" align="center" alignContent="center">
-					<Heading>Result</Heading>
-				</Box>
-				<Box direction="row" margin='medium'>
-					<Box width="small">
-						<Carousel width="small">
-							<Box width="small" height="small" background="light-3">
-								<Text>Product photo 1</Text>
-							</Box>
-							<Box width="small" height="small" background="light-3">
-								<Text>Product photo 2</Text>
-							</Box>
-							<Box width="small" height="small" background="light-3">
-								<Text>Product photo 3</Text>
-							</Box>
-						</Carousel>
-					</Box>
-					<Box width='60%' gap="small" direction="row" justify="center" align="center" alignContent="center">
-						<Box margin="medium" gap="medium" round="small" background="light-3" pad="small">
-							<Distribution
-								values={[
-									{ value: 50, color: 'light-6' ,text:'Preservatives'},
-									{ value: 30, color: 'brand',text:'Humectants' },
-									{ value: 20, color: 'accent-1',text:'Gases' },
-									{ value: 10, color: 'light-6',text:'Nutrients' },
-									{ value: 5, color: 'brand' },
-								]}
-							>
-								{value => (
-									<Box pad="small" background={value.color} fill>
-										<Text alignSelf='center'
-											size="small">{value.text}</Text>
-									</Box>
-								)}
-							</Distribution>
-						</Box>
-					</Box>
-				</Box>
-				<Accordion width="100%">
-					<AccordionPanel label="Nutrients">
-						<HighlightDropButton ingredient="Thiamine Hydrochloride" description="Thiamine Hydrochloride is the hydrochloride salt form of thiamine, a vitamin essential for aerobic metabolism, cell growth, transmission of nerve impulses and acetylcholine synthesis." uses="Thiamine injection is used to treat beriberi, a serious condition caused by prolonged lack of vitamin B1." />
-						<HighlightDropButton ingredient="Niacinamide" description="Niacinamide is one of the two forms of vitamin B3 — the other being nicotinic acid. Vitamin B3 is also known as niacin. Niacinamide and nicotinic acid both provide vitamin B3 activity, but they differ in chemical structure and how they affect your health." uses="As a supplement, nicotinic acid is a form of niacin used to reduce cholesterol levels and lower your risk of heart disease."/>						
-					</AccordionPanel>
-					<AccordionPanel label="Humectants">
-						<HighlightDropButton ingredient="Sorbitol" description="Sorbitol is a sugar alcohol found in fruits and plants with diuretic, laxative and cathartic property. Unabsorbed sorbitol retains water in the large intestine through osmotic pressure thereby stimulating peristalsis of the intestine and exerting its diuretic, laxative and cathartic effect." uses="Sorbitol can be used as a laxative when taken orally or as an enema. Sorbitol works as a laxative by drawing water into the large intestine, stimulating bowel movements."/>
-					</AccordionPanel>
-					<AccordionPanel label="Preservatives">
-						<HighlightDropButton ingredient="Ascorbic Acid" description="Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in various foods and sold as a dietary supplement." uses="It is used to prevent and treat scurvy."/>
-						<HighlightDropButton ingredient="Potassium sorbate" description="Potassium sorbate is a chemical additive. It's widely used as a preservative in foods, drinks, and personal care products. It is an odorless and tasteless salt synthetically produced from sorbic acid and potassium hydroxide." uses="Potassium sorbate is used to inhibit molds and yeasts in many foods, such as cheese, wine, yogurt, dried meats, apple cider, soft drinks and fruit drinks, and baked goods."/>
-						<HighlightDropButton ingredient="Sodium benzoate" description="It is a widely used food preservative, with an E number of E211. It is the sodium salt of benzoic acid and exists in this form when dissolved in water. It can be produced by reacting sodium hydroxide with benzoic acid." uses="Sodium benzoate is a preservative, with the E number E211. It is most widely used in acidic foods such as salad dressings (i.e. acetic acid in vinegar), carbonated drinks (carbonic acid), jams and fruit juices (citric acid), pickles (acetic acid), condiments and frogurt toppings."/>
-					</AccordionPanel>
-				</Accordion>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
 			</div>
 		);	
 	}
 } 
 
-export default Product; 
+export default withRouter(ProductPage); 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from './color';\nexport * from './size';","map":null,"metadata":{},"sourceType":"module"}
