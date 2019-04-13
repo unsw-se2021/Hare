@@ -152,19 +152,19 @@ const get_useremail_by_userId = (db_do, userId) => {
 //-------------getters for Preferences Schema-------------------
 
 //get preference object by user ID
-// const get_preference_by_userId = (db_do, userId) => {
-//   return new Promise((resolve, reject) => {
-//     userPrefSchema.findOne(({"uid": userId}), (err, pref) => {
-//       if (pref == null) {
-//         db_do.log("EVENT", "Preferences for given ID not found", "red");
-//         reject("Invalid userId");
-//       } else {
-//         db_do.log("EVENT", "Preferences found", "blue");
-//         resolve(result);
-//       }
-//     })
-//   })
-// }
+const get_preference_by_userId = (db_do, userId) => {
+  return new Promise((resolve, reject) => {
+    userPrefSchema.findOne(({"uid": userId}), (err, pref) => {
+      if (pref == null) {
+        db_do.log("EVENT", "Preferences for given ID not found", "red");
+        reject("Invalid userId");
+      } else {
+        db_do.log("EVENT", "Preferences found", "blue");
+        resolve(result);
+      }
+    })
+  })
+}
 
 
 // //SETTERS
