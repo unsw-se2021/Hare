@@ -1,12 +1,13 @@
 //TODO
 /**
- * Given the username/email and password, and db gives back uid. and if not valid err
- * Given the uid, return the preference object
+ * Given the username/email and password, and db gives back uid. and if not valid err - DONE
+ * Given the uid, return the preference object - DONE
  * Update preferences by uid
+ * create a product object
  * Save the product object, delete product object
  * Extras:
  * Registration
- * Updating user details
+ * Updating user details - DONE
  */
 
 const assert = require("assert");
@@ -167,42 +168,11 @@ const get_preference_by_userId = (db_do, userId) => {
 }
 
 
-// //SETTERS
-// //Updating username
-// UserSchema.statics.setUsername = function(username, newUserName){
-//   return new Promise((resolve, reject) => {
-//     this.findOneAndUpdate({'username' : username} , {$set: {'username' : newUserName}} , {new:true} , function(err, user){
-//       if(user == null){
-//         db_do.log("EVENT", "Username changed", 'red');
-//         reject("Could not update username: %s", err)
-//       }else{
-//         resolve(user)
-//       }
-//     })
-//   })
-// }
-//
-// //Updating password
-// UserSchema.statics.setPassword= function(username, newPass){
-//   return new Promise((resolve, reject) => {
-//     this.findOneAndUpdate({'username' : username} , {$set: {'password' : newPass}} , {new:true} , function(err, user){
-//       if(user == null){
-//         db_do.log("EVENT", "Username not found", 'red');
-//         reject(err)
-//       }else{
-//         db_do.log("EVENT", "Password changed", 'blue');
-//         resolve(user)
-//       }
-//     })
-//   })
-// }
-//
-//
-// //Adding category preference by userName
-// UserSchema.statics.appendCategoryPref = function( username, color, categoryName ){
+//Adding category preference by userId
+// const appendCategoryPref = (db_do,  userId, color, categoryName ){
 //   return new Promise((resolve, reject) => {
 //     //Find user
-//     this.findByUsername(username)
+//     this.get_username_by_userId(userId)
 //         .then(user =>{
 //           //Find ingredient record from Ingredients record
 //           //If it exists, add reference, else add to ingredient record
@@ -221,6 +191,38 @@ const get_preference_by_userId = (db_do, userId) => {
 //         })
 //   })
 // }
+
+//Updating username
+const setUsername = function(username, newUserName){
+  return new Promise((resolve, reject) => {
+    userAuthSchema.findOneAndUpdate({'user.name' : username} , {$set: {'user.name' : newUserName}} , {new:true} , function(err, user){
+      if(user == null){
+        db_do.log("EVENT", "Username changed", 'red');
+        reject("Could not update username: %s", err)
+      }else{
+        resolve(user)
+      }
+    })
+  })
+}
+
+//Updating password
+const setPassword= function(username, newPass){
+  return new Promise((resolve, reject) => {
+    userAuthSchema.findOneAndUpdate({'user.name' : username} , {$set: {'user.password' : newPass}} , {new:true} , function(err, user){
+      if(user == null){
+        db_do.log("EVENT", "Username not found", 'red');
+        reject(err)
+      }else{
+        db_do.log("EVENT", "Password changed", 'blue');
+        resolve(user)
+      }
+    })
+  })
+}
+
+
+
 //
 // //Adding an ingredientPreference by userName
 // UserSchema.statics.appendIngredientPref = function( username, color, ingredientName ){
