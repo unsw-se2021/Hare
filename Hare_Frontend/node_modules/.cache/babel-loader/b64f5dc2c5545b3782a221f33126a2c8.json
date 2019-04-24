@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { describe } from 'react-desc';\nexport var doc = function doc(TableBody) {\n  var DocumentedTableBody = describe(TableBody).description('The body of a table.').usage(\"import { TableBody } from 'grommet';\\n<TableBody />\").intrinsicElement('tbody');\n  return DocumentedTableBody;\n};","map":null,"metadata":{},"sourceType":"module"}
